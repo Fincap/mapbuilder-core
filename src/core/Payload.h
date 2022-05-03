@@ -1,4 +1,7 @@
 #pragma once
+#include <typeindex>
+#include <unordered_map>
+
 namespace mbc
 {
   struct Payload
@@ -11,5 +14,5 @@ namespace mbc
 
   // Convenience typing
   using PayloadPtr = std::shared_ptr<Payload>;
-
+  using PayloadTypeMap = std::unordered_map<std::type_index, PayloadPtr>;
 }

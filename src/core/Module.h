@@ -4,6 +4,7 @@
 #include <memory>
 
 #include "PipelineStage.h"
+#include "Payload.h"
 
 namespace mbc
 {
@@ -14,6 +15,8 @@ namespace mbc
     virtual std::vector<std::type_index> getOutputTypes() = 0;
     
     virtual PipelineStage getPipelineStage() final;
+
+    virtual PayloadTypeMap processPayloads(PayloadTypeMap) = 0;
 
   protected:
     const PipelineStage PIPELINE_STAGE;
