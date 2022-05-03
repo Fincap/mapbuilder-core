@@ -22,7 +22,7 @@ namespace mbc
     std::vector<ModulePtr> renderModules_;
     std::vector<ModulePtr> outputModules_;
 
-    std::unordered_map<std::type_index, PayloadPtr> payloads_;
+    PayloadTypeMap payloads_;
 
   };
 }
