@@ -155,7 +155,14 @@
     <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\core\Pipeline.cpp" />
     <ClCompile Include="src\Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\core\Module.h" />
+    <ClInclude Include="src\core\Payload.h" />
+    <ClInclude Include="src\core\Pipeline.h" />
+    <ClInclude Include="src\core\PipelineStage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
