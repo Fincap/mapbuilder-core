@@ -1,7 +1,7 @@
 #pragma once
 namespace mbc
 {
-  enum PipelineStage
+  enum class PipelineStage
   {
     GENERATION,
     MANIPULATION,
