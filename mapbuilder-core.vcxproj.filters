@@ -36,5 +36,8 @@
     <ClInclude Include="src\core\Payload.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\core\PipelineStage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
