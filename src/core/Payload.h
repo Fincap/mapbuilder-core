@@ -9,4 +9,7 @@ namespace mbc
   // Inline definition required as a derived class will call the destructor of its base class.
   inline Payload::~Payload() {}
 
+  // Convenience typing
+  using PayloadPtr = std::shared_ptr<Payload>;
+
 }

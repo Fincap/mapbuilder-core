@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <typeindex>
+#include <memory>
 
 #include "PipelineStage.h"
 
@@ -24,5 +25,8 @@ namespace mbc
   {
     return PIPELINE_STAGE;
   }
+
+  // Convenience typing
+  using ModulePtr = std::shared_ptr<Module>;
 
 }
