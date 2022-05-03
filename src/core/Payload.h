@@ -1,1 +1,12 @@
 #pragma once
+namespace mbc
+{
+  struct Payload
+  {
+    virtual ~Payload() = 0;
+  };
+
+  // Inline definition required as a derived class will call the destructor of its base class.
+  inline Payload::~Payload() {}
+
+}
