@@ -1,6 +1,9 @@
 #include <iostream>
 
+#include "MapBuilderCore.h"
+
 int main(int argc, char* argv)
 {
-	std::cout << "Hello world" << std::endl;
+	// Create Pipeline
+	mbc::Pipeline pipe;
 }
