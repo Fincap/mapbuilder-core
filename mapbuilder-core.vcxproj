@@ -163,6 +163,7 @@
     <ClInclude Include="src\core\Payload.h" />
     <ClInclude Include="src\core\Pipeline.h" />
     <ClInclude Include="src\core\PipelineStage.h" />
+    <ClInclude Include="src\MapBuilderCore.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
