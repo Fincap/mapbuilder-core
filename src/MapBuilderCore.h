@@ -8,3 +8,6 @@
 
 // Payloads
 #include "payloads/Heightmap.h"
+
+// Modules
+#include "modules/Canvas.h"

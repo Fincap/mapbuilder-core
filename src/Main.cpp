@@ -10,4 +10,8 @@ int main(int argc, char* argv)
 	// Create heightmap payload
 	mbc::Heightmap* heightmap = new mbc::Heightmap();
 
+	// Create canvas module
+	mbc::Canvas* canvas = new mbc::Canvas();
+	std::cout << static_cast<int>(canvas->getPipelineStage()) << std::endl;
+
 }
