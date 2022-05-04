@@ -1,6 +1,7 @@
 #pragma once
 #include <typeindex>
 #include <unordered_map>
+#include <memory>
 
 namespace mbc
 {
