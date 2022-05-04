@@ -155,10 +155,13 @@
     <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\modules\Canvas.cpp" />
     <ClCompile Include="src\core\Pipeline.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\modules\Canvas.h" />
+    <ClInclude Include="src\payloads\Heightmap.h" />
     <ClInclude Include="src\core\Module.h" />
     <ClInclude Include="src\core\Payload.h" />
     <ClInclude Include="src\core\Pipeline.h" />
