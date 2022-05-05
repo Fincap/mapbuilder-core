@@ -16,7 +16,7 @@ namespace mbc
     bool addModule(ModulePtr);
 
   private:
-    // Modules by stage
+    // Modules by stage - TODO combine into one map
     std::vector<ModulePtr> generationModules_;
     std::vector<ModulePtr> manipulationModules_;
     std::vector<ModulePtr> renderModules_;
