@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #include "MapBuilderCore.h"
 
@@ -13,5 +14,6 @@ int main(int argc, char* argv)
 	// Create canvas module
 	mbc::Canvas* canvas = new mbc::Canvas();
 	std::cout << static_cast<int>(canvas->getPipelineStage()) << std::endl;
+	std::cout << canvas->getInputTypes().size() << std::endl;
 
 }

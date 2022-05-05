@@ -3,19 +3,24 @@
 namespace mbc
 {
   Canvas::Canvas()
-    : Module(PipelineStage::GENERATION)
+    : Module(PipelineStage::GENERATION),
+    width(64), height(64)
   { }
 
   std::vector<std::type_index> Canvas::getInputTypes()
   {
-    std::vector<std::type_index> steve;
-    return steve;
+    return std::vector<std::type_index>
+    {
+      // No inputs
+    };
   }
 
   std::vector<std::type_index> Canvas::getOutputTypes()
   {
-    std::vector<std::type_index> steve;
-    return steve;
+    return std::vector<std::type_index>
+    {
+      std::type_index(typeid(Heightmap))
+    };
   }
 
   PayloadTypeMap Canvas::processPayloads(PayloadTypeMap)
