@@ -13,11 +13,12 @@ int main(int argc, char* argv)
 	pipe.registerPayload<mbc::Heightmap>();
 
 	// Create canvas module
-	std::shared_ptr<mbc::Canvas> canvas = std::make_shared<mbc::Canvas>();
-	std::shared_ptr<mbc::Canvas> canvas2 = std::make_shared<mbc::Canvas>();
-
+	auto canvas = std::make_shared<mbc::Canvas>();
 	pipe.addModule(canvas);
-	pipe.addModule(canvas2);
+
+	// Create perlin module
+	auto perlin = std::make_shared<mbc::PerlinGen>();
+	pipe.addModule(perlin);
 
 	pipe.execute();
 

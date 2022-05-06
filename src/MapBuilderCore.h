@@ -11,3 +11,4 @@
 
 // Modules
 #include "modules/Canvas.h"
+#include "modules/PerlinGen.h"
