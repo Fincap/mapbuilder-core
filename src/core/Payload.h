@@ -11,7 +11,7 @@ namespace mbc
     virtual ~Payload() = 0;
 
     // Returns map of dervied class' payload values
-    virtual std::unordered_map<std::string, std::any> unpack() = 0;
+    virtual PayloadValues unpack() = 0;
   };
 
   // Inline definition required as a derived class will call the destructor of its base class.
@@ -20,4 +20,5 @@ namespace mbc
   // Convenience typing
   using PayloadPtr = std::shared_ptr<Payload>;
   using PayloadTypeMap = std::unordered_map<std::type_index, PayloadPtr>;
+  using PayloadValues = std::unordered_map<std::string, std::any>;
 }
