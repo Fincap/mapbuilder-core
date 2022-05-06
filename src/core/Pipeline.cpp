@@ -2,6 +2,15 @@
 
 namespace mbc
 {
+  Pipeline::Pipeline()
+  {
+    // Initialize modules arrays
+    /*for (int i = 0; i < NUM_STAGES; i++)
+    {
+      modules_[i] = std::vector<ModulePtr>();
+    }*/
+  }
+
   bool Pipeline::execute()
   {
     // TODO implement
@@ -16,28 +25,16 @@ namespace mbc
       types to payloads_
     */
 
-    switch (newModule->getPipelineStage())
+    int newModuleStage = (int) newModule->getPipelineStage();
+
+    if (newModuleStage < 0 || newModuleStage >= NUM_STAGES)
     {
-    case PipelineStage::GENERATION:
-      generationModules_.push_back(newModule);
-      break;
-
-    case PipelineStage::MANIPULATION:
-      manipulationModules_.push_back(newModule);
-      break;
-
-    case PipelineStage::RENDER:
-      renderModules_.push_back(newModule);
-      break;
-
-    case PipelineStage::OUTPUT:
-      outputModules_.push_back(newModule);
-      break;
-
-    default:
       std::cerr << "Invalid PipelineStage for " << std::type_index(typeid(newModule)).name() << std::endl;
       return false;
-
+    }
+    else
+    {
+      modules_[newModuleStage].push_back(newModule);
     }
 
     // Check for new payloads in module inputs and attempt to register them.
@@ -75,7 +72,16 @@ namespace mbc
       }
     }
 
+#ifdef _DEBUG
     std::cout << "Payloads after: " << payloads_.size() << std::endl;
+    
+    for (int i = 0; i < NUM_STAGES; i++)
+    {
+      std::cout << "Stage " << i + 1 << ": " << modules_[i].size() << " modules" << std::endl;
+    }
+
+    std::cout << std::endl;
+#endif
 
     return true;
   }

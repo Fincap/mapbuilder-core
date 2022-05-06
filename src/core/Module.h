@@ -26,8 +26,8 @@ namespace mbc
   };
 
   // Inline definition of default constructor - to be called by derived class
-  inline Module::Module(PipelineStage stage)
-    : PIPELINE_STAGE(stage)
+  inline Module::Module(PipelineStage stage) :
+    PIPELINE_STAGE(stage)
   {}
 
   // Inline definition to preserve runtime mutability of PipelineStage

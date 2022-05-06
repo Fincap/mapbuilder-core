@@ -14,6 +14,8 @@ namespace mbc
   class Pipeline
   {
   public:
+    Pipeline();
+    
     bool execute();
     bool addModule(ModulePtr);
 
@@ -21,11 +23,7 @@ namespace mbc
     void registerPayload();
 
   private:
-    // Modules by stage - TODO combine into one map
-    std::vector<ModulePtr> generationModules_;
-    std::vector<ModulePtr> manipulationModules_;
-    std::vector<ModulePtr> renderModules_;
-    std::vector<ModulePtr> outputModules_;
+    std::vector<ModulePtr> modules_[NUM_STAGES];
 
     PayloadFactory payloadFactory_;
 
