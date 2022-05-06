@@ -5,7 +5,7 @@ namespace mbc
   PayloadPtr PayloadFactory::createPayload(std::type_index typeIndex)
   {
     // Return nullptr if payload type not registered
-    if (payloads_.count(typeIndex) == 0)
+    if (!hasPayload(typeIndex))
       return nullptr;
 
     // Executes lambda function created by registerPayload method

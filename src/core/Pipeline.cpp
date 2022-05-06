@@ -37,27 +37,11 @@ namespace mbc
       modules_[newModuleStage].push_back(newModule);
     }
 
-    // Register module's payloads with payload factory
-    newModule->registerTypes(payloadFactory_);
-
-    // Check for any uninstantiated payloads in module's inputs.
-    for (auto type : newModule->getInputTypes())
+    // Register module's payloads with payload factory and
+    // instantiate any newly generated payloads.
+    for (auto type : newModule->registerTypes(payloadFactory_))
     {
-      // If key doesn't already exist in payloads map: create it
-      if (payloads_.count(type) == 0)
-      {
         payloads_[type] = payloadFactory_.createPayload(type);
-      }
-    }
-
-    // Exact same as above, but for module's outputs.
-    for (auto type : newModule->getOutputTypes())
-    {
-      // If key doesn't already exist in payloads map: create it
-      if (payloads_.count(type) == 0)
-      {
-        payloads_[type] = payloadFactory_.createPayload(type);
-      }
     }
 
 #ifdef _DEBUG

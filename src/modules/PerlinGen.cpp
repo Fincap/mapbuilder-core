@@ -6,26 +6,17 @@ namespace mbc
     seed_(12345), frequency_(4.0), octaves_(6)
   { }
 
-  std::vector<std::type_index> PerlinGen::getInputTypes()
+  std::vector<std::type_index> PerlinGen::registerTypes(PayloadFactory& factory)
   {
-    return std::vector<std::type_index>
-    {
-      std::type_index(typeid(Heightmap))
-    };
-  }
+    std::vector<std::type_index> newPayloads;
 
-  std::vector<std::type_index> PerlinGen::getOutputTypes()
-  {
-    return std::vector<std::type_index>
-    {
-      std::type_index(typeid(Heightmap))
-    };
-  }
-
-  void PerlinGen::registerTypes(PayloadFactory& factory)
-  {
     if (!factory.hasPayload<Heightmap>())
+    {
       factory.registerPayload<Heightmap>();
+      newPayloads.push_back(std::type_index(typeid(Heightmap)));
+    }
+
+    return newPayloads;
   }
 
   bool PerlinGen::processPayloads(PayloadTypeMap payloads)

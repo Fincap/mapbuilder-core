@@ -14,10 +14,10 @@ namespace mbc
   public:
     Module(PipelineStage);
 
-    virtual std::vector<std::type_index> getInputTypes() = 0;
-    virtual std::vector<std::type_index> getOutputTypes() = 0;
-    virtual void registerTypes(PayloadFactory&) = 0;
-    
+    // This function registers all types with the linked factory, and returns a list of
+    // any types that were newly registered so they can be instantiated.
+    virtual std::vector<std::type_index> registerTypes(PayloadFactory&) = 0;    
+
     virtual bool processPayloads(PayloadTypeMap) = 0;
 
     virtual PipelineStage getPipelineStage() final;

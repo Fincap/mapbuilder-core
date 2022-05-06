@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+#include <typeindex>
 
 #include "..\core\Module.h"
 #include "..\core\PipelineStage.h"
@@ -12,10 +14,7 @@ namespace mbc
     Canvas();
 
     // Inherit from base class - must be implemented
-    std::vector<std::type_index> getInputTypes() override;
-    std::vector<std::type_index> getOutputTypes() override;
-    void registerTypes(PayloadFactory&) override;
-
+    std::vector<std::type_index> registerTypes(PayloadFactory&) override;
     bool processPayloads(PayloadTypeMap) override;
 
     // Processing parameters

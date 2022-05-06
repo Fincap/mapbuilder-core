@@ -7,26 +7,17 @@ namespace mbc
     width(64), height(64)
   { }
 
-  std::vector<std::type_index> Canvas::getInputTypes()
+  std::vector<std::type_index> Canvas::registerTypes(PayloadFactory& factory)
   {
-    return std::vector<std::type_index>
-    {
-      // No inputs
-    };
-  }
+    std::vector<std::type_index> newPayloads;
 
-  std::vector<std::type_index> Canvas::getOutputTypes()
-  {
-    return std::vector<std::type_index>
-    {
-      std::type_index(typeid(Heightmap))
-    };
-  }
-
-  void Canvas::registerTypes(PayloadFactory& factory)
-  {
     if (!factory.hasPayload<Heightmap>())
+    {
       factory.registerPayload<Heightmap>();
+      newPayloads.push_back(std::type_index(typeid(Heightmap)));
+    }
+
+    return newPayloads;
   }
 
   bool Canvas::processPayloads(PayloadTypeMap payloads)
