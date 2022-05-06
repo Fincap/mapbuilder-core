@@ -19,4 +19,6 @@ int main(int argc, char* argv)
 	pipe.addModule(canvas);
 	pipe.addModule(canvas2);
 
+	pipe.execute();
+
 }

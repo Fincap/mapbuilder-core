@@ -27,19 +27,23 @@ namespace mbc
   {
     
     // Get Heightmap payload
-    PayloadPtr heightmapPtr = payloads[std::type_index(typeid(Heightmap))];
-    PayloadValues heightmapPayload = heightmapPtr->unpack();
-    int* heightmapWidth = std::any_cast<int*>(heightmapPayload["width"]);
-    int* heightmapHeight = std::any_cast<int*>(heightmapPayload["height"]);
-    unsigned char* heightmapPoints = std::any_cast<unsigned char*>(heightmapPayload["points"]);
+    PayloadPtr payloadPtr = payloads[std::type_index(typeid(Heightmap))];
+
+    // Cast generic Payload pointer to Heightmap pointer
+    std::shared_ptr<Heightmap> heightmapPtr = std::dynamic_pointer_cast<Heightmap>(payloadPtr);
+
+    // Update Heightmap values
+    heightmapPtr->width = width;
+    heightmapPtr->height = height;
+    heightmapPtr->points = new unsigned char[width * height];
 
     // Iterate through map and set each point to white
-    for (int y = 0; y < *heightmapHeight; y++)
+    for (int y = 0; y < width; y++)
     {
-      for (int x = 0; x < *heightmapWidth; x++)
+      for (int x = 0; x < height; x++)
       {
         // (x,y) to 1D index: (y * height) + x
-        heightmapPoints[(y * *heightmapHeight) + x];
+        heightmapPtr->points[(y * height) + x] = 255;
       }
     }
 
