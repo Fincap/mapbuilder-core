@@ -26,6 +26,7 @@ namespace mbc
 
     int newModuleStage = (int) newModule->getPipelineStage();
 
+    // Register module to modules list
     if (newModuleStage < 0 || newModuleStage >= NUM_STAGES)
     {
       std::cerr << "Invalid PipelineStage for " << std::type_index(typeid(newModule)).name() << std::endl;
@@ -36,21 +37,15 @@ namespace mbc
       modules_[newModuleStage].push_back(newModule);
     }
 
-    // Check for new payloads in module inputs and attempt to register them.
+    // Register module's payloads with payload factory
+    newModule->registerTypes(payloadFactory_);
+
+    // Check for any uninstantiated payloads in module's inputs.
     for (auto type : newModule->getInputTypes())
     {
-      // If key doesn't already exist in payloads map: add it
+      // If key doesn't already exist in payloads map: create it
       if (payloads_.count(type) == 0)
       {
-        // If key isn't in payloadFactory, return false
-        // (This will usually be caused by a payload not being registered)
-        PayloadPtr newPayload = payloadFactory_.createPayload(type);
-        if (newPayload == nullptr)
-        {
-          std::cerr << "Null pointer returned when trying to create input payload " << type.name() << std::endl;
-          return false;
-        }
-
         payloads_[type] = payloadFactory_.createPayload(type);
       }
     }
@@ -58,15 +53,9 @@ namespace mbc
     // Exact same as above, but for module's outputs.
     for (auto type : newModule->getOutputTypes())
     {
+      // If key doesn't already exist in payloads map: create it
       if (payloads_.count(type) == 0)
       {
-        PayloadPtr newPayload = payloadFactory_.createPayload(type);
-        if (newPayload == nullptr)
-        {
-          std::cerr << "Null pointer returned when trying to create output payload " << type.name() << std::endl;
-          return false;
-        }
-
         payloads_[type] = payloadFactory_.createPayload(type);
       }
     }

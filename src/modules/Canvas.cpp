@@ -23,6 +23,12 @@ namespace mbc
     };
   }
 
+  void Canvas::registerTypes(PayloadFactory& factory)
+  {
+    if (!factory.hasPayload<Heightmap>())
+      factory.registerPayload<Heightmap>();
+  }
+
   bool Canvas::processPayloads(PayloadTypeMap payloads)
   {
     

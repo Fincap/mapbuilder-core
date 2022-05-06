@@ -20,6 +20,12 @@ namespace mbc
     // Returns pointer to a new instance of Payload from type_index
     PayloadPtr createPayload(std::type_index);
 
+    // hasPayload can be used as templated function or with type_index
+    template <typename T>
+    bool hasPayload();
+
+    bool hasPayload(std::type_index);
+
   private:
     std::unordered_map<std::type_index, PayloadCreatePtr> payloads_;
   };
@@ -36,4 +42,11 @@ namespace mbc
     payloads_[std::type_index(typeid(T))] = []() -> PayloadPtr
     { return std::make_shared<T>(); };
   }
+
+  template <typename T>
+  inline bool PayloadFactory::hasPayload()
+  {
+    return payloads_.count(std::type_index(typeid(T))) != 0;
+  }
+
 }

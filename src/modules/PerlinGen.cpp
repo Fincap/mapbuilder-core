@@ -22,6 +22,12 @@ namespace mbc
     };
   }
 
+  void PerlinGen::registerTypes(PayloadFactory& factory)
+  {
+    if (!factory.hasPayload<Heightmap>())
+      factory.registerPayload<Heightmap>();
+  }
+
   bool PerlinGen::processPayloads(PayloadTypeMap payloads)
   {
 

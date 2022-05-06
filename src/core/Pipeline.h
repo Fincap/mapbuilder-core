@@ -17,9 +17,6 @@ namespace mbc
     bool execute();
     bool addModule(ModulePtr);
 
-    template <typename T>
-    void registerPayload();
-
   private:
     std::vector<ModulePtr> modules_[NUM_STAGES];
 
@@ -28,10 +25,4 @@ namespace mbc
     PayloadTypeMap payloads_;
 
   };
-
-  template <typename T>
-  inline void Pipeline::registerPayload()   // Payloads must be registered
-  {
-    payloadFactory_.registerPayload<T>();
-  }
 }

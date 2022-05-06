@@ -5,6 +5,7 @@
 
 #include "PipelineStage.h"
 #include "Payload.h"
+#include "PayloadFactory.h"
 
 namespace mbc
 {
@@ -15,6 +16,7 @@ namespace mbc
 
     virtual std::vector<std::type_index> getInputTypes() = 0;
     virtual std::vector<std::type_index> getOutputTypes() = 0;
+    virtual void registerTypes(PayloadFactory&) = 0;
     
     virtual bool processPayloads(PayloadTypeMap) = 0;
 
