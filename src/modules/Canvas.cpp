@@ -23,10 +23,27 @@ namespace mbc
     };
   }
 
-  PayloadTypeMap Canvas::processPayloads(PayloadTypeMap)
+  PayloadTypeMap Canvas::processPayloads(PayloadTypeMap payloads)
   {
-    PayloadTypeMap steve;
-    return steve;
+    
+    // Get Heightmap payload
+    PayloadPtr heightmapPtr = payloads[std::type_index(typeid(Heightmap))];
+    PayloadValues heightmapPayload = heightmapPtr->unpack();
+    int* heightmapWidth = std::any_cast<int*>(heightmapPayload["width"]);
+    int* heightmapHeight = std::any_cast<int*>(heightmapPayload["height"]);
+    unsigned char* heightmapPoints = std::any_cast<unsigned char*>(heightmapPayload["points"]);
+
+    // Iterate through map and set each point to white
+    for (int y = 0; y < *heightmapHeight; y++)
+    {
+      for (int x = 0; x < *heightmapWidth; x++)
+      {
+        // (x,y) to 1D index: (y * height) + x
+        heightmapPoints[(y * *heightmapHeight) + x];
+      }
+    }
+
+    return PayloadTypeMap();
   }
 
 }

@@ -6,6 +6,8 @@
 
 namespace mbc
 {
+  using PayloadValues = std::unordered_map<std::string, std::any>;
+
   struct Payload
   {
     virtual ~Payload() = 0;
@@ -19,6 +21,6 @@ namespace mbc
 
   // Convenience typing
   using PayloadPtr = std::shared_ptr<Payload>;
-  using PayloadTypeMap = std::unordered_map<std::type_index, PayloadPtr>;
-  using PayloadValues = std::unordered_map<std::string, std::any>;
+  using PayloadTypeMap = std::unordered_map<std::type_index, PayloadPtr>;\
+
 }
