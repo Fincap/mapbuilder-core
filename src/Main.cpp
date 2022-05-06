@@ -10,7 +10,7 @@ int main(int argc, char* argv)
 	mbc::Pipeline pipe;
 
 	// Register heightmap payload
-	pipe.registerPayload(std::type_index(typeid(mbc::Heightmap)), &mbc::Heightmap::create);
+	pipe.registerPayload<mbc::Heightmap>();
 
 	// Create canvas module
 	std::shared_ptr<mbc::Canvas> canvas = std::make_shared<mbc::Canvas>();

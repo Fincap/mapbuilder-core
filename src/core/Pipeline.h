@@ -16,7 +16,9 @@ namespace mbc
   public:
     bool execute();
     bool addModule(ModulePtr);
-    void registerPayload(std::type_index, PayloadFactory::PayloadCreatePtr);
+
+    template <typename T>
+    void registerPayload();
 
   private:
     // Modules by stage - TODO combine into one map
@@ -30,4 +32,10 @@ namespace mbc
     PayloadTypeMap payloads_;
 
   };
+
+  template <typename T>
+  inline void Pipeline::registerPayload()   // Payloads must be registered
+  {
+    payloadFactory_.registerPayload<T>();
+  }
 }

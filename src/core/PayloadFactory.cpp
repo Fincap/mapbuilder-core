@@ -2,14 +2,14 @@
 
 namespace mbc
 {
-  void PayloadFactory::registerPayload(std::type_index typeIndex, PayloadCreatePtr payloadCreatePtr)
-  {
-    payloads_[typeIndex] = payloadCreatePtr;
-  }
-
   PayloadPtr PayloadFactory::createPayload(std::type_index typeIndex)
   {
-    PayloadPtr newPayload = payloads_[typeIndex]();
-    return newPayload;
+    // Return nullptr if payload type not registered
+    if (payloads_.count(typeIndex) == 0)
+      return nullptr;
+
+    // Executes lambda function created by registerPayload method
+    // and returns pointer to newly created Payload
+    return payloads_[typeIndex]();
   }
 }

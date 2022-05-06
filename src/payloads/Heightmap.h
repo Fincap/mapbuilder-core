@@ -7,10 +7,5 @@ namespace mbc
   {
     int width, height;
     unsigned char* points;
-
-    static PayloadPtr create()
-    {
-      return std::make_shared<Heightmap>();
-    }
   };
 }
