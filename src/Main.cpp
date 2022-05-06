@@ -17,6 +17,10 @@ int main(int argc, char* argv)
 	auto perlin = std::make_shared<mbc::PerlinGen>();
 	pipe.addModule(perlin);
 
+	// Create heightmap output module
+	auto heightmapOutput = std::make_shared<mbc::HeightmapOut>();
+	pipe.addModule(heightmapOutput);
+
 	pipe.execute();
 
 }

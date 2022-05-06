@@ -159,6 +159,7 @@
     <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\modules\HeightmapOut.cpp" />
     <ClCompile Include="src\modules\PerlinGen.cpp" />
     <ClCompile Include="src\core\PayloadFactory.cpp" />
     <ClCompile Include="src\modules\Canvas.cpp" />
@@ -166,6 +167,7 @@
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\modules\HeightmapOut.h" />
     <ClInclude Include="include\PerlinNoise.h" />
     <ClInclude Include="src\modules\PerlinGen.h" />
     <ClInclude Include="src\core\PayloadFactory.h" />

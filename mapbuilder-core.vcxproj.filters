@@ -34,6 +34,9 @@
     <ClCompile Include="src\modules\PerlinGen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\modules\HeightmapOut.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\Pipeline.h">
@@ -64,6 +67,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\modules\PerlinGen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\HeightmapOut.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
