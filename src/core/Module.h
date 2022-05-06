@@ -16,7 +16,7 @@ namespace mbc
     virtual std::vector<std::type_index> getInputTypes() = 0;
     virtual std::vector<std::type_index> getOutputTypes() = 0;
     
-    virtual PayloadTypeMap processPayloads(PayloadTypeMap) = 0;
+    virtual bool processPayloads(PayloadTypeMap) = 0;
 
     virtual PipelineStage getPipelineStage() final;
 

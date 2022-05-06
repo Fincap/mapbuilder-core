@@ -14,7 +14,7 @@ namespace mbc
     // Inherit from base class - must be implemented
     std::vector<std::type_index> getInputTypes() override;
     std::vector<std::type_index> getOutputTypes() override;
-    PayloadTypeMap processPayloads(PayloadTypeMap) override;
+    bool processPayloads(PayloadTypeMap) override;
 
     // Processing parameters
     int width, height;

@@ -23,7 +23,7 @@ namespace mbc
     };
   }
 
-  PayloadTypeMap Canvas::processPayloads(PayloadTypeMap payloads)
+  bool Canvas::processPayloads(PayloadTypeMap payloads)
   {
     
     // Get Heightmap payload
@@ -47,7 +47,7 @@ namespace mbc
       }
     }
 
-    return PayloadTypeMap();
+    return true;
   }
 
 }
