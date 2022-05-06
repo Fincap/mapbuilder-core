@@ -8,10 +8,10 @@ namespace mbc
     int width, height;
     unsigned char* points;
 
-    std::unordered_map<std::string, std::any> getValues() override;
+    std::unordered_map<std::string, std::any> unpack() override;
   };
 
-  inline std::unordered_map<std::string, std::any> Heightmap::getValues()
+  inline std::unordered_map<std::string, std::any> Heightmap::unpack()
   {
     std::unordered_map<std::string, std::any> values;
     values["width"] = width;
