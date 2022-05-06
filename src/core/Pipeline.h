@@ -3,9 +3,11 @@
 #include <typeindex>
 #include <memory>
 #include <unordered_map>
+#include <iostream>
 
 #include "Module.h"
 #include "Payload.h"
+#include "PayloadFactory.h"
 
 namespace mbc
 {
@@ -14,6 +16,7 @@ namespace mbc
   public:
     bool execute();
     bool addModule(ModulePtr);
+    void registerPayload(std::type_index, PayloadFactory::PayloadCreatePtr);
 
   private:
     // Modules by stage - TODO combine into one map
@@ -21,6 +24,8 @@ namespace mbc
     std::vector<ModulePtr> manipulationModules_;
     std::vector<ModulePtr> renderModules_;
     std::vector<ModulePtr> outputModules_;
+
+    PayloadFactory payloadFactory_;
 
     PayloadTypeMap payloads_;
 

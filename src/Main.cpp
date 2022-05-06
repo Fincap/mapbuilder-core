@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <memory>
 
 #include "MapBuilderCore.h"
 
@@ -8,12 +9,14 @@ int main(int argc, char* argv)
 	// Create Pipeline
 	mbc::Pipeline pipe;
 
-	// Create heightmap payload
-	mbc::Heightmap* heightmap = new mbc::Heightmap();
+	// Register heightmap payload
+	pipe.registerPayload(std::type_index(typeid(mbc::Heightmap)), &mbc::Heightmap::create);
 
 	// Create canvas module
-	mbc::Canvas* canvas = new mbc::Canvas();
-	std::cout << static_cast<int>(canvas->getPipelineStage()) << std::endl;
-	std::cout << canvas->getInputTypes().size() << std::endl;
+	std::shared_ptr<mbc::Canvas> canvas = std::make_shared<mbc::Canvas>();
+	std::shared_ptr<mbc::Canvas> canvas2 = std::make_shared<mbc::Canvas>();
+
+	pipe.addModule(canvas);
+	pipe.addModule(canvas2);
 
 }

@@ -15,6 +15,8 @@ namespace mbc
     2. Iterate through input and output types of module and add new
       types to payloads_
     */
+    std::cout << "Payloads before: " << payloads_.size() << std::endl;
+
     switch (newModule->getPipelineStage())
     {
     case PipelineStage::GENERATION:
@@ -34,6 +36,7 @@ namespace mbc
       break;
 
     default:
+      std::cerr << "Invalid PipelineStage for " << std::type_index(typeid(newModule)).name() << std::endl;
       return false;
 
     }
@@ -43,11 +46,26 @@ namespace mbc
       // If key doesn't already exist in payloads map: add it
       if (payloads_.count(type) == 0)
       {
-        // TODO implement
-        // This will most likely require the creation of Payload factories
+        payloads_[type] = payloadFactory_.createPayload(type);
       }
     }
 
+    for (auto type : newModule->getOutputTypes())
+    {
+      // If key doesn't already exist in payloads map: add it
+      if (payloads_.count(type) == 0)
+      {
+        payloads_[type] = payloadFactory_.createPayload(type);
+      }
+    }
+
+    std::cout << "Payloads after: " << payloads_.size() << std::endl;
+
     return true;
+  }
+
+  void Pipeline::registerPayload(std::type_index typeIndex, PayloadFactory::PayloadCreatePtr payloadCreatePtr)
+  {
+    payloadFactory_.registerPayload(typeIndex, payloadCreatePtr);
   }
 }
