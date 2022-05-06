@@ -44,17 +44,6 @@ namespace mbc
         payloads_[type] = payloadFactory_.createPayload(type);
     }
 
-#ifdef _DEBUG
-    std::cout << "Payloads after: " << payloads_.size() << std::endl;
-    
-    for (int i = 0; i < NUM_STAGES; i++)
-    {
-      std::cout << "Stage " << i + 1 << ": " << modules_[i].size() << " modules" << std::endl;
-    }
-
-    std::cout << std::endl;
-#endif
-
     return true;
   }
 }
