@@ -13,9 +13,7 @@ namespace mbc
 {
   class Pipeline
   {
-  public:
-    Pipeline();
-    
+  public:    
     bool execute();
     bool addModule(ModulePtr);
 

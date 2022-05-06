@@ -2,18 +2,17 @@
 
 namespace mbc
 {
-  Pipeline::Pipeline()
-  {
-    // Initialize modules arrays
-    /*for (int i = 0; i < NUM_STAGES; i++)
-    {
-      modules_[i] = std::vector<ModulePtr>();
-    }*/
-  }
-
   bool Pipeline::execute()
   {
-    // TODO implement
+    
+    for (int stage = 0; stage < NUM_STAGES; stage++)
+    {
+      for (int module = 0; module < modules_[stage].size(); module++)
+      {
+        modules_[stage][module]->processPayloads(payloads_);
+      }
+    }
+
     return false;
   }
 
