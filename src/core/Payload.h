@@ -11,9 +11,6 @@ namespace mbc
   struct Payload
   {
     virtual ~Payload() = 0;
-
-    // Returns map of dervied class' payload values
-    virtual PayloadValues unpack() = 0;
   };
 
   // Inline definition required as a derived class will call the destructor of its base class.
