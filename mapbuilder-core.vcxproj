@@ -105,7 +105,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <MapExports />
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -137,7 +138,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <MapExports />
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -163,6 +165,7 @@
     <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\modules\ColourSetModule.cpp" />
     <ClCompile Include="src\modules\CSVOut.cpp" />
     <ClCompile Include="src\modules\ElevationSlope.cpp" />
     <ClCompile Include="src\modules\GradientSquare.cpp" />
@@ -174,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\APIExport.h" />
+    <ClInclude Include="src\modules\ColourSetModule.h" />
     <ClInclude Include="src\modules\CSVOut.h" />
     <ClInclude Include="src\modules\ElevationSlope.h" />
     <ClInclude Include="src\modules\GradientSquare.h" />

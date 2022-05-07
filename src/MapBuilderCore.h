@@ -8,6 +8,7 @@
 
 // Payloads
 #include "payloads\Heightmap.h"
+#include "payloads\ColourSetPayload.h"
 
 // Modules - Generation
 #include "modules\Canvas.h"
@@ -18,7 +19,7 @@
 #include "modules\GradientSquare.h"
 
 // Modules - Render
-
+#include "modules\ColourSetModule.h"
 
 // Modules - Output
 #include "modules\HeightmapOut.h"

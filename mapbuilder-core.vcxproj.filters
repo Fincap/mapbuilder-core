@@ -43,6 +43,9 @@
     <ClCompile Include="src\modules\GradientSquare.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\modules\ColourSetModule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\Pipeline.h">
@@ -91,6 +94,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\payloads\ColourSetPayload.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\ColourSetModule.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
