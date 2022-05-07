@@ -9,8 +9,16 @@
 // Payloads
 #include "payloads/Heightmap.h"
 
-// Modules
+// Modules - Generation
 #include "modules/Canvas.h"
 #include "modules/PerlinGen.h"
+
+// Modules - Manipulation
+#include "modules/ElevationSlope.h"
+
+// Modules - Render
+
+
+// Modules - Output
 #include "modules/HeightmapOut.h"
 #include "modules/CSVOut.h"

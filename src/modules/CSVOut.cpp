@@ -60,7 +60,7 @@ namespace mbc
 
     outfile.close();
 
-    std::cout << (width * height) << " bytes written" << std::endl;
+    std::cout << "CSV output completed" << std::endl;
 
     return true;
   }

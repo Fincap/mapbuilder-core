@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\modules\CSVOut.cpp" />
+    <ClCompile Include="src\modules\ElevationSlope.cpp" />
     <ClCompile Include="src\modules\HeightmapOut.cpp" />
     <ClCompile Include="src\modules\PerlinGen.cpp" />
     <ClCompile Include="src\core\PayloadFactory.cpp" />
@@ -169,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\modules\CSVOut.h" />
+    <ClInclude Include="src\modules\ElevationSlope.h" />
     <ClInclude Include="src\modules\HeightmapOut.h" />
     <ClInclude Include="include\PerlinNoise.h" />
     <ClInclude Include="src\modules\PerlinGen.h" />

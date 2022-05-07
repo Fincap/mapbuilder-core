@@ -25,6 +25,12 @@ int main(int argc, char* argv)
 	auto csvOutput = std::make_shared<mbc::CSVOut>();
 	pipe.addModule(csvOutput);
 
+	// Create slope module
+	auto slope = std::make_shared<mbc::ElevationSlope>();
+	pipe.addModule(slope);
+
 	pipe.execute();
+
+	return 0;
 
 }
