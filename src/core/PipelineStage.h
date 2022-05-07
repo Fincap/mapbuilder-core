@@ -1,9 +1,16 @@
 #pragma once
+#pragma once
+#ifdef MAPBUILDER_EXPORTS
+#define MAPBUILDER_API __declspec(dllexport)
+#else
+#define MAPBUILDER_API __declspec(dllimport)
+#endif
+
 namespace mbc
 {
-  const int NUM_STAGES = 4;
+  const MAPBUILDER_API int NUM_STAGES = 4;
 
-  enum class PipelineStage
+  enum class MAPBUILDER_API PipelineStage
   {
     GENERATION = 0,
     MANIPULATION = 1,

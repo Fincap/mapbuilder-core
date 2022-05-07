@@ -1,4 +1,10 @@
 #pragma once
+#ifdef MAPBUILDER_EXPORTS
+#define MAPBUILDER_API __declspec(dllexport)
+#else
+#define MAPBUILDER_API __declspec(dllimport)
+#endif
+
 #include <vector>
 #include <typeindex>
 #include <memory>
@@ -9,7 +15,7 @@
 
 namespace mbc
 {
-  class Module
+  class MAPBUILDER_API Module
   {
   public:
     Module(PipelineStage);
