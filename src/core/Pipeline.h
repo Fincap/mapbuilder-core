@@ -19,16 +19,19 @@ namespace mbc
 {
   class MAPBUILDER_API Pipeline
   {
-  public:    
+  public:
+    Pipeline();
+    ~Pipeline();
+
     bool execute();
     bool addModule(ModulePtr);
 
   private:
-    std::vector<ModulePtr> modules_[NUM_STAGES];
+    std::vector<ModulePtr>* modules_;
 
-    PayloadFactory payloadFactory_;
+    PayloadFactory* payloadFactory_;
 
-    PayloadTypeMap payloads_;
+    PayloadTypeMap* payloads_;
 
   };
 }

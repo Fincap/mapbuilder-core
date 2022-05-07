@@ -2,6 +2,20 @@
 
 namespace mbc
 {
+  Pipeline::Pipeline()
+  {
+    modules_ = new std::vector<ModulePtr>[4];
+    payloadFactory_ = new PayloadFactory();
+    payloads_ = new PayloadTypeMap();
+  }
+
+  Pipeline::~Pipeline()
+  {
+    delete[] modules_;
+    delete payloadFactory_;
+    delete payloads_;
+  }
+
   bool Pipeline::execute()
   {
     
@@ -9,7 +23,7 @@ namespace mbc
     {
       for (int module = 0; module < modules_[stage].size(); module++)
       {
-        modules_[stage][module]->processPayloads(payloads_);
+        modules_[stage][module]->processPayloads(*payloads_);
       }
     }
 
@@ -39,9 +53,9 @@ namespace mbc
 
     // Register module's payloads with payload factory and
     // instantiate any newly generated payloads.
-    for (auto type : newModule->registerTypes(payloadFactory_))
+    for (auto type : newModule->registerTypes(*payloadFactory_))
     {
-        payloads_[type] = payloadFactory_.createPayload(type);
+        (*payloads_)[type] = (*payloadFactory_).createPayload(type);
     }
 
     return true;
