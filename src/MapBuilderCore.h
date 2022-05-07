@@ -15,6 +15,7 @@
 
 // Modules - Manipulation
 #include "modules/ElevationSlope.h"
+#include "modules/GradientSquare.h"
 
 // Modules - Render
 

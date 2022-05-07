@@ -43,6 +43,9 @@
     <ClCompile Include="src\modules\ElevationSlope.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\modules\GradientSquare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\Pipeline.h">
@@ -82,6 +85,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\modules\ElevationSlope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\GradientSquare.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -10,24 +10,22 @@ int main(int argc, char* argv)
 	mbc::Pipeline pipe;
 
 	// Create canvas module
-	auto canvas = std::make_shared<mbc::Canvas>();
-	pipe.addModule(canvas);
+	pipe.addModule(std::make_shared<mbc::Canvas>());
 
 	// Create perlin module
-	auto perlin = std::make_shared<mbc::PerlinGen>();
-	pipe.addModule(perlin);
+	pipe.addModule(std::make_shared<mbc::PerlinGen>());
 
 	// Create heightmap output module
-	auto heightmapOutput = std::make_shared<mbc::HeightmapOut>();
-	pipe.addModule(heightmapOutput);
+	pipe.addModule(std::make_shared<mbc::HeightmapOut>());
 
 	// Create csv output module
-	auto csvOutput = std::make_shared<mbc::CSVOut>();
-	pipe.addModule(csvOutput);
+	pipe.addModule(std::make_shared<mbc::CSVOut>());
+
+	// Create gradient module
+	pipe.addModule(std::make_shared<mbc::GradientSquare>());
 
 	// Create slope module
-	auto slope = std::make_shared<mbc::ElevationSlope>();
-	pipe.addModule(slope);
+	pipe.addModule(std::make_shared<mbc::ElevationSlope>());
 
 	pipe.execute();
 
