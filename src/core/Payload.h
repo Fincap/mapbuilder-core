@@ -1,4 +1,10 @@
 #pragma once
+#ifdef MAPBUILDER_EXPORTS
+#define MAPBUILDER_API __declspec(dllexport)
+#else
+#define MAPBUILDER_API __declspec(dllimport)
+#endif
+
 #include <typeindex>
 #include <unordered_map>
 #include <any>
@@ -8,7 +14,7 @@ namespace mbc
 {
   using PayloadValues = std::unordered_map<std::string, std::any>;
 
-  struct Payload
+  struct MAPBUILDER_API Payload
   {
     virtual ~Payload() = 0;
   };

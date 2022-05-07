@@ -33,7 +33,7 @@ namespace mbc
 
     // Output heightmap to file
     std::ofstream outfile;
-    outfile.open(outputFilepath_.c_str(), std::ios::trunc | std::ios::binary);
+    outfile.open(outputFilepath_, std::ios::trunc | std::ios::binary);
 
     if (outfile.fail())
     {

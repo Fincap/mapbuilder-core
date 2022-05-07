@@ -1,11 +1,16 @@
 #pragma once
+#ifdef MAPBUILDER_EXPORTS
+#define MAPBUILDER_API __declspec(dllexport)
+#else
+#define MAPBUILDER_API __declspec(dllimport)
+#endif
 
 #include "..\core\Module.h"
 #include "..\payloads\Heightmap.h"
 
 namespace mbc
 {
-  class ElevationSlope : public Module
+  class MAPBUILDER_API ElevationSlope : public Module
   {
   public:
     ElevationSlope();

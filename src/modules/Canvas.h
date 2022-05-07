@@ -1,4 +1,10 @@
 #pragma once
+#ifdef MAPBUILDER_EXPORTS
+#define MAPBUILDER_API __declspec(dllexport)
+#else
+#define MAPBUILDER_API __declspec(dllimport)
+#endif
+
 #include <vector>
 #include <typeindex>
 
@@ -8,7 +14,7 @@
 
 namespace mbc
 {
-  class Canvas : public Module
+  class MAPBUILDER_API Canvas : public Module
   {
   public:
     Canvas();

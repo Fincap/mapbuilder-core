@@ -19,9 +19,6 @@
     <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\Pipeline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

@@ -1,4 +1,10 @@
 #pragma once
+#ifdef MAPBUILDER_EXPORTS
+#define MAPBUILDER_API __declspec(dllexport)
+#else
+#define MAPBUILDER_API __declspec(dllimport)
+#endif
+
 #include <vector>
 #include <typeindex>
 #include <memory>
@@ -11,18 +17,21 @@
 
 namespace mbc
 {
-  class Pipeline
+  class MAPBUILDER_API Pipeline
   {
-  public:    
+  public:
+    Pipeline();
+    ~Pipeline();
+
     bool execute();
     bool addModule(ModulePtr);
 
   private:
-    std::vector<ModulePtr> modules_[NUM_STAGES];
+    std::vector<ModulePtr>* modules_;
 
-    PayloadFactory payloadFactory_;
+    PayloadFactory* payloadFactory_;
 
-    PayloadTypeMap payloads_;
+    PayloadTypeMap* payloads_;
 
   };
 }

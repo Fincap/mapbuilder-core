@@ -1,4 +1,10 @@
 #pragma once
+#ifdef MAPBUILDER_EXPORTS
+#define MAPBUILDER_API __declspec(dllexport)
+#else
+#define MAPBUILDER_API __declspec(dllimport)
+#endif
+
 #include <fstream>
 #include <iostream>
 
@@ -7,7 +13,7 @@
 
 namespace mbc
 {
-  class HeightmapOut : public Module
+  class MAPBUILDER_API HeightmapOut : public Module
   {
   public:
     HeightmapOut();
@@ -18,7 +24,7 @@ namespace mbc
 
   private:
     // Processing parameters
-    std::string outputFilepath_;
+    const char* outputFilepath_;
 
   };
 }
