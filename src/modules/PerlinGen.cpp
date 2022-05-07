@@ -8,15 +8,7 @@ namespace mbc
 
   std::vector<std::type_index> PerlinGen::registerTypes(PayloadFactory& factory)
   {
-    std::vector<std::type_index> newPayloads;
-
-    if (!factory.hasPayload<Heightmap>())
-    {
-      factory.registerPayload<Heightmap>();
-      newPayloads.push_back(std::type_index(typeid(Heightmap)));
-    }
-
-    return newPayloads;
+    return registerWithFactory<Heightmap>(factory);
   }
 
   bool PerlinGen::processPayloads(PayloadTypeMap payloads)

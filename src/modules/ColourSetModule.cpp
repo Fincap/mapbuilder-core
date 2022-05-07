@@ -22,17 +22,9 @@ namespace mbc
     };
   }
 
-  std::vector<std::type_index> ColourSetModule::registerTypes(PayloadFactory& factory)
+  TypeIndexVector ColourSetModule::registerTypes(PayloadFactory& factory)
   {
-    std::vector<std::type_index> newPayloads;
-
-    if (!factory.hasPayload<ColourSetPayload>())
-    {
-      factory.registerPayload<ColourSetPayload>();
-      newPayloads.push_back(std::type_index(typeid(ColourSetPayload)));
-    }
-
-    return newPayloads;
+    return registerWithFactory<ColourSetPayload>(factory);
   }
 
   bool ColourSetModule::processPayloads(PayloadTypeMap payloads)
