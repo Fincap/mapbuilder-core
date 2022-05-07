@@ -27,7 +27,7 @@ namespace mbc
       }
     }
 
-    return false;
+    return true;
   }
 
   bool Pipeline::addModule(ModulePtr newModule)
