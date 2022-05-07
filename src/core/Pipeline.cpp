@@ -4,7 +4,7 @@ namespace mbc
 {
   Pipeline::Pipeline()
   {
-    modules_ = new std::vector<ModulePtr>[4];
+    modules_ = new std::vector<ModulePtr>[NUM_STAGES];
     payloadFactory_ = new PayloadFactory();
     payloads_ = new PayloadTypeMap();
   }
