@@ -1,9 +1,5 @@
 #pragma once
-#ifdef MAPBUILDER_EXPORTS
-#define MAPBUILDER_API __declspec(dllexport)
-#else
-#define MAPBUILDER_API __declspec(dllimport)
-#endif
+#include "..\APIExport.h"
 
 #include "..\core\Module.h"
 #include "..\payloads\Heightmap.h"

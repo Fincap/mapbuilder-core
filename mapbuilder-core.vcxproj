@@ -173,6 +173,7 @@
     <ClCompile Include="src\core\Pipeline.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\APIExport.h" />
     <ClInclude Include="src\modules\CSVOut.h" />
     <ClInclude Include="src\modules\ElevationSlope.h" />
     <ClInclude Include="src\modules\GradientSquare.h" />
