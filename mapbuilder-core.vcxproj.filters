@@ -90,5 +90,8 @@
     <ClInclude Include="src\APIExport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\payloads\ColourSetPayload.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

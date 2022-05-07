@@ -182,6 +182,7 @@
     <ClInclude Include="src\modules\PerlinGen.h" />
     <ClInclude Include="src\core\PayloadFactory.h" />
     <ClInclude Include="src\modules\Canvas.h" />
+    <ClInclude Include="src\payloads\ColourSetPayload.h" />
     <ClInclude Include="src\payloads\Heightmap.h" />
     <ClInclude Include="src\core\Module.h" />
     <ClInclude Include="src\core\Payload.h" />
