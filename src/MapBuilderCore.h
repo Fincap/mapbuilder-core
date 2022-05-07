@@ -13,3 +13,4 @@
 #include "modules/Canvas.h"
 #include "modules/PerlinGen.h"
 #include "modules/HeightmapOut.h"
+#include "modules/CSVOut.h"

@@ -21,6 +21,10 @@ int main(int argc, char* argv)
 	auto heightmapOutput = std::make_shared<mbc::HeightmapOut>();
 	pipe.addModule(heightmapOutput);
 
+	// Create csv output module
+	auto csvOutput = std::make_shared<mbc::CSVOut>();
+	pipe.addModule(csvOutput);
+
 	pipe.execute();
 
 }
