@@ -35,6 +35,7 @@ namespace mbc
     template <typename... Ts>
     TypeIndexVector registerWithFactory(PayloadFactory&);
 
+  private:
     // Consumer of registerWithFactory variadic template
     template <typename T>
     void registerSingle(PayloadFactory&, TypeIndexVector&);
