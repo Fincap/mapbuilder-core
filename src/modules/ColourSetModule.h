@@ -22,7 +22,7 @@ namespace mbc
 
   private:
     // Processing parameters
-    std::map<unsigned char, uint32_t> colourRanges_;
+    std::map<unsigned char, uint32_t>* colourRanges_;
 
   };
 }
