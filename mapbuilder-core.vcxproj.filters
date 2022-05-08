@@ -99,5 +99,8 @@
     <ClInclude Include="src\modules\ColourSetModule.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\payloads\ColouredHeightmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

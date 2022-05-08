@@ -177,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\APIExport.h" />
+    <ClInclude Include="src\payloads\ColouredHeightmap.h" />
     <ClInclude Include="src\modules\ColourSetModule.h" />
     <ClInclude Include="src\modules\CSVOut.h" />
     <ClInclude Include="src\modules\ElevationSlope.h" />
