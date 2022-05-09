@@ -63,6 +63,9 @@
     <ClCompile Include="src\modules\CSVOut.cpp">
       <Filter>Modules\4Output</Filter>
     </ClCompile>
+    <ClCompile Include="src\modules\PNGOut.cpp">
+      <Filter>Modules\4Output</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\Pipeline.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="src\core\Payload.h">
       <Filter>Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\PNGOut.h">
+      <Filter>Modules\4Output</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

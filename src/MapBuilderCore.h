@@ -26,3 +26,4 @@
 // Modules - Output
 #include "modules\HeightmapOut.h"
 #include "modules\CSVOut.h"
+#include "modules\PNGOut.h"

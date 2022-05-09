@@ -108,7 +108,7 @@
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <MapExports />
       <AdditionalLibraryDirectories>$(SolutionDir)include\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>zlib.lib;libpng.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -128,7 +128,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)include\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>zlib.lib;libpng.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -145,7 +145,7 @@
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <MapExports />
       <AdditionalLibraryDirectories>$(SolutionDir)include\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>zlib.lib;libpng.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -165,7 +165,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)include\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>zlib.lib;libpng.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -183,10 +183,12 @@
     <ClCompile Include="src\core\PayloadFactory.cpp" />
     <ClCompile Include="src\modules\Canvas.cpp" />
     <ClCompile Include="src\core\Pipeline.cpp" />
+    <ClCompile Include="src\modules\PNGOut.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\APIExport.h" />
     <ClInclude Include="src\modules\ColourHeightmapRenderer.h" />
+    <ClInclude Include="src\modules\PNGOut.h" />
     <ClInclude Include="src\payloads\ColouredHeightmap.h" />
     <ClInclude Include="src\modules\ColourSetModule.h" />
     <ClInclude Include="src\modules\CSVOut.h" />
