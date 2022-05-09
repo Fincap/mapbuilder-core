@@ -7,6 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mapbuilder-core", "mapbuild
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mapbuilder-runtime", "..\mapbuilder-runtime\mapbuilder-runtime.vcxproj", "{FBBEC973-5FEB-47E6-A666-129379143A13}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mapbuilder-python", "..\mapbuilder-python\mapbuilder-python.vcxproj", "{1C5F0EF0-08C0-489D-A1F4-0066293BA17B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B91977EB-4DA1-4F2F-962E-3F5E5EA724CD} = {B91977EB-4DA1-4F2F-962E-3F5E5EA724CD}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +26,10 @@ Global
 		{FBBEC973-5FEB-47E6-A666-129379143A13}.Debug|x64.Build.0 = Debug|x64
 		{FBBEC973-5FEB-47E6-A666-129379143A13}.Release|x64.ActiveCfg = Release|x64
 		{FBBEC973-5FEB-47E6-A666-129379143A13}.Release|x64.Build.0 = Release|x64
+		{1C5F0EF0-08C0-489D-A1F4-0066293BA17B}.Debug|x64.ActiveCfg = Debug|x64
+		{1C5F0EF0-08C0-489D-A1F4-0066293BA17B}.Debug|x64.Build.0 = Debug|x64
+		{1C5F0EF0-08C0-489D-A1F4-0066293BA17B}.Release|x64.ActiveCfg = Release|x64
+		{1C5F0EF0-08C0-489D-A1F4-0066293BA17B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
