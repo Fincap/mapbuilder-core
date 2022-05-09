@@ -59,7 +59,7 @@ namespace mbc
   {
     TypeIndexVector newPayloads;
 
-    registerSingle<Ts...>(factory, newPayloads);
+    (registerSingle<Ts>(factory, newPayloads), ...);
 
     return newPayloads;
   }
