@@ -2,7 +2,7 @@
 namespace mbc
 {
   PerlinGen::PerlinGen()
-    : Module(PipelineStage::GENERATION),
+    : Module(PipelineStage::GENERATION, "perlin_gen"),
     seed(12345), frequency(4.0), octaves(6)
   { }
 

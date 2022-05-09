@@ -17,7 +17,7 @@ namespace mbc
   class MAPBUILDER_API Module
   {
   public:
-    Module(PipelineStage);
+    Module(PipelineStage, const char*);
 
     // This method registers all types with the linked factory, and returns a list of
     // any types that were newly registered so they can be instantiated.
@@ -26,9 +26,11 @@ namespace mbc
     virtual bool processPayloads(PayloadTypeMap) = 0;
 
     virtual PipelineStage getPipelineStage() final;
+    virtual const char* getModuleName() final;
 
   protected:
     const PipelineStage PIPELINE_STAGE;
+    const char* MODULE_NAME;
 
     // This method will be called by derived classes to simplify the type
     // registration process for the implementer.
@@ -43,14 +45,21 @@ namespace mbc
   };
 
   // Inline definition of default constructor - to be called by derived class
-  inline Module::Module(PipelineStage stage) :
-    PIPELINE_STAGE(stage)
+  inline Module::Module(PipelineStage stage, const char* name) :
+    PIPELINE_STAGE(stage),
+    MODULE_NAME(name)
   {}
 
   // Inline definition to preserve runtime mutability of PipelineStage
   inline PipelineStage Module::getPipelineStage()
   {
     return PIPELINE_STAGE;
+  }
+
+  // Inline definition to preserve runtime mutability of module name
+  inline const char* Module::getModuleName()
+  {
+    return MODULE_NAME;
   }
 
   // Inline definition of internalRegisterType

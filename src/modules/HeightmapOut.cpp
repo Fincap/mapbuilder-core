@@ -3,7 +3,7 @@
 namespace mbc
 {
   HeightmapOut::HeightmapOut()
-    : Module(PipelineStage::OUTPUT),
+    : Module(PipelineStage::OUTPUT, "heightmap_out"),
     outputFilepath("../out/heightmap.hmp")
   { }
 

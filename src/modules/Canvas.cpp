@@ -3,7 +3,7 @@
 namespace mbc
 {
   Canvas::Canvas()
-    : Module(PipelineStage::GENERATION),
+    : Module(PipelineStage::GENERATION, "canvas"),
     width(64), height(64)
   { }
 

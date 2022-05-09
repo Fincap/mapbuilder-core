@@ -2,7 +2,7 @@
 namespace mbc
 {
   ColourHeightmapRenderer::ColourHeightmapRenderer()
-    : Module(PipelineStage::RENDER)
+    : Module(PipelineStage::RENDER, "colour_heightmap_renderer")
   { }
 
   TypeIndexVector ColourHeightmapRenderer::registerTypes(PayloadFactory& factory)

@@ -3,7 +3,7 @@
 namespace mbc
 {
   ColourSetModule::ColourSetModule()
-    : Module(PipelineStage::RENDER)
+    : Module(PipelineStage::RENDER, "colour_set_module")
   {
     /*
     * Zone      Max   R,G,B

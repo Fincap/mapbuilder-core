@@ -3,7 +3,7 @@
 namespace mbc
 {
   CSVOut::CSVOut()
-    : Module(PipelineStage::OUTPUT),
+    : Module(PipelineStage::OUTPUT, "csv_out"),
     outputFilepath("../out/heightmap.csv")
   { }
 

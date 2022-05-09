@@ -3,7 +3,7 @@
 namespace mbc
 {
   GradientSquare::GradientSquare()
-    : Module(PipelineStage::MANIPULATION),
+    : Module(PipelineStage::MANIPULATION, "gradient_square"),
     fullness(3.0), size(2.2)
   { }
 

@@ -2,7 +2,7 @@
 namespace mbc
 {
   ElevationSlope::ElevationSlope()
-    : Module(PipelineStage::MANIPULATION),
+    : Module(PipelineStage::MANIPULATION, "elevation_slope"),
     slope(2.5)
   { }
 

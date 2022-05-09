@@ -3,7 +3,7 @@
 namespace mbc
 {
   PNGOut::PNGOut()
-    : Module(PipelineStage::OUTPUT),
+    : Module(PipelineStage::OUTPUT, "png_out"),
     outputFilepath("../out/render.png")
   { }
 
