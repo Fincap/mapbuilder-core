@@ -29,10 +29,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitattributes" />
-    <None Include=".gitignore" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="src\core\Pipeline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

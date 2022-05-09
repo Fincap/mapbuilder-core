@@ -169,10 +169,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include=".gitattributes" />
-    <None Include=".gitignore" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="src\modules\ColourHeightmapRenderer.cpp" />
     <ClCompile Include="src\modules\ColourSetModule.cpp" />
     <ClCompile Include="src\modules\CSVOut.cpp" />
