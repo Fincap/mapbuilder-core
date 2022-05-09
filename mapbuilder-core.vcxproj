@@ -173,7 +173,7 @@
     <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\modules\ColourHeightmapGenerator.cpp" />
+    <ClCompile Include="src\modules\ColourHeightmapRenderer.cpp" />
     <ClCompile Include="src\modules\ColourSetModule.cpp" />
     <ClCompile Include="src\modules\CSVOut.cpp" />
     <ClCompile Include="src\modules\ElevationSlope.cpp" />
@@ -186,7 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\APIExport.h" />
-    <ClInclude Include="src\modules\ColourHeightmapGenerator.h" />
+    <ClInclude Include="src\modules\ColourHeightmapRenderer.h" />
     <ClInclude Include="src\payloads\ColouredHeightmap.h" />
     <ClInclude Include="src\modules\ColourSetModule.h" />
     <ClInclude Include="src\modules\CSVOut.h" />

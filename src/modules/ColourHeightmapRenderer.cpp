@@ -1,16 +1,16 @@
-#include "ColourHeightmapGenerator.h"
+#include "ColourHeightmapRenderer.h"
 namespace mbc
 {
-  ColourHeightmapGenerator::ColourHeightmapGenerator()
+  ColourHeightmapRenderer::ColourHeightmapRenderer()
     : Module(PipelineStage::RENDER)
   { }
 
-  TypeIndexVector ColourHeightmapGenerator::registerTypes(PayloadFactory& factory)
+  TypeIndexVector ColourHeightmapRenderer::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap, ColouredHeightmap, ColourSetPayload>(factory);
   }
 
-  bool ColourHeightmapGenerator::processPayloads(PayloadTypeMap payloads)
+  bool ColourHeightmapRenderer::processPayloads(PayloadTypeMap payloads)
   {
     // Get Heightmap payload
     auto heightmapPtr = std::dynamic_pointer_cast<Heightmap>(

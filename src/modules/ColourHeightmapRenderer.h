@@ -15,10 +15,10 @@ namespace mbc
 {
   // Module that applies the ColourSet payload to the Heightmap
   // to produce a ColouredHeightmap.
-  class MAPBUILDER_API ColourHeightmapGenerator : public Module
+  class MAPBUILDER_API ColourHeightmapRenderer : public Module
   {
   public:
-    ColourHeightmapGenerator();
+    ColourHeightmapRenderer();
 
     // Inherit from base class - must be implemented
     TypeIndexVector registerTypes(PayloadFactory&) override;

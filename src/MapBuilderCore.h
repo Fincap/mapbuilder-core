@@ -21,7 +21,7 @@
 
 // Modules - Render
 #include "modules\ColourSetModule.h"
-#include "modules\ColourHeightmapGenerator.h"
+#include "modules\ColourHeightmapRenderer.h"
 
 // Modules - Output
 #include "modules\HeightmapOut.h"
