@@ -10,7 +10,7 @@ namespace mbc
   struct ColouredHeightmap : public Payload
   {
     int width, height;
-    uint32_t* colouredPoints_;
+    uint32_t* colouredPoints;
 
   };
 }
