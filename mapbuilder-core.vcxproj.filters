@@ -9,9 +9,23 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Modules">
+      <UniqueIdentifier>{59be3051-2a66-4db4-9391-835b91c5d5f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\1Generation">
+      <UniqueIdentifier>{a689fd48-a699-4254-8081-c338b4eb99a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\2Manipulation">
+      <UniqueIdentifier>{08f33b3a-3d96-4700-8446-6ae07ac6a973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\4Output">
+      <UniqueIdentifier>{55b51e59-ae51-48dd-9639-985d3253f814}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\3Render">
+      <UniqueIdentifier>{ddb751c8-b50e-4e73-aabe-5c91d203d0a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Payloads">
+      <UniqueIdentifier>{508b906f-4383-46fb-98e2-24231dc821ee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -22,42 +36,36 @@
     <ClCompile Include="src\core\Pipeline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\modules\Canvas.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\core\PayloadFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\modules\Canvas.cpp">
+      <Filter>Modules\1Generation</Filter>
+    </ClCompile>
     <ClCompile Include="src\modules\PerlinGen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\HeightmapOut.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\CSVOut.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Modules\1Generation</Filter>
     </ClCompile>
     <ClCompile Include="src\modules\ElevationSlope.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Modules\2Manipulation</Filter>
     </ClCompile>
     <ClCompile Include="src\modules\GradientSquare.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\ColourSetModule.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Modules\2Manipulation</Filter>
     </ClCompile>
     <ClCompile Include="src\modules\ColourHeightmapRenderer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Modules\3Render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\ColourSetModule.cpp">
+      <Filter>Modules\3Render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\HeightmapOut.cpp">
+      <Filter>Modules\4Output</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\CSVOut.cpp">
+      <Filter>Modules\4Output</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\Pipeline.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\Module.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\Payload.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\core\PipelineStage.h">
@@ -66,47 +74,53 @@
     <ClInclude Include="src\MapBuilderCore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\payloads\Heightmap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\Canvas.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\core\PayloadFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\PerlinNoise.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\PerlinGen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\HeightmapOut.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\CSVOut.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\ElevationSlope.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\GradientSquare.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\APIExport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\payloads\ColourSetPayload.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\modules\Canvas.h">
+      <Filter>Modules\1Generation</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\ColourSetModule.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\modules\PerlinGen.h">
+      <Filter>Modules\1Generation</Filter>
     </ClInclude>
-    <ClInclude Include="src\payloads\ColouredHeightmap.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\modules\ElevationSlope.h">
+      <Filter>Modules\2Manipulation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\GradientSquare.h">
+      <Filter>Modules\2Manipulation</Filter>
     </ClInclude>
     <ClInclude Include="src\modules\ColourHeightmapRenderer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Modules\3Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\ColourSetModule.h">
+      <Filter>Modules\3Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\CSVOut.h">
+      <Filter>Modules\4Output</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\HeightmapOut.h">
+      <Filter>Modules\4Output</Filter>
+    </ClInclude>
+    <ClInclude Include="src\payloads\Heightmap.h">
+      <Filter>Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\payloads\ColourSetPayload.h">
+      <Filter>Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\payloads\ColouredHeightmap.h">
+      <Filter>Payloads</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Module.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Payload.h">
+      <Filter>Payloads</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
