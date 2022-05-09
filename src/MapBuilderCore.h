@@ -9,6 +9,7 @@
 // Payloads
 #include "payloads\Heightmap.h"
 #include "payloads\ColourSetPayload.h"
+#include "payloads\ColouredHeightmap.h"
 
 // Modules - Generation
 #include "modules\Canvas.h"
@@ -20,6 +21,7 @@
 
 // Modules - Render
 #include "modules\ColourSetModule.h"
+#include "modules\ColourHeightmapGenerator.h"
 
 // Modules - Output
 #include "modules\HeightmapOut.h"

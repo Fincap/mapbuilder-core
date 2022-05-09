@@ -46,6 +46,9 @@
     <ClCompile Include="src\modules\ColourSetModule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\modules\ColourHeightmapGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\Pipeline.h">
@@ -100,6 +103,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\payloads\ColouredHeightmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\ColourHeightmapGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
