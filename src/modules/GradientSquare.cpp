@@ -4,7 +4,7 @@ namespace mbc
 {
   GradientSquare::GradientSquare()
     : Module(PipelineStage::MANIPULATION),
-    fullness_(3.0), size_(2.2)
+    fullness(3.0), size(2.2)
   { }
 
   std::vector<std::type_index> GradientSquare::registerTypes(PayloadFactory& factory)
@@ -62,7 +62,7 @@ namespace mbc
         double value = std::max(abs(i), abs(j));
 
         // Apply curve to gradient
-        double gradient = pow(value, fullness_) / (pow(value, fullness_) + pow(size_ - size_ * value, fullness_));
+        double gradient = pow(value, fullness) / (pow(value, fullness) + pow(size - size * value, fullness));
 
         int index = (y * height) + x;
         points.at(index) = gradient;

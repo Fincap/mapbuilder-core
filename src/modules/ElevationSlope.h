@@ -15,8 +15,7 @@ namespace mbc
     std::vector<std::type_index> registerTypes(PayloadFactory&) override;
     bool processPayloads(PayloadTypeMap) override;
 
-  private:
     // Processing parameters
-    double slope_;
+    double slope;
   };
 }

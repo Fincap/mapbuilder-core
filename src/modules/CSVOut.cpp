@@ -4,7 +4,7 @@ namespace mbc
 {
   CSVOut::CSVOut()
     : Module(PipelineStage::OUTPUT),
-    outputFilepath_("../out/heightmap.csv")
+    outputFilepath("../out/heightmap.csv")
   { }
 
   std::vector<std::type_index> CSVOut::registerTypes(PayloadFactory& factory)
@@ -21,11 +21,11 @@ namespace mbc
     // Cast generic Payload pointer to Heightmap pointer
     std::shared_ptr<Heightmap> heightmapPtr = std::dynamic_pointer_cast<Heightmap>(payloadPtr);
 
-    std::cout << "Writing heightmap to file: " << outputFilepath_ << std::endl;
+    std::cout << "Writing heightmap to file: " << outputFilepath << std::endl;
 
     // Output heightmap to file
     std::ofstream outfile;
-    outfile.open(outputFilepath_, std::ios::trunc | std::ios::binary);
+    outfile.open(outputFilepath, std::ios::trunc | std::ios::binary);
 
     if (outfile.fail())
     {

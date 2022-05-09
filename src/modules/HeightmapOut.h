@@ -18,9 +18,8 @@ namespace mbc
     std::vector<std::type_index> registerTypes(PayloadFactory&) override;
     bool processPayloads(PayloadTypeMap) override;
 
-  private:
     // Processing parameters
-    const char* outputFilepath_;
+    const char* outputFilepath;
 
   };
 }

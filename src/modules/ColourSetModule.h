@@ -20,9 +20,8 @@ namespace mbc
     TypeIndexVector registerTypes(PayloadFactory&) override;
     bool processPayloads(PayloadTypeMap) override;
 
-  private:
     // Processing parameters
-    std::map<unsigned char, uint32_t>* colourRanges_;
+    std::map<unsigned char, uint32_t>* colourRanges;
 
   };
 }

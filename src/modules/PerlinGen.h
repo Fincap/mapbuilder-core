@@ -20,11 +20,10 @@ namespace mbc
     std::vector<std::type_index> registerTypes(PayloadFactory&) override;
     bool processPayloads(PayloadTypeMap) override;
 
-  private:
     // Processing parameters
-    uint32_t seed_;
-    double frequency_;
-    uint32_t octaves_;
+    uint32_t seed;
+    double frequency;
+    uint32_t octaves;
 
   };
 }

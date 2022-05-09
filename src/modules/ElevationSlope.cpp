@@ -3,7 +3,7 @@ namespace mbc
 {
   ElevationSlope::ElevationSlope()
     : Module(PipelineStage::MANIPULATION),
-    slope_(2.5)
+    slope(2.5)
   { }
 
   std::vector<std::type_index> ElevationSlope::registerTypes(PayloadFactory& factory)
@@ -25,7 +25,7 @@ namespace mbc
     for (int i = 0; i < heightmapSize; i++)
     {
       double point = heightmapPtr->points[i] / 255.;   // Convert height to fraction
-      double slopedPoint = pow(point, slope_);        // Apply slope to height fraction
+      double slopedPoint = pow(point, slope);        // Apply slope to height fraction
       unsigned char newPoint = slopedPoint * 255;     // Convert back to height
 
       heightmapPtr->points[i] = newPoint;

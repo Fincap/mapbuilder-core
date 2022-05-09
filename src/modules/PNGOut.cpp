@@ -4,7 +4,7 @@ namespace mbc
 {
   PNGOut::PNGOut()
     : Module(PipelineStage::OUTPUT),
-    outputFilepath_("../out/render.png")
+    outputFilepath("../out/render.png")
   { }
 
   std::vector<std::type_index> PNGOut::registerTypes(PayloadFactory& factory)
@@ -19,7 +19,7 @@ namespace mbc
       payloads[std::type_index(typeid(ColouredHeightmap))]
     );
 
-    std::cout << "Writing PNG to file: " << outputFilepath_ << std::endl;
+    std::cout << "Writing PNG to file: " << outputFilepath << std::endl;
 
     // Get width and height
     int width = heightmapPtr->width;
@@ -44,7 +44,7 @@ namespace mbc
       }
     }
 
-    image.write(outputFilepath_);
+    image.write(outputFilepath);
 
     std::cout << "PNG write complete" << std::endl;
 

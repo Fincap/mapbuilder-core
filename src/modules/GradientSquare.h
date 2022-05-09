@@ -17,10 +17,10 @@ namespace mbc
     std::vector<std::type_index> registerTypes(PayloadFactory&) override;
     bool processPayloads(PayloadTypeMap) override;
 
-  private:
     // Processing parameters
-    double fullness_, size_;
+    double fullness, size;
 
+  private:
     // Gradient generator method
     std::vector<double> generateGradient(int, int);
   };

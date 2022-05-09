@@ -14,7 +14,7 @@ namespace mbc
     * Peaks		  255	  200, 200, 200
     */
 
-    colourRanges_ = new std::map<unsigned char, uint32_t>{
+    colourRanges = new std::map<unsigned char, uint32_t>{
       {38,  0x0073aa},   // Sea level
       {102, 0x00460f},   // Grass
       {140, 0x808080},   // Hills
@@ -37,7 +37,7 @@ namespace mbc
     std::shared_ptr<ColourSetPayload> setPtr = std::dynamic_pointer_cast<ColourSetPayload>(payloadPtr);
 
     // Update colour set values to processing values
-    setPtr->colourRanges = *colourRanges_;
+    setPtr->colourRanges = *colourRanges;
 
     return true;
   }
