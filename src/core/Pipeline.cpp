@@ -23,7 +23,28 @@ namespace mbc
     {
       for (int module = 0; module < modules_[stage].size(); module++)
       {
+
+#ifdef _DEBUG
+        // Log the time for each payload to process
+        // Get time before
+        using namespace std::chrono;
+        auto timeBefore = high_resolution_clock::now();
+#endif
+
         modules_[stage][module]->processPayloads(*payloads_);
+
+#ifdef _DEBUG
+        // Get time after
+        using namespace std::chrono;
+        auto timeAfter = high_resolution_clock::now();
+
+        // Output timing
+        auto currentModule = modules_[stage][module];
+        std::cout << "MODULE " << currentModule->getModuleName() << " processing time: ";
+        std::cout << duration_cast<milliseconds>(timeAfter - timeBefore).count();
+        std::cout << "ms" << std::endl;
+#endif
+
       }
     }
 

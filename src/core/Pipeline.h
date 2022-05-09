@@ -1,6 +1,10 @@
 #pragma once
 #include "..\APIExport.h"
 
+#ifdef _DEBUG
+#include <chrono>
+#endif
+
 #include <vector>
 #include <typeindex>
 #include <memory>
