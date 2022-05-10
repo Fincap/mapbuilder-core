@@ -8,8 +8,6 @@
 
 namespace mbc
 {
-  using PayloadValues = std::unordered_map<std::string, std::any>;
-
   struct MAPBUILDER_API Payload
   {
     virtual ~Payload() = 0;
