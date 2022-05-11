@@ -1,5 +1,5 @@
 #pragma once
-#include "..\APIExport.h"
+#include "APIExport.h"
 
 #include <vector>
 #include <typeindex>

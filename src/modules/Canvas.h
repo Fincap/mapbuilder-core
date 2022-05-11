@@ -1,12 +1,12 @@
 #pragma once
-#include "..\APIExport.h"
+#include "APIExport.h"
 
 #include <vector>
 #include <typeindex>
 
-#include "..\core\Module.h"
-#include "..\core\PipelineStage.h"
-#include "..\payloads\Heightmap.h"
+#include "core\Module.h"
+#include "core\PipelineStage.h"
+#include "payloads\Heightmap.h"
 
 namespace mbc
 {

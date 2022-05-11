@@ -1,7 +1,7 @@
 #pragma once
 #include <map>
 
-#include "..\core\Payload.h"
+#include "core\Payload.h"
 
 namespace mbc
 {

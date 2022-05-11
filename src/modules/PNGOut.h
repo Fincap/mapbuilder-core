@@ -1,12 +1,12 @@
 #pragma once
-#include "..\APIExport.h"
+#include "APIExport.h"
 
 #include <iostream>
 
 #include <png++/png.hpp>
 
-#include "..\core\Module.h"
-#include "..\payloads\ColouredHeightmap.h"
+#include "core\Module.h"
+#include "payloads\ColouredHeightmap.h"
 
 namespace mbc
 {

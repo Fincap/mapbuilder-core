@@ -1,5 +1,5 @@
 #pragma once
-#include "..\APIExport.h"
+#include "APIExport.h"
 
 #ifdef _DEBUG
 #include <chrono>
