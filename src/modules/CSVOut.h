@@ -3,6 +3,8 @@
 
 #include <fstream>
 #include <iostream>
+#include <string>
+#include <charconv>
 
 #include "..\core\Module.h"
 #include "..\payloads\Heightmap.h"

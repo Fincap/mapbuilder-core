@@ -23,7 +23,33 @@ namespace mbc
 
     std::cout << "Writing heightmap to file: " << outputFilepath << std::endl;
 
-    // Output heightmap to file
+    // Get width and height from heightmap
+    int width = heightmapPtr->width;
+    int height = heightmapPtr->height;
+
+    // Create output string to be placed in fstream
+    std::string output;
+
+    // Create buffer to store height value as char
+    char* ptBuffer = new char[4];  // ['x', 'x', 'x', '\0']
+
+    // Insert each value to string buffer
+    for (int y = 0; y < height; y++)
+    {
+      for (int x = 0; x < width; x++)
+      {
+        // (x, y) to 1D index formula: (y * height) + x
+        uint8_t point = heightmapPtr->points[(y * height) + x];
+        memset(ptBuffer, '\0', 4); // Nil out buffer
+        std::to_chars(ptBuffer, ptBuffer + 3, point); // Point to cstring
+        output += ptBuffer;  // Append point cstring to output string
+        if (x < width - 1)
+          output += ',';
+      }
+      output += '\n';
+    }
+
+    // Open output file stream
     std::ofstream outfile;
     outfile.open(outputFilepath, std::ios::trunc | std::ios::binary);
 
@@ -33,25 +59,11 @@ namespace mbc
       return false;
     }
 
-    // Get width and height from heightmap
-    int width = heightmapPtr->width;
-    int height = heightmapPtr->height;
+    // Write buffer to file
+    outfile.write(output.c_str(), output.size());
 
-    // Output each line to csv
-    for (int y = 0; y < height; y++)
-    {
-      for (int x = 0; x < width; x++)
-      {
-        //(y * height) + x
-        outfile << +heightmapPtr->points[(y * height) + x];
-        if (x < width - 1)
-          outfile << ",";
-      }
-      outfile << std::endl;
-    }
-
+    // Close file
     outfile.close();
-
     std::cout << "CSV output completed" << std::endl;
 
     return true;
