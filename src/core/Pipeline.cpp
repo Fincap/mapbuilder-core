@@ -39,10 +39,10 @@ namespace mbc
         auto timeAfter = high_resolution_clock::now();
 
         // Output timing
-        auto currentModule = modules_[stage][module];
-        std::cout << "MODULE " << currentModule->getModuleName() << " processing time: ";
-        std::cout << duration_cast<milliseconds>(timeAfter - timeBefore).count();
-        std::cout << "ms" << std::endl;
+        auto& currentModule = modules_[stage][module];
+        std::clog << "MODULE " << currentModule->getModuleName() << " processing time: ";
+        std::clog << duration_cast<milliseconds>(timeAfter - timeBefore).count();
+        std::clog << "ms" << std::endl;
 #endif
 
       }
