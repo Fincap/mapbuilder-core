@@ -18,35 +18,34 @@ namespace mbc
 
   bool Pipeline::execute()
   {
+    // Log total execution time
+    using namespace std::chrono;
+    long long totalElapsed = 0;
     
     for (int stage = 0; stage < NUM_STAGES; stage++)
     {
       for (int module = 0; module < modules_[stage].size(); module++)
       {
-
-#ifdef _DEBUG
         // Log the time for each payload to process
         // Get time before
-        using namespace std::chrono;
         auto timeBefore = high_resolution_clock::now();
-#endif
 
         modules_[stage][module]->processPayloads(*payloads_);
 
-#ifdef _DEBUG
-        // Get time after
-        using namespace std::chrono;
+        // Output time after
         auto timeAfter = high_resolution_clock::now();
-
-        // Output timing
         auto& currentModule = modules_[stage][module];
+        auto timeDiff = duration_cast<milliseconds>(timeAfter - timeBefore).count();
+        totalElapsed += timeDiff;
+
         std::clog << "MODULE " << currentModule->getModuleName() << " processing time: ";
-        std::clog << duration_cast<milliseconds>(timeAfter - timeBefore).count();
+        std::clog << timeDiff;
         std::clog << "ms" << std::endl;
-#endif
 
       }
     }
+
+    std::clog << "Total execution time: " << totalElapsed << "ms" << std::endl;
 
     return true;
   }
