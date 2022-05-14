@@ -180,8 +180,10 @@
     <ClCompile Include="src\modules\Canvas.cpp" />
     <ClCompile Include="src\core\Pipeline.cpp" />
     <ClCompile Include="src\modules\PNGOut.cpp" />
+    <ClCompile Include="src\modules\BMP8Out.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\modules\BMP8Out.h" />
     <ClInclude Include="src\APIExport.h" />
     <ClInclude Include="src\modules\ColourHeightmapRenderer.h" />
     <ClInclude Include="src\modules\PNGOut.h" />

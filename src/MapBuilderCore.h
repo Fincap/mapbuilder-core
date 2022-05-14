@@ -27,3 +27,4 @@
 #include "modules\HeightmapOut.h"
 #include "modules\CSVOut.h"
 #include "modules\PNGOut.h"
+#include "modules\BMP8Out.h"
