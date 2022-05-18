@@ -105,6 +105,7 @@
     <ClCompile Include="src\core\Pipeline.cpp" />
     <ClCompile Include="src\modules\PNGOut.cpp" />
     <ClCompile Include="src\modules\BMP8Out.cpp" />
+    <ClCompile Include="src\util\OutputValidation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\modules\BMP8Out.h" />

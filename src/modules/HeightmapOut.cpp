@@ -4,7 +4,7 @@ namespace mbc
 {
   HeightmapOut::HeightmapOut()
     : Module(PipelineStage::OUTPUT, "heightmap_out"),
-    outputFilepath("../out/heightmap.hmp")
+    outputFilepath("out/")
   { }
 
   std::vector<std::type_index> HeightmapOut::registerTypes(PayloadFactory& factory)
@@ -23,9 +23,13 @@ namespace mbc
 
     std::cout << "Writing heightmap to file: " << outputFilepath << std::endl;
 
+    // Output filepath validation.
+    std::filesystem::path path{ outputFilepath };
+    util::validateOutputFilepath(path, "heightmap.hmp");
+
     // Output heightmap to file
     std::ofstream outfile;
-    outfile.open(outputFilepath, std::ios::trunc | std::ios::binary);
+    outfile.open(path, std::ios::trunc | std::ios::binary);
 
     if (outfile.fail())
     {

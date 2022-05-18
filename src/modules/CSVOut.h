@@ -5,9 +5,11 @@
 #include <iostream>
 #include <string>
 #include <charconv>
+#include <filesystem>
 
 #include "core\Module.h"
 #include "payloads\Heightmap.h"
+#include "util\OutputValidation.h"
 
 namespace mbc
 {

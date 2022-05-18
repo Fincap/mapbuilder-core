@@ -2,11 +2,13 @@
 #include "APIExport.h"
 
 #include <iostream>
+#include <filesystem>
 
-#include <png++/png.hpp>
+#include <png++\png.hpp>
 
 #include "core\Module.h"
 #include "payloads\ColouredHeightmap.h"
+#include "util\OutputValidation.h"
 
 namespace mbc
 {

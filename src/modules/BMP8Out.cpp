@@ -4,7 +4,7 @@ namespace mbc
 {
   BMP8Out::BMP8Out()
     : Module(PipelineStage::OUTPUT, "bmp8_out"),
-    outputFilepath("../out/heightmap.bmp")
+    outputFilepath("out/heightmap.bmp")
   { }
 
   std::vector<std::type_index> BMP8Out::registerTypes(PayloadFactory& factory)
@@ -81,9 +81,13 @@ namespace mbc
       bmpColorTable[i * 4 + 2] = (unsigned char)i;  // R
     }  // Remaining byte is reserved and remains as 0
 
+    // Output filepath validation.
+    std::filesystem::path path{ outputFilepath };
+    util::validateOutputFilepath(path, "heightmap.bmp");
+
     // Open output file
     std::ofstream outfile;
-    outfile.open(outputFilepath, std::ios::trunc | std::ios::binary);
+    outfile.open(path, std::ios::trunc | std::ios::binary);
 
     if (outfile.fail())
     {

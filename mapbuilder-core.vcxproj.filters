@@ -65,6 +65,9 @@
     <ClCompile Include="src\modules\BMP8Out.cpp">
       <Filter>Modules\4Output</Filter>
     </ClCompile>
+    <ClCompile Include="src\util\OutputValidation.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\Pipeline.h">

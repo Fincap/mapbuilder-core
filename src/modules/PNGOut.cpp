@@ -4,7 +4,7 @@ namespace mbc
 {
   PNGOut::PNGOut()
     : Module(PipelineStage::OUTPUT, "png_out"),
-    outputFilepath("../out/render.png")
+    outputFilepath("out")
   { }
 
   std::vector<std::type_index> PNGOut::registerTypes(PayloadFactory& factory)
@@ -44,7 +44,12 @@ namespace mbc
       }
     }
 
-    image.write(outputFilepath);
+    // Output filepath validation.
+    std::filesystem::path path{ outputFilepath };
+    util::validateOutputFilepath(path, "render.png");
+
+    // Finally write PNG output to file.
+    image.write(path.string());
 
     std::cout << "PNG write complete" << std::endl;
 

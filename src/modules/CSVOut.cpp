@@ -4,7 +4,7 @@ namespace mbc
 {
   CSVOut::CSVOut()
     : Module(PipelineStage::OUTPUT, "csv_out"),
-    outputFilepath("../out/heightmap.csv")
+    outputFilepath("out/heightmap.csv")
   { }
 
   std::vector<std::type_index> CSVOut::registerTypes(PayloadFactory& factory)
@@ -49,9 +49,13 @@ namespace mbc
       output += '\n';
     }
 
+    // Output filepath validation.
+    std::filesystem::path path{ outputFilepath };
+    util::validateOutputFilepath(path, "heightmap.csv");
+
     // Open output file stream
     std::ofstream outfile;
-    outfile.open(outputFilepath, std::ios::trunc | std::ios::binary);
+    outfile.open(path, std::ios::trunc | std::ios::binary);
 
     if (outfile.fail())
     {
