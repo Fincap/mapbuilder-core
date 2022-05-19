@@ -39,6 +39,8 @@ namespace mbc
     Returns true if Module was successfully added to Pipeline. */
     bool addModule(Module::Ptr);
 
+
+
   private:
     /* Array of vectors containing Modules in their respective stages. There is
     a vector for each Pipeline Stage, and each vector contains the Pipeline's
