@@ -9,12 +9,14 @@ namespace mbc
     payloads_ = new PayloadTypeMap();
   }
 
+
   Pipeline::~Pipeline()
   {
     delete[] modules_;
     delete payloadFactory_;
     delete payloads_;
   }
+
 
   bool Pipeline::execute()
   {
@@ -50,6 +52,7 @@ namespace mbc
     return true;
   }
 
+
   bool Pipeline::addModule(Module::Ptr newModule)
   {
     /*
@@ -79,5 +82,18 @@ namespace mbc
     }
 
     return true;
+  }
+
+
+  void mbc::Pipeline::clear()
+  {
+    // Clear modules list.
+    for (int i = 0; i < NUM_STAGES; i++)
+    {
+      modules_[i].clear();
+    }
+
+    // Clear payloads list.
+    payloads_->clear();
   }
 }

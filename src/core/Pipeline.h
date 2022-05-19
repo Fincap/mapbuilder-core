@@ -39,7 +39,8 @@ namespace mbc
     Returns true if Module was successfully added to Pipeline. */
     bool addModule(Module::Ptr);
 
-
+    /* Clears the Pipeline's list of Modules. */
+    void clear();
 
   private:
     /* Array of vectors containing Modules in their respective stages. There is
