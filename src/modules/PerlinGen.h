@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <typeindex>
+#include <future>
 
 #include "PerlinNoise.h"
 
@@ -25,6 +26,11 @@ namespace mbc
     uint32_t seed;
     double frequency;
     uint32_t octaves;
-
   };
+
+  /* Function to be called asynchronously to compute the 2D perlin grid in
+    parallel. */
+  void computePerlinGrid(unsigned char* begin, unsigned char* end,
+    const double& fx, const double& fy, const uint32_t& oct,
+    const int& startIndex, const int& width, const uint32_t& seed);
 }
