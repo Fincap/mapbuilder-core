@@ -8,6 +8,7 @@
 #include "core\Module.h"
 #include "core\PipelineStage.h"
 #include "payloads\ColourSetPayload.h"
+#include "util\ModuleHelpers.h"
 
 namespace mbc
 {

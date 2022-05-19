@@ -13,19 +13,13 @@ namespace mbc
   bool ColourHeightmapRenderer::processPayloads(PayloadTypeMap payloads)
   {
     // Get Heightmap payload
-    auto heightmapPtr = std::dynamic_pointer_cast<Heightmap>(
-      payloads[std::type_index(typeid(Heightmap))]
-    );
+    auto heightmapPtr = util::getPtrToPayload<Heightmap>(payloads);
 
     // Get ColouredHeightmap payload
-    auto colouredHeightmapPtr = std::dynamic_pointer_cast<ColouredHeightmap>(
-      payloads[std::type_index(typeid(ColouredHeightmap))]
-    );
+    auto colouredHeightmapPtr = util::getPtrToPayload<ColouredHeightmap>(payloads);
 
     // Get ColourSet payload
-    auto colourSetPtr = std::dynamic_pointer_cast<ColourSetPayload>(
-      payloads[std::type_index(typeid(ColourSetPayload))]
-    );
+    auto colourSetPtr = util::getPtrToPayload<ColourSetPayload>(payloads);
 
     // Get width and height from heightmap
     int width = heightmapPtr->width;

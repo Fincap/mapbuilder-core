@@ -9,6 +9,7 @@
 #include "core\Module.h"
 #include "payloads\ColouredHeightmap.h"
 #include "util\OutputValidation.h"
+#include "util\ModuleHelpers.h"
 
 namespace mbc
 {

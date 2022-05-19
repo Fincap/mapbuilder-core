@@ -10,6 +10,7 @@
 #include "payloads\ColourSetPayload.h"
 #include "payloads\ColouredHeightmap.h"
 #include "payloads\Heightmap.h"
+#include "util\ModuleHelpers.h"
 
 namespace mbc
 {

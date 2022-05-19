@@ -15,10 +15,7 @@ namespace mbc
   {
 
     // Get Heightmap payload
-    Payload::Ptr payloadPtr = payloads[std::type_index(typeid(Heightmap))];
-
-    // Cast generic Payload pointer to Heightmap pointer
-    auto heightmapPtr = std::dynamic_pointer_cast<Heightmap>(payloadPtr);
+    auto heightmapPtr = util::getPtrToPayload<Heightmap>(payloads);
 
     // Apply slope to every point in heightmap
     int heightmapSize = heightmapPtr->width * heightmapPtr->height;

@@ -8,6 +8,7 @@
 
 #include "core\Module.h"
 #include "payloads\Heightmap.h"
+#include "util\ModuleHelpers.h"
 
 namespace mbc
 {

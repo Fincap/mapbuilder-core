@@ -31,10 +31,7 @@ namespace mbc
   {
 
     // Get Colour set payload
-    Payload::Ptr payloadPtr = payloads[std::type_index(typeid(ColourSetPayload))];
-
-    // Cast generic Payload pointer to Colour set pointer
-    auto setPtr = std::dynamic_pointer_cast<ColourSetPayload>(payloadPtr);
+    auto setPtr = util::getPtrToPayload<ColourSetPayload>(payloads);
 
     // Update colour set values to processing values
     setPtr->colourRanges = *colourRanges;

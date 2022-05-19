@@ -15,9 +15,7 @@ namespace mbc
   bool PNGOut::processPayloads(PayloadTypeMap payloads)
   {
     // Get coloured heightmap pointer
-    auto heightmapPtr = std::dynamic_pointer_cast<ColouredHeightmap>(
-      payloads[std::type_index(typeid(ColouredHeightmap))]
-    );
+    auto heightmapPtr = util::getPtrToPayload<ColouredHeightmap>(payloads);
 
     std::cout << "Writing PNG to file: " << outputFilepath << std::endl;
 
