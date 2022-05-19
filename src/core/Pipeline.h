@@ -35,7 +35,8 @@ namespace mbc
     /* Adds a new shared_ptr to to the Pipeline's list of Modules, grouped by
     the appropriate PipelineStage. If a Module utilizes a payload that is not
     in the Pipeline's current list of Payloads, it will be registered to the
-    list. */
+    list.
+    Returns true if Module was successfully added to Pipeline. */
     bool addModule(Module::Ptr);
 
   private:
