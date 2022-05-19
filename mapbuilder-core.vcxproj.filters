@@ -133,5 +133,8 @@
     <ClInclude Include="src\modules\BMP8Out.h">
       <Filter>Modules\4Output</Filter>
     </ClInclude>
+    <ClInclude Include="src\util\ModuleHelpers.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
