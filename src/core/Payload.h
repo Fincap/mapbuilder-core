@@ -11,13 +11,15 @@ namespace mbc
   struct MAPBUILDER_API Payload
   {
     virtual ~Payload() = 0;
+
+    // Convenience typing - shared_ptr to Payload.
+    using Ptr = std::shared_ptr<Payload>;
   };
 
   // Inline definition required as a derived class will call the destructor of its base class.
   inline Payload::~Payload() {}
 
-  // Convenience typing
-  using PayloadPtr = std::shared_ptr<Payload>;
-  using PayloadTypeMap = std::unordered_map<std::type_index, PayloadPtr>;\
+  // Convenience typing - Unordered map of <type_index, shared_ptr to Payload>.
+  using PayloadTypeMap = std::unordered_map<std::type_index, Payload::Ptr>;
 
 }

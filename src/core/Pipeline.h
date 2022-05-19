@@ -24,10 +24,10 @@ namespace mbc
     ~Pipeline();
 
     bool execute();
-    bool addModule(ModulePtr);
+    bool addModule(Module::Ptr);
 
   private:
-    std::vector<ModulePtr>* modules_;
+    std::vector<Module::Ptr>* modules_;
 
     PayloadFactory* payloadFactory_;
 

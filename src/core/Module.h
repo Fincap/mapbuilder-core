@@ -28,6 +28,9 @@ namespace mbc
     virtual PipelineStage getPipelineStage() final;
     virtual const char* getModuleName() final;
 
+    // Convenience typing - shared_ptr to Module.
+    using Ptr = std::shared_ptr<Module>;
+
   protected:
     const PipelineStage PIPELINE_STAGE;
     const char* MODULE_NAME;
@@ -82,8 +85,5 @@ namespace mbc
       typeList.push_back(std::type_index(typeid(T)));
     }
   }
-
-  // Convenience typing - post-class declaration
-  using ModulePtr = std::shared_ptr<Module>;
 
 }

@@ -11,14 +11,14 @@ namespace mbc
   class PayloadFactory
   {
   public:
-    // Convenience typing
-    using PayloadCreatePtr = PayloadPtr(*)();
+    // Convenience typing - function ptr that returns shared_ptr to Payload.
+    using PayloadCreatePtr = Payload::Ptr(*)();
 
     template <typename T>
     void registerPayload();   
 
     // Returns pointer to a new instance of Payload from type_index
-    PayloadPtr createPayload(std::type_index);
+    Payload::Ptr createPayload(std::type_index);
 
     // hasPayload can be used as templated function or with type_index
     template <typename T>
@@ -39,7 +39,7 @@ namespace mbc
     // Map key is set to the type_index of the registered payload class
     // Map value is a lambda function that returns a shared pointer to
     // a new instance of the payload class T.
-    payloads_[std::type_index(typeid(T))] = []() -> PayloadPtr
+    payloads_[std::type_index(typeid(T))] = []() -> Payload::Ptr
     { return std::make_shared<T>(); };
   }
 

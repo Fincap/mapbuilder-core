@@ -2,7 +2,7 @@
 
 namespace mbc
 {
-  PayloadPtr PayloadFactory::createPayload(std::type_index typeIndex)
+  Payload::Ptr PayloadFactory::createPayload(std::type_index typeIndex)
   {
     // Return nullptr if payload type not registered
     if (!hasPayload(typeIndex))

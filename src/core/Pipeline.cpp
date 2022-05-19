@@ -4,7 +4,7 @@ namespace mbc
 {
   Pipeline::Pipeline()
   {
-    modules_ = new std::vector<ModulePtr>[NUM_STAGES];
+    modules_ = new std::vector<Module::Ptr>[NUM_STAGES];
     payloadFactory_ = new PayloadFactory();
     payloads_ = new PayloadTypeMap();
   }
@@ -50,7 +50,7 @@ namespace mbc
     return true;
   }
 
-  bool Pipeline::addModule(ModulePtr newModule)
+  bool Pipeline::addModule(Module::Ptr newModule)
   {
     /*
     1. Check generation stage of module and add to appropriate list.

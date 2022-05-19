@@ -15,10 +15,10 @@ namespace mbc
   bool BMP8Out::processPayloads(PayloadTypeMap payloads)
   {
     // Get Heightmap payload
-    PayloadPtr payloadPtr = payloads[std::type_index(typeid(Heightmap))];
+    Payload::Ptr payloadPtr = payloads[std::type_index(typeid(Heightmap))];
 
     // Cast generic Payload pointer to Heightmap pointer
-    std::shared_ptr<Heightmap> heightmapPtr = std::dynamic_pointer_cast<Heightmap>(payloadPtr);
+    auto heightmapPtr = std::dynamic_pointer_cast<Heightmap>(payloadPtr);
 
     std::cout << "Writing heightmap to file: " << outputFilepath << std::endl;
 
