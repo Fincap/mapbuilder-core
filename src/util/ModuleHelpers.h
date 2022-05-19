@@ -18,7 +18,7 @@ namespace mbc::util
     static_assert(std::is_convertible<T*, Payload*>::value, "Type must publicly inherit Payload");
 
     // Create generic pointer to the payload within the payloads map
-    auto payload = payloads[std::type_index(typeid(T))];
+    auto payload = payloads.at(std::type_index(typeid(T)));
 
     // Cast generic pointer to type T and return
     return std::dynamic_pointer_cast<T>(payload);
