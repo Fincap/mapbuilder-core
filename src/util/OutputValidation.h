@@ -1,6 +1,4 @@
 #pragma once
-#include "APIExport.h"
-
 #include <filesystem>
 #include <string>
 
