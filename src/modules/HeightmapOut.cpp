@@ -3,9 +3,10 @@
 namespace mbc
 {
   HeightmapOut::HeightmapOut()
-    : Module(PipelineStage::OUTPUT, "heightmap_out"),
-    outputFilepath("out/")
-  { }
+    : Module(PipelineStage::OUTPUT, "heightmap_out")
+  {
+    outputFilepath = new char[256]{ "out/outmap.hmp" };
+  }
 
   std::vector<std::type_index> HeightmapOut::registerTypes(PayloadFactory& factory)
   {

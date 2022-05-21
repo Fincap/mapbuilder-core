@@ -24,6 +24,6 @@ namespace mbc
     bool processPayloads(PayloadTypeMap) override;
 
     // Processing parameters
-    const char* outputFilepath;
+    char* outputFilepath;
   };
 }

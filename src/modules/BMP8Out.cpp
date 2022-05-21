@@ -3,9 +3,10 @@
 namespace mbc
 {
   BMP8Out::BMP8Out()
-    : Module(PipelineStage::OUTPUT, "bmp8_out"),
-    outputFilepath("out/heightmap.bmp")
-  { }
+    : Module(PipelineStage::OUTPUT, "bmp8_out")
+  {
+    outputFilepath = new char[256]{ "out/heightmap.bmp" };
+  }
 
   std::vector<std::type_index> BMP8Out::registerTypes(PayloadFactory& factory)
   {

@@ -3,9 +3,10 @@
 namespace mbc
 {
   CSVOut::CSVOut()
-    : Module(PipelineStage::OUTPUT, "csv_out"),
-    outputFilepath("out/heightmap.csv")
-  { }
+    : Module(PipelineStage::OUTPUT, "csv_out")
+  {
+    outputFilepath = new char[256]{ "out/heightmap.csv" };
+  }
 
   std::vector<std::type_index> CSVOut::registerTypes(PayloadFactory& factory)
   {

@@ -3,9 +3,10 @@
 namespace mbc
 {
   PNGOut::PNGOut()
-    : Module(PipelineStage::OUTPUT, "png_out"),
-    outputFilepath("out")
-  { }
+    : Module(PipelineStage::OUTPUT, "png_out")
+  {
+    outputFilepath = new char[256]{ "out/heightmap.png" };
+  }
 
   std::vector<std::type_index> PNGOut::registerTypes(PayloadFactory& factory)
   {
