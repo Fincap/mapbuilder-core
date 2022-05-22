@@ -2,7 +2,7 @@
 
 namespace mbc
 {
-  Payload::Ptr PayloadFactory::createPayload(std::type_index typeIndex)
+  Payload::Ptr PayloadFactory::createPayload(const std::type_index& typeIndex)
   {
     // Return nullptr if payload type not registered
     if (!hasPayload(typeIndex))
@@ -13,7 +13,7 @@ namespace mbc
     return payloads_[typeIndex]();
   }
 
-  bool PayloadFactory::hasPayload(std::type_index typeIndex)
+  bool PayloadFactory::hasPayload(const std::type_index& typeIndex)
   {
     return payloads_.count(typeIndex) != 0;
   }

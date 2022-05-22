@@ -18,13 +18,13 @@ namespace mbc
     void registerPayload();   
 
     // Returns pointer to a new instance of Payload from type_index
-    Payload::Ptr createPayload(std::type_index);
+    Payload::Ptr createPayload(const std::type_index&);
 
     // hasPayload can be used as templated function or with type_index
     template <typename T>
     bool hasPayload();
 
-    bool hasPayload(std::type_index);
+    bool hasPayload(const std::type_index&);
 
   private:
     std::unordered_map<std::type_index, PayloadCreatePtr> payloads_;
