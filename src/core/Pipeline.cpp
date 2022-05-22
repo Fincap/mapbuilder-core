@@ -47,7 +47,7 @@ namespace mbc
       }
     }
 
-    std::clog << "Total execution time: " << totalElapsed << "ms" << std::endl;
+    std::cout << "Total execution time: " << totalElapsed << "ms" << std::endl;
 
     return true;
   }
