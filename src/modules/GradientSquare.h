@@ -15,7 +15,7 @@ namespace mbc
     GradientSquare();
 
     // Inherit from base class - must be implemented
-    std::vector<std::type_index> registerTypes(PayloadFactory&) override;
+    TypeIndexVector registerTypes(PayloadFactory&) override;
     bool processPayloads(const PayloadTypeMap&) override;
 
     // Processing parameters

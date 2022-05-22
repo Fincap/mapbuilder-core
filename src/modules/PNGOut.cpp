@@ -8,7 +8,7 @@ namespace mbc
     outputFilepath = new char[256]{ "out/heightmap.png" };
   }
 
-  std::vector<std::type_index> PNGOut::registerTypes(PayloadFactory& factory)
+  TypeIndexVector PNGOut::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<ColouredHeightmap>(factory);
   }

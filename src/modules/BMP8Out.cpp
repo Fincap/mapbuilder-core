@@ -8,7 +8,7 @@ namespace mbc
     outputFilepath = new char[256]{ "out/heightmap.bmp" };
   }
 
-  std::vector<std::type_index> BMP8Out::registerTypes(PayloadFactory& factory)
+  TypeIndexVector BMP8Out::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);
   }

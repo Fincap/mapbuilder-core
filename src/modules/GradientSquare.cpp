@@ -7,7 +7,7 @@ namespace mbc
     fullness(3.0), size(2.2)
   { }
 
-  std::vector<std::type_index> GradientSquare::registerTypes(PayloadFactory& factory)
+  TypeIndexVector GradientSquare::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);
   }

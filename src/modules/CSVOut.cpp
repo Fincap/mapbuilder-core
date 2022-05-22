@@ -8,7 +8,7 @@ namespace mbc
     outputFilepath = new char[256]{ "out/heightmap.csv" };
   }
 
-  std::vector<std::type_index> CSVOut::registerTypes(PayloadFactory& factory)
+  TypeIndexVector CSVOut::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);
   }

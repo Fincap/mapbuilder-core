@@ -8,7 +8,7 @@ namespace mbc
     outputFilepath = new char[256]{ "out/outmap.hmp" };
   }
 
-  std::vector<std::type_index> HeightmapOut::registerTypes(PayloadFactory& factory)
+  TypeIndexVector HeightmapOut::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);
   }

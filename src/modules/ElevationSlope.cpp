@@ -6,7 +6,7 @@ namespace mbc
     slope(2.5)
   { }
 
-  std::vector<std::type_index> ElevationSlope::registerTypes(PayloadFactory& factory)
+  TypeIndexVector ElevationSlope::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);
   }

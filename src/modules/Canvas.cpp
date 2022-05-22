@@ -7,7 +7,7 @@ namespace mbc
     width(64), height(64)
   { }
 
-  std::vector<std::type_index> Canvas::registerTypes(PayloadFactory& factory)
+  TypeIndexVector Canvas::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);
   }

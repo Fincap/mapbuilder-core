@@ -6,7 +6,7 @@ namespace mbc
     seed(12345), frequency(4.0), octaves(6)
   { }
 
-  std::vector<std::type_index> PerlinGen::registerTypes(PayloadFactory& factory)
+  TypeIndexVector PerlinGen::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);
   }
