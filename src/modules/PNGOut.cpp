@@ -13,7 +13,7 @@ namespace mbc
     return registerWithFactory<ColouredHeightmap>(factory);
   }
 
-  bool PNGOut::processPayloads(PayloadTypeMap payloads)
+  bool PNGOut::processPayloads(const PayloadTypeMap& payloads)
   {
     // Get coloured heightmap pointer
     auto heightmapPtr = util::getPtrToPayload<ColouredHeightmap>(payloads);

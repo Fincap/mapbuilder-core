@@ -12,7 +12,7 @@ namespace mbc
     return registerWithFactory<Heightmap>(factory);
   }
 
-  bool Canvas::processPayloads(PayloadTypeMap payloads)
+  bool Canvas::processPayloads(const PayloadTypeMap& payloads)
   {
     
     // Get Heightmap payload

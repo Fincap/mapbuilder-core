@@ -11,7 +11,7 @@ namespace mbc
     return registerWithFactory<Heightmap>(factory);
   }
 
-  bool PerlinGen::processPayloads(PayloadTypeMap payloads)
+  bool PerlinGen::processPayloads(const PayloadTypeMap& payloads)
   {
 
     // Get Heightmap payload

@@ -16,7 +16,7 @@ namespace mbc
 
     // Inherit from base class - must be implemented
     std::vector<std::type_index> registerTypes(PayloadFactory&) override;
-    bool processPayloads(PayloadTypeMap) override;
+    bool processPayloads(const PayloadTypeMap&) override;
 
     // Processing parameters
     double fullness, size;

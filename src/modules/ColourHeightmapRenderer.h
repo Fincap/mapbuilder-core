@@ -23,7 +23,7 @@ namespace mbc
 
     // Inherit from base class - must be implemented
     TypeIndexVector registerTypes(PayloadFactory&) override;
-    bool processPayloads(PayloadTypeMap) override;
+    bool processPayloads(const PayloadTypeMap&) override;
 
   };
 }

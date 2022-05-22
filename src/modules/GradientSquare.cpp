@@ -12,7 +12,7 @@ namespace mbc
     return registerWithFactory<Heightmap>(factory);
   }
 
-  bool GradientSquare::processPayloads(PayloadTypeMap payloads)
+  bool GradientSquare::processPayloads(const PayloadTypeMap& payloads)
   {
 
     // Get Heightmap payload

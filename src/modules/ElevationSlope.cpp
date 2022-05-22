@@ -11,7 +11,7 @@ namespace mbc
     return registerWithFactory<Heightmap>(factory);
   }
 
-  bool ElevationSlope::processPayloads(PayloadTypeMap payloads)
+  bool ElevationSlope::processPayloads(const PayloadTypeMap& payloads)
   {
 
     // Get Heightmap payload

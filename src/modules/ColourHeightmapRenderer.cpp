@@ -10,7 +10,7 @@ namespace mbc
     return registerWithFactory<Heightmap, ColouredHeightmap, ColourSetPayload>(factory);
   }
 
-  bool ColourHeightmapRenderer::processPayloads(PayloadTypeMap payloads)
+  bool ColourHeightmapRenderer::processPayloads(const PayloadTypeMap& payloads)
   {
     // Get Heightmap payload
     auto heightmapPtr = util::getPtrToPayload<Heightmap>(payloads);

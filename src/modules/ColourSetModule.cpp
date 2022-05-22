@@ -27,7 +27,7 @@ namespace mbc
     return registerWithFactory<ColourSetPayload>(factory);
   }
 
-  bool ColourSetModule::processPayloads(PayloadTypeMap payloads)
+  bool ColourSetModule::processPayloads(const PayloadTypeMap& payloads)
   {
 
     // Get Colour set payload

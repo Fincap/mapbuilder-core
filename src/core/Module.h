@@ -23,7 +23,7 @@ namespace mbc
     // any types that were newly registered so they can be instantiated.
     virtual TypeIndexVector registerTypes(PayloadFactory&) = 0;
 
-    virtual bool processPayloads(PayloadTypeMap) = 0;
+    virtual bool processPayloads(const PayloadTypeMap&) = 0;
 
     virtual PipelineStage getPipelineStage() final;
     virtual const char* getModuleName() final;

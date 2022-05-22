@@ -19,7 +19,7 @@ namespace mbc
 
     // Inherit from base class - must be implemented
     TypeIndexVector registerTypes(PayloadFactory&) override;
-    bool processPayloads(PayloadTypeMap) override;
+    bool processPayloads(const PayloadTypeMap&) override;
 
     // Processing parameters
     std::map<unsigned char, uint32_t>* colourRanges;
