@@ -4,7 +4,7 @@ namespace mbc
 {
   Pipeline::Pipeline()
   {
-    modules_ = new std::vector<Module::Ptr>[NUM_STAGES];
+    modules_ = new std::vector<Module::Ptr>[MBC_NUM_STAGES];
     payloadFactory_ = new PayloadFactory();
     payloads_ = new PayloadTypeMap();
   }
@@ -24,7 +24,7 @@ namespace mbc
     using namespace std::chrono;
     long long totalElapsed = 0;
     
-    for (int stage = 0; stage < NUM_STAGES; stage++)
+    for (int stage = 0; stage < MBC_NUM_STAGES; stage++)
     {
       for (int module = 0; module < modules_[stage].size(); module++)
       {
@@ -64,7 +64,7 @@ namespace mbc
     int newModuleStage = (int) newModule->getPipelineStage();
 
     // Register module to modules list
-    if (newModuleStage < 0 || newModuleStage >= NUM_STAGES)
+    if (newModuleStage < 0 || newModuleStage >= MBC_NUM_STAGES)
     {
       std::cerr << "Invalid PipelineStage for " << std::type_index(typeid(newModule)).name() << std::endl;
       return false;
@@ -88,7 +88,7 @@ namespace mbc
   void mbc::Pipeline::clear()
   {
     // Clear modules list.
-    for (int i = 0; i < NUM_STAGES; i++)
+    for (int i = 0; i < MBC_NUM_STAGES; i++)
     {
       modules_[i].clear();
     }
