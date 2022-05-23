@@ -40,6 +40,11 @@ namespace mbc
     Returns true if Module was successfully added to Pipeline. */
     bool addModule(Module::Ptr);
 
+    /* Adds a shared_ptr to a Payload to the Pipeline's list of Payloads. This
+    will overwrite any existing Payload of the given type, or provide a
+    baseline Payload for module processing.*/
+    void setPayload(Payload::Ptr);
+
     /* Clears the Pipeline's list of Modules. */
     void clear();
 

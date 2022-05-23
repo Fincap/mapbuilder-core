@@ -80,6 +80,12 @@ namespace mbc
   }
 
 
+  void mbc::Pipeline::setPayload(Payload::Ptr payload)
+  {
+    (*payloads_)[std::type_index(typeid(payload))] = payload;
+  }
+
+
   void mbc::Pipeline::clear()
   {
     modules_->clear();
