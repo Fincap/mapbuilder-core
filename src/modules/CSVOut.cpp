@@ -5,7 +5,7 @@ namespace mbc
   CSVOut::CSVOut()
     : Module(PipelineStage::OUTPUT, "csv_out")
   {
-    outputFilepath = new char[256]{ "out/heightmap.csv" };
+    outputFilepath = new char[MBC_MAX_PATH]{ "out/heightmap.csv" };
   }
 
   TypeIndexVector CSVOut::registerTypes(PayloadFactory& factory)

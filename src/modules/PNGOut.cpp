@@ -5,7 +5,7 @@ namespace mbc
   PNGOut::PNGOut()
     : Module(PipelineStage::OUTPUT, "png_out")
   {
-    outputFilepath = new char[256]{ "out/heightmap.png" };
+    outputFilepath = new char[MBC_MAX_PATH]{ "out/heightmap.png" };
   }
 
   TypeIndexVector PNGOut::registerTypes(PayloadFactory& factory)

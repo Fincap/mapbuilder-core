@@ -5,7 +5,7 @@ namespace mbc
   HeightmapOut::HeightmapOut()
     : Module(PipelineStage::OUTPUT, "heightmap_out")
   {
-    outputFilepath = new char[256]{ "out/outmap.hmp" };
+    outputFilepath = new char[MBC_MAX_PATH]{ "out/outmap.hmp" };
   }
 
   TypeIndexVector HeightmapOut::registerTypes(PayloadFactory& factory)

@@ -4,3 +4,5 @@
 #else
 #define MAPBUILDER_API __declspec(dllimport)
 #endif
+
+#define MBC_MAX_PATH 260

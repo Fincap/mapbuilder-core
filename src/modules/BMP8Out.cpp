@@ -5,7 +5,7 @@ namespace mbc
   BMP8Out::BMP8Out()
     : Module(PipelineStage::OUTPUT, "bmp8_out")
   {
-    outputFilepath = new char[256]{ "out/heightmap.bmp" };
+    outputFilepath = new char[MBC_MAX_PATH]{ "out/heightmap.bmp" };
   }
 
   TypeIndexVector BMP8Out::registerTypes(PayloadFactory& factory)
