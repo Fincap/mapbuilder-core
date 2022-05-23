@@ -6,6 +6,9 @@
 #include <memory>
 
 #include <cereal\cereal.hpp>
+#include <cereal\archives\xml.hpp>
+#include <cereal\types\memory.hpp>
+#include <cereal\types\base_class.hpp>
 
 #include "PipelineStage.h"
 #include "Payload.h"
@@ -39,10 +42,6 @@ namespace mbc
     
     virtual PipelineStage getPipelineStage() final;
     virtual const char* getModuleName() final;
-
-    // Serialization method - templated wrapper for serializeImpl method.
-    template<typename Archive>
-    void serialize(Archive& archive) final;
     
     // Convenience typing - shared_ptr to Module.
     using Ptr = std::shared_ptr<Module>;
@@ -62,13 +61,13 @@ namespace mbc
     template <typename... Ts>
     TypeIndexVector registerWithFactory(PayloadFactory&);
 
-    // Implementation for templated serialization class.
-    virtual void serializeImpl(std::any archive) = 0;
-
   private:
     // Consumer of registerWithFactory variadic template
     template <typename T>
     void registerSingle(PayloadFactory&, TypeIndexVector&);
+
+    // Allow serialization of non-public members.
+    friend class cereal::access;
 
   };
 
@@ -94,13 +93,6 @@ namespace mbc
   }
 
 
-  template<typename Archive>
-  inline void mbc::Module::serialize(Archive& archive)
-  {
-    serializeImpl(archive);
-  }
-
-
   // Inline definition of internalRegisterType
   template <typename... Ts>
   inline TypeIndexVector Module::registerWithFactory(PayloadFactory& factory)
@@ -122,6 +114,5 @@ namespace mbc
       typeList.push_back(std::type_index(typeid(T)));
     }
   }
-
 
 }
