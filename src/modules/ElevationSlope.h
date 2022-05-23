@@ -20,7 +20,28 @@ namespace mbc
     TypeIndexVector registerTypes(PayloadFactory&) override;
     bool processPayloads(const PayloadTypeMap&) override;
 
+    bool operator==(Module::Ptr) override;
+    bool operator!=(Module::Ptr) override;
+
     // Processing parameters
     double slope;
   };
+}
+
+// Inline definitions for operator overloads
+inline bool mbc::ElevationSlope::operator==(Module::Ptr other)
+{
+  auto castOther = std::dynamic_pointer_cast<ElevationSlope>(other);
+  if (castOther)
+  {
+    return (slope == castOther->slope);
+  }  // Return false if other cannot be cast to this Module.
+
+  return false;
+}
+
+
+inline bool mbc::ElevationSlope::operator!=(Module::Ptr other)
+{
+  return !(this->operator==(other));
 }

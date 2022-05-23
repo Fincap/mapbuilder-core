@@ -29,6 +29,9 @@ namespace mbc
     TypeIndexVector registerTypes(PayloadFactory&) override;
     bool processPayloads(const PayloadTypeMap&) override;
 
+    bool operator==(Module::Ptr) override;
+    bool operator!=(Module::Ptr) override;
+
     // Processing parameters
     uint32_t seed;
     double frequency;
@@ -40,4 +43,24 @@ namespace mbc
   void computePerlinGrid(unsigned char* begin, unsigned char* end,
     const double& fx, const double& fy, const uint32_t& oct,
     const int& startIndex, const int& width, const uint32_t& seed);
+}
+
+// Inline definitions for operator overloads
+inline bool mbc::PerlinGen::operator==(Module::Ptr other)
+{
+  auto castOther = std::dynamic_pointer_cast<PerlinGen>(other);
+  if (castOther)
+  {
+    return (seed == castOther->seed
+      && frequency == castOther->frequency
+      && octaves == castOther->octaves);
+  }  // Return false if other cannot be cast to this Module.
+
+  return false;
+}
+
+
+inline bool mbc::PerlinGen::operator!=(Module::Ptr other)
+{
+  return !(this->operator==(other));
 }

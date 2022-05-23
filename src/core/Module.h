@@ -37,9 +37,15 @@ namespace mbc
     
     virtual PipelineStage getPipelineStage() final;
     virtual const char* getModuleName() final;
-
+    
     // Convenience typing - shared_ptr to Module.
     using Ptr = std::shared_ptr<Module>;
+
+    /* Overloaded equality operators - must be implemented by derived classes.
+    Usage: Module == Module::Ptr (necessary as to allow comparison between
+    Modules of unknown type. */
+    virtual bool operator==(Module::Ptr) = 0;
+    virtual bool operator!=(Module::Ptr) = 0;
 
   protected:
     const PipelineStage PIPELINE_STAGE;

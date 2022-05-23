@@ -25,8 +25,31 @@ namespace mbc
     TypeIndexVector registerTypes(PayloadFactory&) override;
     bool processPayloads(const PayloadTypeMap&) override;
 
+    bool operator==(Module::Ptr) override;
+    bool operator!=(Module::Ptr) override;
+
     // Processing parameters
     int width, height;
 
   };
+}
+
+
+// Inline definitions for operator overloads
+inline bool mbc::Canvas::operator==(Module::Ptr other)
+{
+  auto castOther = std::dynamic_pointer_cast<Canvas>(other);
+  if (castOther)
+  {
+    return (width == castOther->width
+      && height == castOther->height);
+  }  // Return false if other cannot be cast to this Module.
+
+  return false;
+}
+
+
+inline bool mbc::Canvas::operator!=(Module::Ptr other)
+{
+  return !(this->operator==(other));
 }

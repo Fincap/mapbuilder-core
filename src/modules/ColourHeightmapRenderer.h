@@ -28,5 +28,24 @@ namespace mbc
     TypeIndexVector registerTypes(PayloadFactory&) override;
     bool processPayloads(const PayloadTypeMap&) override;
 
+    bool operator==(Module::Ptr) override;
+    bool operator!=(Module::Ptr) override;
+
   };
+}
+
+
+// Inline definitions for operator overloads
+inline bool mbc::ColourHeightmapRenderer::operator==(Module::Ptr other)
+{
+  auto castOther = std::dynamic_pointer_cast<ColourHeightmapRenderer>(other);
+  // As there are no processing parameters, assume equality if both Modules are
+  // of the same type.
+  return (bool) castOther;
+}
+
+
+inline bool mbc::ColourHeightmapRenderer::operator!=(Module::Ptr other)
+{
+  return !(this->operator==(other));
 }

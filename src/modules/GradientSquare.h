@@ -22,6 +22,9 @@ namespace mbc
     TypeIndexVector registerTypes(PayloadFactory&) override;
     bool processPayloads(const PayloadTypeMap&) override;
 
+    bool operator==(Module::Ptr) override;
+    bool operator!=(Module::Ptr) override;
+
     // Processing parameters
     double fullness, size;
 
@@ -29,4 +32,24 @@ namespace mbc
     // Gradient generator method
     std::vector<double> generateGradient(int, int);
   };
+}
+
+
+// Inline definitions for operator overloads
+inline bool mbc::GradientSquare::operator==(Module::Ptr other)
+{
+  auto castOther = std::dynamic_pointer_cast<GradientSquare>(other);
+  if (castOther)
+  {
+    return (fullness == castOther->fullness
+      && size == castOther->size);
+  }  // Return false if other cannot be cast to this Module.
+
+  return false;
+}
+
+
+inline bool mbc::GradientSquare::operator!=(Module::Ptr other)
+{
+  return !(this->operator==(other));
 }
