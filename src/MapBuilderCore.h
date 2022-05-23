@@ -1,4 +1,5 @@
 #pragma once
+#include "APIExport.h"
 
 // Core
 #include "core\Module.h"
