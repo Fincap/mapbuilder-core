@@ -6,3 +6,4 @@
 #endif
 
 #define MBC_MAX_PATH 260
+#define MBC_NUM_STAGES 4
