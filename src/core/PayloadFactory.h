@@ -26,9 +26,12 @@ namespace mbc
 
     bool hasPayload(const std::type_index&);
 
+    void clear();   // Clears all registered Payloads.
+
   private:
     std::unordered_map<std::type_index, PayloadCreatePtr> payloads_;
   };
+
 
   template <typename T>
   inline void PayloadFactory::registerPayload()
@@ -43,10 +46,17 @@ namespace mbc
     { return std::make_shared<T>(); };
   }
 
+
   template <typename T>
   inline bool PayloadFactory::hasPayload()
   {
     return payloads_.count(std::type_index(typeid(T))) != 0;
+  }
+
+
+  inline void PayloadFactory::clear()
+  {
+    payloads_.clear();
   }
 
 }

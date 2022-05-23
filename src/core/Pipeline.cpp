@@ -93,7 +93,8 @@ namespace mbc
       modules_[i].clear();
     }
 
-    // Clear payloads list.
+    // Clear payloads list and factory.
     payloads_->clear();
+    payloadFactory_->clear();
   }
 }
