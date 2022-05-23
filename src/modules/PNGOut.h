@@ -13,6 +13,10 @@
 
 namespace mbc
 {
+  /*
+  Module that writes the ColouredHeightmap payload to a PNG file at the given
+  filepath.
+  */
   class MAPBUILDER_API PNGOut : public Module
   {
   public:

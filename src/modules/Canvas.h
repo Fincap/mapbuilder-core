@@ -11,6 +11,11 @@
 
 namespace mbc
 {
+  /*
+  Module that generates a blank Heightmap payload of the given width and
+  height. This Module should be implemented by all Pipelines, and should be
+  added first.
+  */
   class MAPBUILDER_API Canvas : public Module
   {
   public:

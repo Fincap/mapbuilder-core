@@ -5,9 +5,11 @@
 
 namespace mbc
 {
-  // Payload storing a set of cut-off heights (0-255) and their
-  // respective colours to be applied to the heightmap when the
-  // rendered image is created.
+  /*
+  Payload storing a set of cut-off heights (0-255) and their
+  respective colours to be applied to the heightmap when the
+  rendered image is created.
+  */
   struct ColourSetPayload : public Payload
   {
     // A set of ranges (0-50, 51-70, 71-100, etc)

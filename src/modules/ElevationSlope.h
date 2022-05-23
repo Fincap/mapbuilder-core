@@ -7,6 +7,10 @@
 
 namespace mbc
 {
+  /*
+  Module that applies a slope to the generated Heightmap by raising each value
+  in the Heightmap to the power of the given elevation slope factor.
+  */
   class MAPBUILDER_API ElevationSlope : public Module
   {
   public:

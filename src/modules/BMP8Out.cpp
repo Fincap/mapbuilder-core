@@ -8,10 +8,12 @@ namespace mbc
     outputFilepath = new char[MBC_MAX_PATH]{ "out/heightmap.bmp" };
   }
 
+
   TypeIndexVector BMP8Out::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);
   }
+
 
   bool BMP8Out::processPayloads(const PayloadTypeMap& payloads)
   {
@@ -121,8 +123,7 @@ namespace mbc
     return true;
   }
 
-  // This function splits the value parameter into 4 bytes, and then inserts
-  // the bytes into the given byte pointer.
+
   void BMP8Out::insertIntAsBytes(unsigned char* start, int value)
   {
     start[0] = (unsigned char)(value);

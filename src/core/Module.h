@@ -14,17 +14,27 @@ namespace mbc
   // Convenience typing - pre-class declaration
   using TypeIndexVector = std::vector<std::type_index>;
 
+  /*
+  Abstract base class that defines a class that modifies the Pipeline's
+  Payloads. The derived classes will define a series of processing parameters
+  that will modify a set of Payloads. The Modules are responsible for declaring
+  which Payload types it will consume and produce, and will register those
+  types with the PayloadFactory.
+  */
   class MAPBUILDER_API Module
   {
   public:
+    // Derived class constructors will call Module's constructor to instantiate
+    // derived Module's stage and unique name
     Module(PipelineStage, const char*);
 
     // This method registers all types with the linked factory, and returns a list of
     // any types that were newly registered so they can be instantiated.
     virtual TypeIndexVector registerTypes(PayloadFactory&) = 0;
 
+    // Executes the Module's processing on the given map of Payloads.
     virtual bool processPayloads(const PayloadTypeMap&) = 0;
-
+    
     virtual PipelineStage getPipelineStage() final;
     virtual const char* getModuleName() final;
 

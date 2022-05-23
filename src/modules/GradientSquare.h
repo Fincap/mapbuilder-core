@@ -9,6 +9,10 @@
 
 namespace mbc
 {
+  /*
+  Applies a square-shaped gradient to the Heightmap, forcing the borders of the
+  map to have a height of 0, resulting in an island map.
+  */
   class MAPBUILDER_API GradientSquare : public Module
   {
   public:

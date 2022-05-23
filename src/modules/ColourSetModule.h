@@ -12,6 +12,11 @@
 
 namespace mbc
 {
+  /*
+  Module containing a set of height values (0-255) and a respective RGB colour.
+  This module will generate a ColourSetPayload to be consumed by other Render
+  modules..
+  */
   class MAPBUILDER_API ColourSetModule : public Module
   {
   public:

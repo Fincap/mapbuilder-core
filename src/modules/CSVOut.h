@@ -14,6 +14,10 @@
 
 namespace mbc
 {
+  /*
+  Module that produces a CSV file at the given filepath where each value is the
+  raw height (0-255) of its corresponding point on the heightmap.
+  */
   class MAPBUILDER_API CSVOut : public Module
   {
   public:

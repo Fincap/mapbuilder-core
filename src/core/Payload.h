@@ -8,6 +8,10 @@
 
 namespace mbc
 {
+  /*
+  Interface that all Payloads must implement. Does not define any shared member
+  functions or attributes.
+  */
   struct MAPBUILDER_API Payload
   {
     virtual ~Payload() = 0;

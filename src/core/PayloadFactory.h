@@ -8,12 +8,20 @@
 
 namespace mbc
 {
+  /*
+  Factory class that maintains a list of all Payloads that are used as inputs
+  or outputs for Modules. Payloads are registered by their type as a template
+  argument, and stored in a map with their type_index as the key. The Factory
+  accepts type_index as a method argument and returns a lambda function that
+  instantiates the respective Payload.
+  */
   class PayloadFactory
   {
   public:
     // Convenience typing - function ptr that returns shared_ptr to Payload.
     using PayloadCreatePtr = Payload::Ptr(*)();
 
+    // Register the given Payload type.
     template <typename T>
     void registerPayload();   
 

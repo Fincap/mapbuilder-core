@@ -12,6 +12,10 @@
 
 namespace mbc
 {
+  /*
+  Module that generates an 8-bit grayscale BMP file from the Heightmap payload
+  and writes the BMP file to the given filepath parameter.
+  */
   class MAPBUILDER_API BMP8Out : public Module
   {
   public:
@@ -25,6 +29,8 @@ namespace mbc
     char* outputFilepath;
 
   private:
+    /* This function splits the value parameter into 4 bytes, and then inserts
+    the bytes into the given byte pointer. */
     void insertIntAsBytes(unsigned char*, int);
   };
 }

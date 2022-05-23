@@ -14,8 +14,11 @@
 
 namespace mbc
 {
-  // Module that applies the ColourSet payload to the Heightmap
-  // to produce a ColouredHeightmap.
+  /*
+  Module that applies the ColourSet payload to the Heightmap to produce a
+  ColouredHeightmap, colouring each point on the Heightmap according to the
+  colours defined in the ColourSet.
+  */
   class MAPBUILDER_API ColourHeightmapRenderer : public Module
   {
   public:
