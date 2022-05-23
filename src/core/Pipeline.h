@@ -14,6 +14,7 @@
 #include "Module.h"
 #include "Payload.h"
 #include "PayloadFactory.h"
+#include "StageMap.h"
 
 namespace mbc
 {
@@ -46,7 +47,7 @@ namespace mbc
     /* Array of vectors containing Modules in their respective stages. There is
     a vector for each Pipeline Stage, and each vector contains the Pipeline's
     modules in order of execution.*/
-    std::vector<Module::Ptr>* modules_;
+    StageMap<Module::Ptr>* modules_;
 
     /* The Pipeline's PayloadFactory, responsible for the instantiation of
     registered Payloads. */

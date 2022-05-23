@@ -6,6 +6,7 @@
 #include "core\Payload.h"
 #include "core\Pipeline.h"
 #include "core\PipelineStage.h"
+#include "core\StageMap.h"
 
 // Payloads
 #include "payloads\Heightmap.h"

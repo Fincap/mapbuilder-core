@@ -4,7 +4,7 @@ namespace mbc
 {
   Pipeline::Pipeline()
   {
-    modules_ = new std::vector<Module::Ptr>[MBC_NUM_STAGES];
+    modules_ = new StageMap<Module::Ptr>();
     payloadFactory_ = new PayloadFactory();
     payloads_ = new PayloadTypeMap();
   }
@@ -12,7 +12,7 @@ namespace mbc
 
   Pipeline::~Pipeline()
   {
-    delete[] modules_;
+    delete modules_;
     delete payloadFactory_;
     delete payloads_;
   }
@@ -23,28 +23,23 @@ namespace mbc
     // Log total execution time
     using namespace std::chrono;
     long long totalElapsed = 0;
-    
-    for (int stage = 0; stage < MBC_NUM_STAGES; stage++)
+
+    for (auto& mod : modules_->getAll())
     {
-      for (int module = 0; module < modules_[stage].size(); module++)
-      {
-        // Log the time for each payload to process
+      // Log the time for each payload to process
         // Get time before
-        auto timeBefore = high_resolution_clock::now();
+      auto timeBefore = high_resolution_clock::now();
 
-        modules_[stage][module]->processPayloads(*payloads_);
+      mod->processPayloads(*payloads_);
 
-        // Output time after
-        auto timeAfter = high_resolution_clock::now();
-        auto& currentModule = modules_[stage][module];
-        auto timeDiff = duration_cast<milliseconds>(timeAfter - timeBefore).count();
-        totalElapsed += timeDiff;
+      // Output time after
+      auto timeAfter = high_resolution_clock::now();
+      auto timeDiff = duration_cast<milliseconds>(timeAfter - timeBefore).count();
+      totalElapsed += timeDiff;
 
-        std::clog << "MODULE " << currentModule->getModuleName() << " processing time: ";
-        std::clog << timeDiff;
-        std::clog << "ms" << std::endl;
-
-      }
+      std::clog << "MODULE " << mod->getModuleName() << " processing time: ";
+      std::clog << timeDiff;
+      std::clog << "ms" << std::endl;
     }
 
     std::cout << "Total execution time: " << totalElapsed << "ms" << std::endl;
@@ -71,7 +66,7 @@ namespace mbc
     }
     else
     {
-      modules_[newModuleStage].push_back(newModule);
+      modules_->add(newModule, newModuleStage);
     }
 
     // Register module's payloads with payload factory and
@@ -87,13 +82,7 @@ namespace mbc
 
   void mbc::Pipeline::clear()
   {
-    // Clear modules list.
-    for (int i = 0; i < MBC_NUM_STAGES; i++)
-    {
-      modules_[i].clear();
-    }
-
-    // Clear payloads list and factory.
+    modules_->clear();
     payloads_->clear();
     payloadFactory_->clear();
   }
