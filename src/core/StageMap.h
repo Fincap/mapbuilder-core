@@ -29,9 +29,9 @@ namespace mbc
     void add(T, int);  // Add T to given stage.
     void clear();                     // Clear all values.
 
-    std::vector<T> getAll(mbc::PipelineStage);  // Get all in given stage.
-    std::vector<T> getAll(int);                 // Get all in given stage.
-    std::vector<T> getAll();                    // Get all in all stages.
+    std::vector<T>& getAll(mbc::PipelineStage);  // Get all in given stage.
+    std::vector<T>& getAll(int);                 // Get all in given stage.
+    std::vector<T> getAll();                     // Get all in all stages.
 
     // Iterator functions
     iterator begin() { return &map_[0]; }
@@ -80,14 +80,14 @@ namespace mbc
 
 
   template<typename T>
-  inline std::vector<T> StageMap<T>::getAll(mbc::PipelineStage stage)
+  inline std::vector<T>& StageMap<T>::getAll(mbc::PipelineStage stage)
   {
     return getAll((int)stage);
   }
 
 
   template<typename T>
-  inline std::vector<T> StageMap<T>::getAll(int stage)
+  inline std::vector<T>& StageMap<T>::getAll(int stage)
   {
     if (stage >= MBC_NUM_STAGES)
       throw std::out_of_range{ "PipelineStage out of range." };
