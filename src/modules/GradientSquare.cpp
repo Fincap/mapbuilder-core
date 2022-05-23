@@ -29,10 +29,10 @@ namespace mbc
     // Iterate through map and apply gradient to each point
     for (int i = 0; i < heightmapSize; i++)
     {
-      auto point = heightmapPtr->points[i] / 255.;        // Convert height to fraction
-      auto gradient = gradientPoints.at(i);               // Get gradient at point
-      point = std::clamp(point -= gradient, 0.0, 1.0);    // Apply gradient to point
-      unsigned char newPoint = point * 255;               // Convert back to height
+      auto point = heightmapPtr->points[i] / 255.;          // Convert height to fraction
+      auto gradient = gradientPoints.at(i);                 // Get gradient at point
+      point = std::clamp(point -= gradient, 0.0, 1.0);      // Apply gradient to point
+      unsigned char newPoint = (unsigned char) point * 255; // Convert back to height
 
       heightmapPtr->points[i] = newPoint;
     }
