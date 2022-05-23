@@ -130,6 +130,7 @@
     <ClInclude Include="src\core\PipelineStage.h" />
     <ClInclude Include="src\MapBuilderCore.h" />
     <ClInclude Include="src\util\ModuleHelpers.h" />
+    <ClInclude Include="src\core\StageMap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
