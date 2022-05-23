@@ -24,6 +24,7 @@ public:
   StageMap();
 
   void add(T, mbc::PipelineStage);  // Add T to given stage.
+  void add(T, int);  // Add T to given stage.
   void clear();                     // Clear all values.
 
   std::vector<T> getAll(mbc::PipelineStage);  // Get all in given stage.
@@ -52,21 +53,34 @@ inline StageMap<T>::StageMap()
 template<typename T>
 inline void StageMap<T>::add(T value, mbc::PipelineStage stage)
 {
+  add(value, (int)stage);
+}
 
+
+template<typename T>
+inline void StageMap<T>::add(T value, int stage)
+{
+  if (stage >= MBC_NUM_STAGES)
+    throw std::out_of_range{"PipelineStage out of range."};
+
+  map_[stage].push_back(value);
 }
 
 
 template<typename T>
 inline void StageMap<T>::clear()
 {
-
+  for (int stage = 0; stage < MBC_NUM_STAGES; stage++)
+  {
+    map_[stage].clear();
+  }
 }
 
 
 template<typename T>
 inline std::vector<T> StageMap<T>::getAll(mbc::PipelineStage stage)
 {
-  return getAll((int) stage);
+  return getAll((int)stage);
 }
 
 
@@ -74,7 +88,7 @@ template<typename T>
 inline std::vector<T> StageMap<T>::getAll(int stage)
 {
   if (stage >= MBC_NUM_STAGES)
-    throw std::out_of_range;
+    throw std::out_of_range{ "PipelineStage out of range." };
   return map_[stage];
 }
 
