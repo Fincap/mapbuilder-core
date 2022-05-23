@@ -5,6 +5,8 @@
 #include <typeindex>
 #include <memory>
 
+#include <cereal\cereal.hpp>
+
 #include "PipelineStage.h"
 #include "Payload.h"
 #include "PayloadFactory.h"
@@ -37,6 +39,10 @@ namespace mbc
     
     virtual PipelineStage getPipelineStage() final;
     virtual const char* getModuleName() final;
+
+    // Serialization method - templated wrapper for serializeImpl method.
+    template<typename Archive>
+    void serialize(Archive& archive) final;
     
     // Convenience typing - shared_ptr to Module.
     using Ptr = std::shared_ptr<Module>;
@@ -56,6 +62,9 @@ namespace mbc
     template <typename... Ts>
     TypeIndexVector registerWithFactory(PayloadFactory&);
 
+    // Implementation for templated serialization class.
+    virtual void serializeImpl(std::any archive) = 0;
+
   private:
     // Consumer of registerWithFactory variadic template
     template <typename T>
@@ -63,11 +72,13 @@ namespace mbc
 
   };
 
+
   // Inline definition of default constructor - to be called by derived class
   inline Module::Module(PipelineStage stage, const char* name) :
     PIPELINE_STAGE(stage),
     MODULE_NAME(name)
   {}
+
 
   // Inline definition to preserve runtime mutability of PipelineStage
   inline PipelineStage Module::getPipelineStage()
@@ -75,11 +86,20 @@ namespace mbc
     return PIPELINE_STAGE;
   }
 
+
   // Inline definition to preserve runtime mutability of module name
   inline const char* Module::getModuleName()
   {
     return MODULE_NAME;
   }
+
+
+  template<typename Archive>
+  inline void mbc::Module::serialize(Archive& archive)
+  {
+    serializeImpl(archive);
+  }
+
 
   // Inline definition of internalRegisterType
   template <typename... Ts>
@@ -92,6 +112,7 @@ namespace mbc
     return newPayloads;
   }
 
+
   template <typename T>
   inline void Module::registerSingle(PayloadFactory& factory, TypeIndexVector& typeList)
   {
@@ -101,5 +122,6 @@ namespace mbc
       typeList.push_back(std::type_index(typeid(T)));
     }
   }
+
 
 }
