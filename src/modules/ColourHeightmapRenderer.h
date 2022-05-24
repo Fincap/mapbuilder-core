@@ -31,6 +31,10 @@ namespace mbc
     bool operator==(Module::Ptr) override;
     bool operator!=(Module::Ptr) override;
 
+    // Serialize module
+    template<typename Archive>
+    void serialize(Archive& archive);
+
   };
 }
 
@@ -48,4 +52,11 @@ inline bool mbc::ColourHeightmapRenderer::operator==(Module::Ptr other)
 inline bool mbc::ColourHeightmapRenderer::operator!=(Module::Ptr other)
 {
   return !(this->operator==(other));
+}
+
+
+template<typename Archive>
+inline void mbc::ColourHeightmapRenderer::serialize(Archive& archive)
+{
+  // No parameters to serialize
 }

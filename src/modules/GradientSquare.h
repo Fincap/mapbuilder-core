@@ -28,6 +28,10 @@ namespace mbc
     // Processing parameters
     double fullness, size;
 
+    // Serialize module
+    template<typename Archive>
+    void serialize(Archive& archive);
+
   private:
     // Gradient generator method
     std::vector<double> generateGradient(int, int);
@@ -52,4 +56,14 @@ inline bool mbc::GradientSquare::operator==(Module::Ptr other)
 inline bool mbc::GradientSquare::operator!=(Module::Ptr other)
 {
   return !(this->operator==(other));
+}
+
+
+template<typename Archive>
+inline void mbc::GradientSquare::serialize(Archive& archive)
+{
+  archive(
+    CEREAL_NVP(fullness),
+    CEREAL_NVP(size)
+  );
 }

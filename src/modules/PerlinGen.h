@@ -36,6 +36,11 @@ namespace mbc
     uint32_t seed;
     double frequency;
     uint32_t octaves;
+
+    // Serialize module
+    template<typename Archive>
+    void serialize(Archive& archive);
+
   };
 
   /* Function to be called asynchronously to compute the 2D perlin grid in
@@ -44,6 +49,7 @@ namespace mbc
     const double& fx, const double& fy, const uint32_t& oct,
     const int& startIndex, const int& width, const uint32_t& seed);
 }
+
 
 // Inline definitions for operator overloads
 inline bool mbc::PerlinGen::operator==(Module::Ptr other)
@@ -63,4 +69,15 @@ inline bool mbc::PerlinGen::operator==(Module::Ptr other)
 inline bool mbc::PerlinGen::operator!=(Module::Ptr other)
 {
   return !(this->operator==(other));
+}
+
+
+template<typename Archive>
+inline void mbc::PerlinGen::serialize(Archive& archive)
+{
+  archive(
+    CEREAL_NVP(seed),
+    CEREAL_NVP(frequency),
+    CEREAL_NVP(octaves)
+  );
 }
