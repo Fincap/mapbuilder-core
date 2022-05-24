@@ -25,9 +25,11 @@ namespace mbc
 
     StageMap();
     ~StageMap();
+    StageMap(const StageMap&);        // Copy constructor
+
 
     void add(T, mbc::PipelineStage);  // Add T to given stage.
-    void add(T, int);  // Add T to given stage.
+    void add(T, int);                 // Add T to given stage.
     void clear();                     // Clear all values.
 
     std::vector<T>& getAll(mbc::PipelineStage);  // Get all in given stage.
@@ -57,6 +59,17 @@ namespace mbc
   inline StageMap<T>::~StageMap()
   {
     delete[] map_;
+  }
+
+
+  template<typename T>
+  inline StageMap<T>::StageMap(const StageMap& other)
+  {
+    map_ = new std::vector<T>[MBC_NUM_STAGES];
+    for (int stage = 0; stage < MBC_NUM_STAGES; stage++)
+    {
+      map_[stage] = other.map_[stage];
+    }
   }
 
 
