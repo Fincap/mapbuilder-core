@@ -92,13 +92,26 @@ inline void mbc::Pipeline::save(Archive& archive) const
 template<typename Archive>
 inline void mbc::Pipeline::load(Archive& archive)
 {
+  // Clear all existing data and delete the existing module map.
+  clear();
+  delete modules_;
+  
   // Deserialize into buffer, then copy into new modules map. This is necessary
   // as cereal library cannot serialize raw pointers.
-  delete modules_;
   StageMap<Module::Ptr> modulesBuffer;
   archive(
     modulesBuffer
   );
 
-  modules_ = new StageMap<Module::Ptr>(modulesBuffer);
+  modules_ = new StageMap<Module::Ptr>();
+
+  // Rather than copy buffer StageMap directly into modules map, iterate
+  // through every Module in the buffer and pass the module into the Pipeline's
+  // addModule method as to ensure the correct registration and instantiation
+  // of Payloads.
+  for (auto& mod : modulesBuffer.getAll())
+  {
+    addModule(mod);
+  }
+
 }
