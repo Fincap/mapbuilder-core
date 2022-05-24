@@ -11,6 +11,10 @@
 #include <unordered_map>
 #include <iostream>
 
+#include <cereal\cereal.hpp>
+#include <cereal\archives\xml.hpp>
+#include <cereal\types\memory.hpp>
+
 #include "Module.h"
 #include "Payload.h"
 #include "PayloadFactory.h"
@@ -48,6 +52,14 @@ namespace mbc
     /* Clears the Pipeline's list of Modules. */
     void clear();
 
+    /* Serialize all modules currently loaded into the Pipeline. */
+    template<typename Archive>
+    void save(Archive& archive) const;
+
+    /* Deserialize newly loaded modules into the Pipeline. */
+    template<typename Archive>
+    void load(Archive& archive);
+
   private:
     /* Array of vectors containing Modules in their respective stages. There is
     a vector for each Pipeline Stage, and each vector contains the Pipeline's
@@ -63,4 +75,30 @@ namespace mbc
     PayloadTypeMap* payloads_;
 
   };
+}
+
+
+// Inline definitions
+template<typename Archive>
+inline void mbc::Pipeline::save(Archive& archive) const
+{
+  // Serialize modules
+  archive(
+    CEREAL_NVP(*modules_)
+  );
+}
+
+
+template<typename Archive>
+inline void mbc::Pipeline::load(Archive& archive)
+{
+  // Deserialize into buffer, then copy into new modules map. This is necessary
+  // as cereal library cannot serialize raw pointers.
+  delete modules_;
+  StageMap<Module::Ptr> modulesBuffer;
+  archive(
+    modulesBuffer
+  );
+
+  modules_ = new StageMap<Module::Ptr>(modulesBuffer);
 }
