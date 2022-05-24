@@ -24,6 +24,7 @@ namespace mbc
     using const_iterator = T const*;
 
     StageMap();
+    ~StageMap();
 
     void add(T, mbc::PipelineStage);  // Add T to given stage.
     void add(T, int);  // Add T to given stage.
@@ -49,6 +50,13 @@ namespace mbc
   inline StageMap<T>::StageMap()
   {
     map_ = new std::vector<T>[MBC_NUM_STAGES];
+  }
+
+
+  template<typename T>
+  inline StageMap<T>::~StageMap()
+  {
+    delete[] map_;
   }
 
 
