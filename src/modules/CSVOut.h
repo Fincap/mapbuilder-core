@@ -32,6 +32,13 @@ namespace mbc
 
     // Processing parameters
     char* outputFilepath;
+
+    // Serialize module - split functions
+    template<typename Archive>
+    void save(Archive& archive) const;
+
+    template<typename Archive>
+    void load(Archive& archive);
   };
 }
 
@@ -52,4 +59,30 @@ inline bool mbc::CSVOut::operator==(Module::Ptr other)
 inline bool mbc::CSVOut::operator!=(Module::Ptr other)
 {
   return !(this->operator==(other));
+}
+
+
+template<typename Archive>
+inline void mbc::CSVOut::save(Archive& archive) const
+{
+  // Serialize as string
+  archive(
+    CEREAL_NVP(std::string(outputFilepath))
+  );
+}
+
+
+template<typename Archive>
+inline void mbc::CSVOut::load(Archive& archive)
+{
+  // Deserialize into string buffer, then copy into outputFilepath. This is
+  // necessary as cereal library cannot serialize raw pointers.
+  std::string filepathBuffer;
+  archive(
+    filepathBuffer
+  );
+
+  outputFilepath = new char[MBC_MAX_PATH];
+  std::copy(filepathBuffer.begin(), filepathBuffer.end(), outputFilepath);
+  outputFilepath[filepathBuffer.size()] = '\0'; // Null terminate new filepath.
 }
