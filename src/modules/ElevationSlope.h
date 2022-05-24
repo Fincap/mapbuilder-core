@@ -25,6 +25,10 @@ namespace mbc
 
     // Processing parameters
     double slope;
+
+    // Serialize module
+    template<typename Archive>
+    void serialize(Archive& archive);
   };
 }
 
@@ -45,3 +49,16 @@ inline bool mbc::ElevationSlope::operator!=(Module::Ptr other)
 {
   return !(this->operator==(other));
 }
+
+
+template<typename Archive>
+inline void mbc::ElevationSlope::serialize(Archive& archive)
+{
+  archive(
+    CEREAL_NVP(slope)
+  );
+}
+
+
+CEREAL_REGISTER_TYPE(mbc::ElevationSlope);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::ElevationSlope);

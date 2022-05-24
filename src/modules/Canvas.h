@@ -31,6 +31,10 @@ namespace mbc
     // Processing parameters
     int width, height;
 
+    // Serialize module
+    template<typename Archive>
+    void serialize(Archive& archive);
+
   };
 }
 
@@ -53,3 +57,17 @@ inline bool mbc::Canvas::operator!=(Module::Ptr other)
 {
   return !(this->operator==(other));
 }
+
+
+template<typename Archive>
+inline void mbc::Canvas::serialize(Archive& archive)
+{
+  archive(
+    CEREAL_NVP(width),
+    CEREAL_NVP(height)
+  );
+}
+
+
+CEREAL_REGISTER_TYPE(mbc::Canvas);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::Canvas);

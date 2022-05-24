@@ -4,6 +4,10 @@
 #include <vector>
 #include <stdexcept>
 
+#include <cereal\types\array.hpp>
+#include <cereal\types\vector.hpp>
+#include <cereal\types\string.hpp>
+
 #include "core\Module.h"
 #include "core\PipelineStage.h"
 #include "util\ModuleHelpers.h"
@@ -25,9 +29,11 @@ namespace mbc
 
     StageMap();
     ~StageMap();
+    StageMap(const StageMap&);        // Copy constructor
+
 
     void add(T, mbc::PipelineStage);  // Add T to given stage.
-    void add(T, int);  // Add T to given stage.
+    void add(T, int);                 // Add T to given stage.
     void clear();                     // Clear all values.
 
     std::vector<T>& getAll(mbc::PipelineStage);  // Get all in given stage.
@@ -39,6 +45,14 @@ namespace mbc
     iterator end() { return &map_[MBC_NUM_STAGES]; }
     const_iterator begin() const { return &map_[0]; }
     const_iterator end() const { return &map_[MBC_NUM_STAGES]; }
+
+    /* Serialize each T existing within the map. */
+    template<typename Archive>
+    void save(Archive& archive) const;
+
+    /* Serialize newly loaded T into the map. */
+    template<typename Archive>
+    void load(Archive& archive);
 
   private:
     std::vector<T>* map_;
@@ -57,6 +71,17 @@ namespace mbc
   inline StageMap<T>::~StageMap()
   {
     delete[] map_;
+  }
+
+
+  template<typename T>
+  inline StageMap<T>::StageMap(const StageMap& other)
+  {
+    map_ = new std::vector<T>[MBC_NUM_STAGES];
+    for (int stage = 0; stage < MBC_NUM_STAGES; stage++)
+    {
+      map_[stage] = other.map_[stage];
+    }
   }
 
 
@@ -116,4 +141,42 @@ namespace mbc
 
     return all;
   }
+
+
+  template<typename T>
+  template<typename Archive>
+  inline void StageMap<T>::save(Archive& archive) const
+  {
+    // Copy T vectors into STL array, then serialize the STL array.
+    std::array<std::vector<T>, MBC_NUM_STAGES> buffer;
+    for (int stage = 0; stage < MBC_NUM_STAGES; stage++)
+    {
+      buffer[stage] = map_[stage];
+    }
+
+    archive(
+      buffer
+    );
+  }
+
+
+  template<typename T>
+  template<typename Archive>
+  inline void StageMap<T>::load(Archive& archive)
+  {
+    // Deserialize the STL array into a raw pointer array.
+    delete[] map_;
+    std::array<std::vector<T>, MBC_NUM_STAGES> buffer;
+
+    archive(
+      buffer
+    );
+
+    map_ = new std::vector<T>[MBC_NUM_STAGES];
+    for (int stage = 0; stage < MBC_NUM_STAGES; stage++)
+    {
+      map_[stage] = buffer[stage];
+    }
+  }
+
 }
