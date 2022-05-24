@@ -60,3 +60,7 @@ inline void mbc::ColourHeightmapRenderer::serialize(Archive& archive)
 {
   // No parameters to serialize
 }
+
+
+CEREAL_REGISTER_TYPE(mbc::ColourHeightmapRenderer);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::ColourHeightmapRenderer);

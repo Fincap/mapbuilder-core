@@ -81,3 +81,7 @@ inline void mbc::PerlinGen::serialize(Archive& archive)
     CEREAL_NVP(octaves)
   );
 }
+
+
+CEREAL_REGISTER_TYPE(mbc::PerlinGen);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::PerlinGen);

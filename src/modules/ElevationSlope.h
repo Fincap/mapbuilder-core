@@ -58,3 +58,7 @@ inline void mbc::ElevationSlope::serialize(Archive& archive)
     CEREAL_NVP(slope)
   );
 }
+
+
+CEREAL_REGISTER_TYPE(mbc::ElevationSlope);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::ElevationSlope);

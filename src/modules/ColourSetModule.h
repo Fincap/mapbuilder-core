@@ -85,3 +85,7 @@ inline void mbc::ColourSetModule::load(Archive& archive)
 
   colourRanges = new std::map<unsigned char, uint32_t>(rangesBuffer);
 }
+
+
+CEREAL_REGISTER_TYPE(mbc::ColourSetModule);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::ColourSetModule);

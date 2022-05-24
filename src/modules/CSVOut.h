@@ -86,3 +86,7 @@ inline void mbc::CSVOut::load(Archive& archive)
   std::copy(filepathBuffer.begin(), filepathBuffer.end(), outputFilepath);
   outputFilepath[filepathBuffer.size()] = '\0'; // Null terminate new filepath.
 }
+
+
+CEREAL_REGISTER_TYPE(mbc::CSVOut);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::CSVOut);

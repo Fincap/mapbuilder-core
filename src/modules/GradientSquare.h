@@ -67,3 +67,7 @@ inline void mbc::GradientSquare::serialize(Archive& archive)
     CEREAL_NVP(size)
   );
 }
+
+
+CEREAL_REGISTER_TYPE(mbc::GradientSquare);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::GradientSquare);

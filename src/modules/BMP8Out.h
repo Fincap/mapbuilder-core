@@ -89,3 +89,7 @@ inline void mbc::BMP8Out::load(Archive& archive)
   std::copy(filepathBuffer.begin(), filepathBuffer.end(), outputFilepath);
   outputFilepath[filepathBuffer.size()] = '\0'; // Null terminate new filepath.
 }
+
+
+CEREAL_REGISTER_TYPE(mbc::BMP8Out);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::BMP8Out);

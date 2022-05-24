@@ -67,3 +67,7 @@ inline void mbc::Canvas::serialize(Archive& archive)
     CEREAL_NVP(height)
   );
 }
+
+
+CEREAL_REGISTER_TYPE(mbc::Canvas);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::Canvas);
