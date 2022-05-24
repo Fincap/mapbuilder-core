@@ -78,7 +78,7 @@ namespace mbc
 
       // Generate noise
       double noiseLevel = perlin.accumulatedOctaveNoise2D_0_1(x / fx, y / fy, oct);
-      *begin *= (unsigned char) noiseLevel;
+      *begin *= noiseLevel;
 
       iters++;
       begin++;
