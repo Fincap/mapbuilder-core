@@ -82,7 +82,7 @@
     <ClInclude Include="src\core\PayloadFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\PerlinNoise.h">
+    <ClInclude Include="vendor\PerlinNoise.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\APIExport.h">

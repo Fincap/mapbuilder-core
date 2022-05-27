@@ -62,13 +62,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);MAPBUILDER_EXPORTS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)src;$(SolutionDir)include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <MapExports />
-      <AdditionalLibraryDirectories>$(SolutionDir)include\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)vendor\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>zlib.lib;libpng.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -118,7 +118,7 @@
     <ClInclude Include="src\modules\ElevationSlope.h" />
     <ClInclude Include="src\modules\GradientSquare.h" />
     <ClInclude Include="src\modules\HeightmapOut.h" />
-    <ClInclude Include="include\PerlinNoise.h" />
+    <ClInclude Include="vendor\PerlinNoise.h" />
     <ClInclude Include="src\modules\PerlinGen.h" />
     <ClInclude Include="src\core\PayloadFactory.h" />
     <ClInclude Include="src\modules\Canvas.h" />
