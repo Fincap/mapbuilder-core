@@ -119,7 +119,6 @@
     <ClInclude Include="include\MapBuilderCore\modules\ElevationSlope.h" />
     <ClInclude Include="include\MapBuilderCore\modules\GradientSquare.h" />
     <ClInclude Include="include\MapBuilderCore\modules\HeightmapOut.h" />
-    <ClInclude Include="vendor\PerlinNoise.h" />
     <ClInclude Include="include\MapBuilderCore\modules\PerlinGen.h" />
     <ClInclude Include="include\MapBuilderCore\PayloadFactory.h" />
     <ClInclude Include="include\MapBuilderCore\modules\Canvas.h" />

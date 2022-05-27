@@ -4,7 +4,7 @@
 #include <typeindex>
 #include <future>
 
-#include "PerlinNoise.h"
+#include <PerlinNoise\PerlinNoise.h>
 
 #include "MapBuilderCore\APIExport.h"
 #include "MapBuilderCore\Module.h"

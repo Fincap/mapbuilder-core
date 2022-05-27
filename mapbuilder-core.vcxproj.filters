@@ -79,9 +79,6 @@
     <ClInclude Include="include\MapBuilderCore\PipelineStage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vendor\PerlinNoise.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\MapBuilderCore\modules\Canvas.h">
       <Filter>Modules\1Generation</Filter>
     </ClInclude>
