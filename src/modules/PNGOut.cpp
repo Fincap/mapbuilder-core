@@ -1,4 +1,4 @@
-#include "PNGOut.h"
+#include "MapBuilderCore\modules\PNGOut.h"
 
 namespace mbc
 {

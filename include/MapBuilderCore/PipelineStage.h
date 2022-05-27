@@ -1,5 +1,5 @@
 #pragma once
-#include "APIExport.h"
+#include "MapBuilderCore\APIExport.h"
 
 namespace mbc
 {

@@ -1,4 +1,4 @@
-#include "PerlinGen.h"
+#include "MapBuilderCore\modules\PerlinGen.h"
 namespace mbc
 {
   PerlinGen::PerlinGen()

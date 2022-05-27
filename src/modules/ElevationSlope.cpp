@@ -1,4 +1,4 @@
-#include "ElevationSlope.h"
+#include "MapBuilderCore\modules\ElevationSlope.h"
 namespace mbc
 {
   ElevationSlope::ElevationSlope()

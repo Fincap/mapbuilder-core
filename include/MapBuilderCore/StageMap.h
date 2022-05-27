@@ -1,5 +1,4 @@
 #pragma once
-#include "APIExport.h"
 
 #include <vector>
 #include <stdexcept>
@@ -8,9 +7,10 @@
 #include <cereal\types\vector.hpp>
 #include <cereal\types\string.hpp>
 
-#include "core\Module.h"
-#include "core\PipelineStage.h"
-#include "util\ModuleHelpers.h"
+#include "MapBuilderCore\APIExport.h"
+#include "MapBuilderCore\Module.h"
+#include "MapBuilderCore\PipelineStage.h"
+#include "MapBuilderCore\util\ModuleHelpers.h"
 
 namespace mbc
 {

@@ -4,7 +4,7 @@
 #include <memory>
 #include <type_traits>
 
-#include "Payload.h"
+#include "MapBuilderCore\Payload.h"
 
 namespace mbc
 {

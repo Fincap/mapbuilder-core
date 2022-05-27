@@ -1,16 +1,16 @@
 #pragma once
-#include "APIExport.h"
 
 #include <vector>
 #include <typeindex>
 #include <map>
 
-#include "core\Module.h"
-#include "core\PipelineStage.h"
-#include "payloads\ColourSetPayload.h"
-#include "payloads\ColouredHeightmap.h"
-#include "payloads\Heightmap.h"
-#include "util\ModuleHelpers.h"
+#include "MapBuilderCore\APIExport.h"
+#include "MapBuilderCore\Module.h"
+#include "MapBuilderCore\PipelineStage.h"
+#include "MapBuilderCore\payloads\ColourSetPayload.h"
+#include "MapBuilderCore\payloads\ColouredHeightmap.h"
+#include "MapBuilderCore\payloads\Heightmap.h"
+#include "MapBuilderCore\util\ModuleHelpers.h"
 
 namespace mbc
 {

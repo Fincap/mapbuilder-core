@@ -1,15 +1,15 @@
 #pragma once
-#include "APIExport.h"
 
 #include <vector>
 #include <typeindex>
 #include <map>
 #include <cereal\types\map.hpp>
 
-#include "core\Module.h"
-#include "core\PipelineStage.h"
-#include "payloads\ColourSetPayload.h"
-#include "util\ModuleHelpers.h"
+#include "MapBuilderCore\APIExport.h"
+#include "MapBuilderCore\Module.h"
+#include "MapBuilderCore\PipelineStage.h"
+#include "MapBuilderCore\payloads\ColourSetPayload.h"
+#include "MapBuilderCore\util\ModuleHelpers.h"
 
 namespace mbc
 {

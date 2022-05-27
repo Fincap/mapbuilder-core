@@ -1,5 +1,4 @@
 #pragma once
-#include "APIExport.h"
 
 #include <vector>
 #include <typeindex>
@@ -11,9 +10,10 @@
 #include <cereal\types\base_class.hpp>
 #include <cereal\types\polymorphic.hpp>
 
-#include "PipelineStage.h"
-#include "Payload.h"
-#include "PayloadFactory.h"
+#include "MapBuilderCore\APIExport.h"
+#include "MapBuilderCore\PipelineStage.h"
+#include "MapBuilderCore\Payload.h"
+#include "MapBuilderCore\PayloadFactory.h"
 
 namespace mbc
 {

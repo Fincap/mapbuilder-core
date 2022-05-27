@@ -1,4 +1,4 @@
-#include "ColourSetModule.h"
+#include "MapBuilderCore\modules\ColourSetModule.h"
 
 namespace mbc
 {

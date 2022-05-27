@@ -1,4 +1,4 @@
-#include "Canvas.h"
+#include "MapBuilderCore\modules\Canvas.h"
 
 namespace mbc
 {

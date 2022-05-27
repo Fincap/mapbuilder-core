@@ -1,26 +1,27 @@
 #pragma once
-#include "APIExport.h"
 
+#include <fstream>
 #include <iostream>
+#include <string>
+#include <charconv>
 #include <filesystem>
 
-#include <png++\png.hpp>
-
-#include "core\Module.h"
-#include "payloads\ColouredHeightmap.h"
-#include "util\OutputValidation.h"
-#include "util\ModuleHelpers.h"
+#include "MapBuilderCore\APIExport.h"
+#include "MapBuilderCore\Module.h"
+#include "MapBuilderCore\payloads\Heightmap.h"
+#include "MapBuilderCore\util\OutputValidation.h"
+#include "MapBuilderCore\util\ModuleHelpers.h"
 
 namespace mbc
 {
   /*
-  Module that writes the ColouredHeightmap payload to a PNG file at the given
-  filepath.
+  Module that produces a CSV file at the given filepath where each value is the
+  raw height (0-255) of its corresponding point on the heightmap.
   */
-  class MAPBUILDER_API PNGOut : public Module
+  class MAPBUILDER_API CSVOut : public Module
   {
   public:
-    PNGOut();
+    CSVOut();
 
     // Inherit from base class - must be implemented
     TypeIndexVector registerTypes(PayloadFactory&) override;
@@ -35,18 +36,17 @@ namespace mbc
     // Serialize module - split functions
     template<typename Archive>
     void save(Archive& archive) const;
-    
+
     template<typename Archive>
     void load(Archive& archive);
-
   };
 }
 
 
 // Inline definitions for operator overloads
-inline bool mbc::PNGOut::operator==(Module::Ptr other)
+inline bool mbc::CSVOut::operator==(Module::Ptr other)
 {
-  auto castOther = std::dynamic_pointer_cast<PNGOut>(other);
+  auto castOther = std::dynamic_pointer_cast<CSVOut>(other);
   if (castOther)
   {
     return strcmp(this->outputFilepath, castOther->outputFilepath) == 0;
@@ -56,14 +56,14 @@ inline bool mbc::PNGOut::operator==(Module::Ptr other)
 }
 
 
-inline bool mbc::PNGOut::operator!=(Module::Ptr other)
+inline bool mbc::CSVOut::operator!=(Module::Ptr other)
 {
   return !(this->operator==(other));
 }
 
 
 template<typename Archive>
-inline void mbc::PNGOut::save(Archive& archive) const
+inline void mbc::CSVOut::save(Archive& archive) const
 {
   // Serialize as string
   archive(
@@ -73,7 +73,7 @@ inline void mbc::PNGOut::save(Archive& archive) const
 
 
 template<typename Archive>
-inline void mbc::PNGOut::load(Archive& archive)
+inline void mbc::CSVOut::load(Archive& archive)
 {
   // Deserialize into string buffer, then copy into outputFilepath. This is
   // necessary as cereal library cannot serialize raw pointers.
@@ -88,5 +88,5 @@ inline void mbc::PNGOut::load(Archive& archive)
 }
 
 
-CEREAL_REGISTER_TYPE(mbc::PNGOut);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::PNGOut);
+CEREAL_REGISTER_TYPE(mbc::CSVOut);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(mbc::Module, mbc::CSVOut);

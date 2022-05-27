@@ -1,5 +1,5 @@
 #pragma once
-#include "core\Payload.h"
+#include "MapBuilderCore\Payload.h"
 
 namespace mbc
 {

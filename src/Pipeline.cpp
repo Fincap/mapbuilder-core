@@ -1,4 +1,4 @@
-#include "Pipeline.h"
+#include "MapBuilderCore\Pipeline.h"
 
 namespace mbc
 {

@@ -27,14 +27,14 @@
     <Filter Include="Payloads">
       <UniqueIdentifier>{508b906f-4383-46fb-98e2-24231dc821ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{804f4b51-9151-4e61-b4b5-b28bc4d70701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{c92264e4-916f-44bb-85d0-72e66bc8276c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\core\Pipeline.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\core\PayloadFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\modules\Canvas.cpp">
       <Filter>Modules\1Generation</Filter>
     </ClCompile>
@@ -65,79 +65,82 @@
     <ClCompile Include="src\modules\BMP8Out.cpp">
       <Filter>Modules\4Output</Filter>
     </ClCompile>
-    <ClCompile Include="src\util\OutputValidation.h">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="include\MapBuilderCore\util\OutputValidation.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Pipeline.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PayloadFactory.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\core\Pipeline.h">
+    <ClInclude Include="include\MapBuilderCore\PipelineStage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\PipelineStage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MapBuilderCore.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\PayloadFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\PerlinNoise.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\APIExport.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\Canvas.h">
+    <ClInclude Include="include\MapBuilderCore\modules\Canvas.h">
       <Filter>Modules\1Generation</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\PerlinGen.h">
+    <ClInclude Include="include\MapBuilderCore\modules\PerlinGen.h">
       <Filter>Modules\1Generation</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\ElevationSlope.h">
+    <ClInclude Include="include\MapBuilderCore\modules\ElevationSlope.h">
       <Filter>Modules\2Manipulation</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\GradientSquare.h">
+    <ClInclude Include="include\MapBuilderCore\modules\GradientSquare.h">
       <Filter>Modules\2Manipulation</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\ColourHeightmapRenderer.h">
+    <ClInclude Include="include\MapBuilderCore\modules\ColourHeightmapRenderer.h">
       <Filter>Modules\3Render</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\ColourSetModule.h">
+    <ClInclude Include="include\MapBuilderCore\modules\ColourSetModule.h">
       <Filter>Modules\3Render</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\CSVOut.h">
+    <ClInclude Include="include\MapBuilderCore\modules\CSVOut.h">
       <Filter>Modules\4Output</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\HeightmapOut.h">
+    <ClInclude Include="include\MapBuilderCore\modules\HeightmapOut.h">
       <Filter>Modules\4Output</Filter>
     </ClInclude>
-    <ClInclude Include="src\payloads\Heightmap.h">
+    <ClInclude Include="include\MapBuilderCore\payloads\Heightmap.h">
       <Filter>Payloads</Filter>
     </ClInclude>
-    <ClInclude Include="src\payloads\ColourSetPayload.h">
+    <ClInclude Include="include\MapBuilderCore\payloads\ColourSetPayload.h">
       <Filter>Payloads</Filter>
     </ClInclude>
-    <ClInclude Include="src\payloads\ColouredHeightmap.h">
+    <ClInclude Include="include\MapBuilderCore\payloads\ColouredHeightmap.h">
       <Filter>Payloads</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\Module.h">
+    <ClInclude Include="include\MapBuilderCore\Module.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\Payload.h">
-      <Filter>Payloads</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\PNGOut.h">
+    <ClInclude Include="include\MapBuilderCore\modules\PNGOut.h">
       <Filter>Modules\4Output</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\BMP8Out.h">
+    <ClInclude Include="include\MapBuilderCore\modules\BMP8Out.h">
       <Filter>Modules\4Output</Filter>
     </ClInclude>
-    <ClInclude Include="src\util\ModuleHelpers.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\core\StageMap.h">
+    <ClInclude Include="include\MapBuilderCore\StageMap.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MapBuilderCore\Payload.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MapBuilderCore\APIExport.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MapBuilderCore\MapBuilderCore.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MapBuilderCore\util\ModuleHelpers.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MapBuilderCore\Pipeline.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MapBuilderCore\PayloadFactory.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
