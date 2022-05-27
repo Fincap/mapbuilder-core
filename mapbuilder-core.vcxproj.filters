@@ -68,10 +68,10 @@
     <ClCompile Include="include\MapBuilderCore\util\OutputValidation.h">
       <Filter>Header Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\Pipeline.cpp">
+    <ClCompile Include="src\Pipeline.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\PayloadFactory.cpp">
+    <ClCompile Include="src\PayloadFactory.cpp">
       <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>

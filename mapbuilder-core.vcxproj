@@ -100,9 +100,9 @@
     <ClCompile Include="src\modules\GradientSquare.cpp" />
     <ClCompile Include="src\modules\HeightmapOut.cpp" />
     <ClCompile Include="src\modules\PerlinGen.cpp" />
-    <ClCompile Include="src\core\PayloadFactory.cpp" />
+    <ClCompile Include="src\PayloadFactory.cpp" />
     <ClCompile Include="src\modules\Canvas.cpp" />
-    <ClCompile Include="src\core\Pipeline.cpp" />
+    <ClCompile Include="src\Pipeline.cpp" />
     <ClCompile Include="src\modules\PNGOut.cpp" />
     <ClCompile Include="src\modules\BMP8Out.cpp" />
     <ClCompile Include="include\MapBuilderCore\util\OutputValidation.h" />
