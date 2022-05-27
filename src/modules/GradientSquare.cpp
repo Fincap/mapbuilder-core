@@ -1,4 +1,4 @@
-#include "GradientSquare.h"
+#include "MapBuilderCore\modules\GradientSquare.h"
 
 namespace mbc
 {

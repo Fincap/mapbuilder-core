@@ -1,4 +1,4 @@
-#include "BMP8Out.h"
+#include "MapBuilderCore\modules\BMP8Out.h"
 
 namespace mbc
 {

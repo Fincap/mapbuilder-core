@@ -1,4 +1,4 @@
-#include "ColourHeightmapRenderer.h"
+#include "MapBuilderCore\modules\ColourHeightmapRenderer.h"
 namespace mbc
 {
   ColourHeightmapRenderer::ColourHeightmapRenderer()

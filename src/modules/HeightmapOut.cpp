@@ -1,4 +1,4 @@
-#include "HeightmapOut.h"
+#include "MapBuilderCore\modules\HeightmapOut.h"
 
 namespace mbc
 {
