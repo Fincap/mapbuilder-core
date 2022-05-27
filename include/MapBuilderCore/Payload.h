@@ -1,10 +1,11 @@
 #pragma once
-#include "APIExport.h"
 
 #include <typeindex>
 #include <unordered_map>
 #include <any>
 #include <memory>
+
+#include "MapBuilderCore\APIExport.h"
 
 namespace mbc
 {

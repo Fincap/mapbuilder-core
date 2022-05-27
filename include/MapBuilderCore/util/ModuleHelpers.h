@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 
-#include "core\Payload.h"
+#include "MapBuilderCore\Payload.h"
 
 namespace mbc::util
 {

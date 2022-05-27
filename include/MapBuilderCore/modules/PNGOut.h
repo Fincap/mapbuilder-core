@@ -1,15 +1,15 @@
 #pragma once
-#include "APIExport.h"
 
 #include <iostream>
 #include <filesystem>
 
 #include <png++\png.hpp>
 
-#include "core\Module.h"
-#include "payloads\ColouredHeightmap.h"
-#include "util\OutputValidation.h"
-#include "util\ModuleHelpers.h"
+#include "MapBuilderCore\APIExport.h"
+#include "MapBuilderCore\Module.h"
+#include "MapBuilderCore\payloads\ColouredHeightmap.h"
+#include "MapBuilderCore\util\OutputValidation.h"
+#include "MapBuilderCore\util\ModuleHelpers.h"
 
 namespace mbc
 {

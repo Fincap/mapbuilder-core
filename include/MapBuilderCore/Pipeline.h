@@ -1,5 +1,4 @@
 #pragma once
-#include "APIExport.h"
 
 #include <chrono>
 #include <vector>
@@ -12,10 +11,11 @@
 #include <cereal\archives\xml.hpp>
 #include <cereal\types\memory.hpp>
 
-#include "Module.h"
-#include "Payload.h"
-#include "PayloadFactory.h"
-#include "StageMap.h"
+#include "MapBuilderCore\APIExport.h"
+#include "MapBuilderCore\Module.h"
+#include "MapBuilderCore\Payload.h"
+#include "MapBuilderCore\PayloadFactory.h"
+#include "MapBuilderCore\StageMap.h"
 
 namespace mbc
 {

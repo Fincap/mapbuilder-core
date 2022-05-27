@@ -1,9 +1,9 @@
 #pragma once
-#include "APIExport.h"
 
-#include "core\Module.h"
-#include "payloads\Heightmap.h"
-#include "util\ModuleHelpers.h"
+#include "MapBuilderCore\APIExport.h"
+#include "MapBuilderCore\Module.h"
+#include "MapBuilderCore\payloads\Heightmap.h"
+#include "MapBuilderCore\util\ModuleHelpers.h"
 
 namespace mbc
 {

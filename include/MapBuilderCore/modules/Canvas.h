@@ -1,13 +1,13 @@
 #pragma once
-#include "APIExport.h"
 
 #include <vector>
 #include <typeindex>
 
-#include "core\Module.h"
-#include "core\PipelineStage.h"
-#include "payloads\Heightmap.h"
-#include "util\ModuleHelpers.h"
+#include "MapBuilderCore\APIExport.h"
+#include "MapBuilderCore\Module.h"
+#include "MapBuilderCore\PipelineStage.h"
+#include "MapBuilderCore\payloads\Heightmap.h"
+#include "MapBuilderCore\util\ModuleHelpers.h"
 
 namespace mbc
 {
