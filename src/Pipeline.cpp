@@ -86,6 +86,12 @@ namespace mbc
   }
 
 
+  Payload::Ptr mbc::Pipeline::getPayload(std::type_index typeIndex)
+  {
+    return (*payloads_).at(typeIndex);
+  }
+
+
   void mbc::Pipeline::clear()
   {
     modules_->clear();

@@ -46,6 +46,9 @@ namespace mbc
     baseline Payload for module processing.*/
     void setPayload(Payload::Ptr);
 
+    /* Returns a pointer to the Payload of the given type. */
+    Payload::Ptr getPayload(std::type_index);
+
     /* Clears the Pipeline's list of Modules. */
     void clear();
 
