@@ -21,6 +21,7 @@ namespace mbc
   {
   public:
     HeightmapOut();
+    HeightmapOut::Ptr clone() const override;
 
     // Inherit from base class - must be implemented
     TypeIndexVector registerTypes(PayloadFactory&) override;

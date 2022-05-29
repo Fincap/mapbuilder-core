@@ -7,6 +7,16 @@ namespace mbc
     width(64), height(64)
   { }
 
+
+  Canvas::Ptr Canvas::clone() const
+  {
+    auto copy = std::make_shared<Canvas>();
+    copy->width = width;
+    copy->height = height;
+    return copy;
+  }
+
+
   TypeIndexVector Canvas::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);

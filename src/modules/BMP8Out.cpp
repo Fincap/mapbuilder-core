@@ -9,6 +9,17 @@ namespace mbc
   }
 
 
+  BMP8Out::Ptr BMP8Out::clone() const
+  {
+    auto copy = std::make_shared<BMP8Out>();
+    copy->outputFilepath = new char[MBC_MAX_PATH];
+    memset(copy->outputFilepath, 0, MBC_MAX_PATH);
+    std::copy(outputFilepath, outputFilepath + MBC_MAX_PATH, copy->outputFilepath);
+    return copy;
+  }
+
+
+
   TypeIndexVector BMP8Out::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);

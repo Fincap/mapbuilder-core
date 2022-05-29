@@ -5,10 +5,19 @@ namespace mbc
     : Module(PipelineStage::RENDER, "colour_heightmap_renderer")
   { }
 
+
+  ColourHeightmapRenderer::Ptr ColourHeightmapRenderer::clone() const
+  {
+    auto copy = std::make_shared<ColourHeightmapRenderer>();
+    return copy;
+  }
+
+
   TypeIndexVector ColourHeightmapRenderer::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap, ColouredHeightmap, ColourSetPayload>(factory);
   }
+
 
   bool ColourHeightmapRenderer::processPayloads(const PayloadTypeMap& payloads)
   {

@@ -21,6 +21,7 @@ namespace mbc
   {
   public:
     PNGOut();
+    PNGOut::Ptr clone() const override;
 
     // Inherit from base class - must be implemented
     TypeIndexVector registerTypes(PayloadFactory&) override;

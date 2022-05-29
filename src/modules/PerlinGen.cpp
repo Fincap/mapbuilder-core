@@ -6,6 +6,17 @@ namespace mbc
     seed(12345), frequency(4.0), octaves(6)
   { }
 
+
+  PerlinGen::Ptr PerlinGen::clone() const
+  {
+    auto copy = std::make_shared<PerlinGen>();
+    copy->seed = seed;
+    copy->frequency = frequency;
+    copy->octaves = octaves;
+    return copy;
+  }
+
+
   TypeIndexVector PerlinGen::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);

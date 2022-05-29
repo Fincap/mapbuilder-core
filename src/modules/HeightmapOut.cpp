@@ -8,6 +8,17 @@ namespace mbc
     outputFilepath = new char[MBC_MAX_PATH]{ "out/outmap.hmp" };
   }
 
+
+  HeightmapOut::Ptr HeightmapOut::clone() const
+  {
+    auto copy = std::make_shared<HeightmapOut>();
+    copy->outputFilepath = new char[MBC_MAX_PATH];
+    memset(copy->outputFilepath, 0, MBC_MAX_PATH);
+    std::copy(outputFilepath, outputFilepath + MBC_MAX_PATH, copy->outputFilepath);
+    return copy;
+  }
+
+
   TypeIndexVector HeightmapOut::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);

@@ -30,22 +30,25 @@ namespace mbc
   class MAPBUILDER_API Module
   {
   public:
-    // Derived class constructors will call Module's constructor to instantiate
-    // derived Module's stage and unique name
+    /* Convenience typing - shared_ptr to Module. */
+    using Ptr = std::shared_ptr<Module>;
+
+    /* Derived class constructors will call Module's constructor to instantiate
+    derived Module's stage and unique name. */
     Module(PipelineStage, const char*);
 
-    // This method registers all types with the linked factory, and returns a list of
-    // any types that were newly registered so they can be instantiated.
+    /* Copy constructor to be implemented by derived classes. */
+    virtual Module::Ptr clone() const = 0;
+
+    /* This method registers all types with the linked factory, and returns a list of
+    any types that were newly registered so they can be instantiated. */
     virtual TypeIndexVector registerTypes(PayloadFactory&) = 0;
 
-    // Executes the Module's processing on the given map of Payloads.
+    /* Executes the Module's processing on the given map of Payloads. */
     virtual bool processPayloads(const PayloadTypeMap&) = 0;
     
     virtual PipelineStage getPipelineStage() final;
     virtual const char* getModuleName() final;
-    
-    // Convenience typing - shared_ptr to Module.
-    using Ptr = std::shared_ptr<Module>;
 
     /* Overloaded equality operators - must be implemented by derived classes.
     Usage: Module == Module::Ptr (necessary as to allow comparison between
@@ -57,17 +60,17 @@ namespace mbc
     const PipelineStage PIPELINE_STAGE;
     const char* MODULE_NAME;
 
-    // This method will be called by derived classes to simplify the type
-    // registration process for the implementer.
+    /* This method will be called by derived classes to simplify the type
+     registration process for the implementer. */
     template <typename... Ts>
     TypeIndexVector registerWithFactory(PayloadFactory&);
 
   private:
-    // Consumer of registerWithFactory variadic template
+    /* Consumer of registerWithFactory variadic template */
     template <typename T>
     void registerSingle(PayloadFactory&, TypeIndexVector&);
 
-    // Allow serialization of non-public members.
+    /* Allow serialization of non - public members. */
     friend class cereal::access;
 
   };

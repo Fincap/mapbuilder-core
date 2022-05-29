@@ -7,6 +7,16 @@ namespace mbc
     fullness(3.0), size(2.2)
   { }
 
+
+  GradientSquare::Ptr GradientSquare::clone() const
+  {
+    auto copy = std::make_shared<GradientSquare>();
+    copy->fullness = fullness;
+    copy->size = size;
+    return copy;
+  }
+
+
   TypeIndexVector GradientSquare::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);

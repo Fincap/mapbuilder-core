@@ -6,6 +6,15 @@ namespace mbc
     slope(2.5)
   { }
 
+
+  ElevationSlope::Ptr ElevationSlope::clone() const
+  {
+    auto copy = std::make_shared<ElevationSlope>();
+    copy->slope = slope;
+    return copy;
+  }
+
+
   TypeIndexVector ElevationSlope::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);

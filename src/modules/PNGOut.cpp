@@ -8,10 +8,22 @@ namespace mbc
     outputFilepath = new char[MBC_MAX_PATH]{ "out/heightmap.png" };
   }
 
+
+  PNGOut::Ptr PNGOut::clone() const
+  {
+    auto copy = std::make_shared<PNGOut>();
+    copy->outputFilepath = new char[MBC_MAX_PATH];
+    memset(copy->outputFilepath, 0, MBC_MAX_PATH);
+    std::copy(outputFilepath, outputFilepath + MBC_MAX_PATH, copy->outputFilepath);
+    return copy;
+  }
+
+
   TypeIndexVector PNGOut::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<ColouredHeightmap>(factory);
   }
+
 
   bool PNGOut::processPayloads(const PayloadTypeMap& payloads)
   {

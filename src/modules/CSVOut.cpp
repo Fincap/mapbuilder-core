@@ -8,6 +8,15 @@ namespace mbc
     outputFilepath = new char[MBC_MAX_PATH]{ "out/heightmap.csv" };
   }
 
+  CSVOut::Ptr CSVOut::clone() const
+  {
+    auto copy = std::make_shared<CSVOut>();
+    copy->outputFilepath = new char[MBC_MAX_PATH];
+    memset(copy->outputFilepath, 0, MBC_MAX_PATH);
+    std::copy(outputFilepath, outputFilepath + MBC_MAX_PATH, copy->outputFilepath);
+    return copy;
+  }
+
   TypeIndexVector CSVOut::registerTypes(PayloadFactory& factory)
   {
     return registerWithFactory<Heightmap>(factory);
