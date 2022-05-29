@@ -64,6 +64,10 @@ namespace mbc
   inline StageMap<T>::StageMap()
   {
     map_ = new std::vector<T>[MBC_NUM_STAGES];
+    for (int stage = 0; stage < MBC_NUM_STAGES; stage++)
+    {
+      map_[stage] = std::vector<T>();
+    }
   }
 
 
