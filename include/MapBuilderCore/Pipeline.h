@@ -49,6 +49,9 @@ namespace mbc
     /* Returns a pointer to the Payload of the given type. */
     Payload::Ptr getPayload(std::type_index);
 
+    /* Returns a reference to the Pipeline's map of Modules. */
+    StageMap<Module::Ptr>& getModuleMap() const;
+
     /* Clears the Pipeline's list of Modules. */
     void clear();
 

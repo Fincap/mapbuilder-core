@@ -92,6 +92,12 @@ namespace mbc
   }
 
 
+  StageMap<Module::Ptr>& mbc::Pipeline::getModuleMap() const
+  {
+    return *modules_;
+  }
+
+
   void mbc::Pipeline::clear()
   {
     modules_->clear();
