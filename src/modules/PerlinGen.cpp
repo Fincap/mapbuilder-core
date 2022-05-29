@@ -51,15 +51,15 @@ namespace mbc
     auto f0 = std::async(computePerlinGrid,
       begin, begin + size / 4, fx, fy, octaves, index, width, seed);
 
-    index += (size / 4) - 1;
+    index += (size / 4);
     auto f1 = std::async(computePerlinGrid,
       begin + size / 4, begin + size / 2, fx, fy, octaves, index, width, seed);
 
-    index += (size / 4) - 1;
+    index += (size / 4);
     auto f2 = std::async(computePerlinGrid,
       begin + size / 2, begin + size * 3/4, fx, fy, octaves, index, width, seed);
 
-    index += (size / 4) - 1;
+    index += (size / 4);
     auto f3 = std::async(computePerlinGrid,
       begin + size * 3 / 4, begin + size, fx, fy, octaves, index, width, seed);
 
