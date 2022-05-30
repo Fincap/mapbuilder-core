@@ -35,6 +35,11 @@ namespace mbc
     Returns true if there are no errors while executing the Pipeline. */
     bool execute(bool = true);
 
+    /* Executes Pipeline processing only for a specific stage. */
+    bool executeStage(mbc::PipelineStage);
+    bool executeStage(int);
+
+
     /* Adds a new shared_ptr to to the Pipeline's list of Modules, grouped by
     the appropriate PipelineStage. If a Module utilizes a payload that is not
     in the Pipeline's current list of Payloads, it will be registered to the

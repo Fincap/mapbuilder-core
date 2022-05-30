@@ -52,6 +52,23 @@ namespace mbc
   }
 
 
+  bool mbc::Pipeline::executeStage(mbc::PipelineStage stage)
+  {
+    return executeStage((int) stage);
+  }
+
+
+  bool mbc::Pipeline::executeStage(int stage)
+  {
+    for (auto& mod : modules_->getAll(stage))
+    {
+      mod->processPayloads(*payloads_);
+    }
+
+    return true;
+  }
+
+
   bool Pipeline::addModule(Module::Ptr newModule)
   {
     /*
@@ -75,7 +92,7 @@ namespace mbc
 
     // Register module's payloads with payload factory and
     // instantiate any newly generated payloads.
-    for (auto type : newModule->registerTypes(*payloadFactory_))
+    for (auto& type : newModule->registerTypes(*payloadFactory_))
     {
         (*payloads_)[type] = (*payloadFactory_).createPayload(type);
     }
