@@ -18,7 +18,6 @@ namespace mbc
   PNGOut::Ptr PNGOut::clone() const
   {
     auto copy = std::make_shared<PNGOut>();
-    copy->outputFilepath = new char[MBC_MAX_PATH];
     memset(copy->outputFilepath, 0, MBC_MAX_PATH);
     std::copy(outputFilepath, outputFilepath + MBC_MAX_PATH, copy->outputFilepath);
     return copy;

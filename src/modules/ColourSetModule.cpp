@@ -32,7 +32,7 @@ namespace mbc
   ColourSetModule::Ptr ColourSetModule::clone() const
   {
     auto copy = std::make_shared<ColourSetModule>();
-    copy->colourRanges = new std::map<unsigned char, uint32_t>(*colourRanges);
+    *copy->colourRanges = std::map<unsigned char, uint32_t>(*colourRanges);
     return copy;
   }
 
