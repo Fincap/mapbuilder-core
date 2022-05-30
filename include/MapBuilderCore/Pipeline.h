@@ -31,8 +31,9 @@ namespace mbc
 
     /* Executes the Pipeline processing, calling all Modules in order and
     passing their payloads down the pipe.
+    Bool parameter suppresses timings output for Pipeline execution.
     Returns true if there are no errors while executing the Pipeline. */
-    bool execute();
+    bool execute(bool = true);
 
     /* Adds a new shared_ptr to to the Pipeline's list of Modules, grouped by
     the appropriate PipelineStage. If a Module utilizes a payload that is not
