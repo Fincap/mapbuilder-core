@@ -14,5 +14,9 @@ namespace mbc
     int width, height;
     uint32_t* colouredPoints;
 
+    ~ColouredHeightmap()
+    {
+      delete[] colouredPoints;
+    }
   };
 }

@@ -11,5 +11,10 @@ namespace mbc
   {
     int width, height;
     unsigned char* points;
+
+    ~Heightmap()
+    {
+      delete[] points;
+    }
   };
 }
