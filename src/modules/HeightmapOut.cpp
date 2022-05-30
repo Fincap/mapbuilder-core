@@ -30,7 +30,7 @@ namespace mbc
     // Get Heightmap payload
     auto heightmapPtr = util::getPtrToPayload<Heightmap>(payloads);
 
-    std::cout << "Writing heightmap to file: " << outputFilepath << std::endl;
+    std::clog << "Writing heightmap to file: " << outputFilepath << std::endl;
 
     // Output filepath validation.
     std::filesystem::path path{ outputFilepath };
@@ -65,7 +65,7 @@ namespace mbc
 
     outfile.close();
 
-    std::cout << heightmapSize + 8 << " bytes written" << std::endl;
+    std::clog << heightmapSize + 8 << " bytes written" << std::endl;
 
     return true;
   }

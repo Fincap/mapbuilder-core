@@ -28,7 +28,7 @@ namespace mbc
     // Get Heightmap payload
     auto heightmapPtr = util::getPtrToPayload<Heightmap>(payloads);
 
-    std::cout << "Writing heightmap to file: " << outputFilepath << std::endl;
+    std::clog << "Writing heightmap to file: " << outputFilepath << std::endl;
 
     // Get width and height from heightmap
     int width = heightmapPtr->width;
@@ -75,7 +75,7 @@ namespace mbc
 
     // Close file
     outfile.close();
-    std::cout << "CSV output completed" << std::endl;
+    std::clog << "CSV output completed" << std::endl;
 
     return true;
   }

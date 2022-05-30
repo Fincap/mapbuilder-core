@@ -30,7 +30,7 @@ namespace mbc
     // Get coloured heightmap pointer
     auto heightmapPtr = util::getPtrToPayload<ColouredHeightmap>(payloads);
 
-    std::cout << "Writing PNG to file: " << outputFilepath << std::endl;
+    std::clog << "Writing PNG to file: " << outputFilepath << std::endl;
 
     // Get width and height
     int width = heightmapPtr->width;
@@ -62,7 +62,7 @@ namespace mbc
     // Finally write PNG output to file.
     image.write(path.string());
 
-    std::cout << "PNG write complete" << std::endl;
+    std::clog << "PNG write complete" << std::endl;
 
     return true;
   }

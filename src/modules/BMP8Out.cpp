@@ -31,7 +31,7 @@ namespace mbc
     // Get Heightmap payload
     auto heightmapPtr = util::getPtrToPayload<Heightmap>(payloads);
 
-    std::cout << "Writing heightmap to file: " << outputFilepath << std::endl;
+    std::clog << "Writing heightmap to file: " << outputFilepath << std::endl;
 
     // Convert heightmap properties into total BMP filesize
     int width = heightmapPtr->width;
@@ -129,7 +129,7 @@ namespace mbc
     delete[] img;
     outfile.close();
 
-    std::cout << "8-bit BMP successfully created" << std::endl;
+    std::clog << "8-bit BMP successfully created" << std::endl;
 
     return true;
   }
