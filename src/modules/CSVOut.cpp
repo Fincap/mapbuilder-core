@@ -8,6 +8,13 @@ namespace mbc
     outputFilepath = new char[MBC_MAX_PATH]{ "out/heightmap.csv" };
   }
 
+
+  CSVOut::~CSVOut()
+  {
+    delete[] outputFilepath;
+  }
+
+
   CSVOut::Ptr CSVOut::clone() const
   {
     auto copy = std::make_shared<CSVOut>();

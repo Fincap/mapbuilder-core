@@ -22,6 +22,7 @@ namespace mbc
   {
   public:
     CSVOut();
+    ~CSVOut();
     CSVOut::Ptr clone() const override;
 
     // Inherit from base class - must be implemented

@@ -9,6 +9,12 @@ namespace mbc
   }
 
 
+  PNGOut::~PNGOut()
+  {
+    delete[] outputFilepath;
+  }
+
+
   PNGOut::Ptr PNGOut::clone() const
   {
     auto copy = std::make_shared<PNGOut>();

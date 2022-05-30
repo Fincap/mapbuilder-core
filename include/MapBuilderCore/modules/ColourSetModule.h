@@ -22,6 +22,7 @@ namespace mbc
   {
   public:
     ColourSetModule();
+    ~ColourSetModule();
     ColourSetModule::Ptr clone() const override;
 
     // Inherit from base class - must be implemented

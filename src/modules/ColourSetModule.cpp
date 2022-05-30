@@ -23,6 +23,12 @@ namespace mbc
   }
 
 
+  ColourSetModule::~ColourSetModule()
+  {
+    delete colourRanges;
+  }
+
+
   ColourSetModule::Ptr ColourSetModule::clone() const
   {
     auto copy = std::make_shared<ColourSetModule>();

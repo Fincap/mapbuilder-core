@@ -9,6 +9,12 @@ namespace mbc
   }
 
 
+  HeightmapOut::~HeightmapOut()
+  {
+    delete[] outputFilepath;
+  }
+
+
   HeightmapOut::Ptr HeightmapOut::clone() const
   {
     auto copy = std::make_shared<HeightmapOut>();

@@ -9,6 +9,12 @@ namespace mbc
   }
 
 
+  BMP8Out::~BMP8Out()
+  {
+    delete[] outputFilepath;
+  }
+
+
   BMP8Out::Ptr BMP8Out::clone() const
   {
     auto copy = std::make_shared<BMP8Out>();
