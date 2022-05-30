@@ -101,18 +101,6 @@ namespace mbc
   }
 
 
-  void mbc::Pipeline::setPayload(Payload::Ptr payload)
-  {
-    (*payloads_)[std::type_index(typeid(payload))] = payload;
-  }
-
-
-  Payload::Ptr mbc::Pipeline::getPayload(std::type_index typeIndex)
-  {
-    return (*payloads_).at(typeIndex);
-  }
-
-
   StageMap<Module::Ptr>& mbc::Pipeline::getModuleMap() const
   {
     return *modules_;

@@ -50,10 +50,12 @@ namespace mbc
     /* Adds a shared_ptr to a Payload to the Pipeline's list of Payloads. This
     will overwrite any existing Payload of the given type, or provide a
     baseline Payload for module processing.*/
+    template <typename T>
     void setPayload(Payload::Ptr);
 
     /* Returns a pointer to the Payload of the given type. */
-    Payload::Ptr getPayload(std::type_index);
+    template <typename T>
+    std::shared_ptr<T> getPayload();
 
     /* Returns a reference to the Pipeline's map of Modules. */
     StageMap<Module::Ptr>& getModuleMap() const;
@@ -84,10 +86,31 @@ namespace mbc
     PayloadTypeMap* payloads_;
 
   };
-}
+};
 
 
 // Inline definitions
+template<typename T>
+inline void mbc::Pipeline::setPayload(Payload::Ptr payload)
+{
+  static_assert(std::is_convertible<T*, Payload*>::value, "Type must publicly inherit Payload!");
+  auto downcastPayload = std::dynamic_pointer_cast<T>(payload);
+  auto payloadType = std::type_index(typeid(T));
+  (*payloads_)[payloadType] = downcastPayload;
+}
+
+
+template<typename T>
+std::shared_ptr<T> mbc::Pipeline::getPayload()
+{
+  static_assert(std::is_convertible<T*, Payload*>::value, "Type must publicly inherit Payload!");
+  auto payloadType = std::type_index(typeid(T));
+  auto& payload = (*payloads_)[payloadType];
+  auto downcastPayload = std::dynamic_pointer_cast<T>(payload);
+  return downcastPayload;
+}
+
+
 template<typename Archive>
 inline void mbc::Pipeline::save(Archive& archive) const
 {
