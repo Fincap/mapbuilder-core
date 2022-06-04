@@ -34,14 +34,7 @@ namespace mbc
     heightmapPtr->points = new unsigned char[width * height];
 
     // Iterate through map and set each point to white
-    for (int y = 0; y < height; y++)
-    {
-      for (int x = 0; x < width; x++)
-      {
-        // (x,y) to 1D index: (y * width) + x
-        heightmapPtr->points[(y * width) + x] = 255;
-      }
-    }
+    memset(heightmapPtr->points, 255ui8, static_cast<size_t>(width * height));
 
     return true;
   }
