@@ -35,7 +35,7 @@ namespace mbc
     const double fx = width / frequency;
     const double fy = height / frequency;
 
-#ifndef MBC_DISABLE_MULTI
+#ifdef MBC_MULTI
     // Get boundaries of array
     auto begin = &heightmapPtr->points[0];
     auto size = width * height;
