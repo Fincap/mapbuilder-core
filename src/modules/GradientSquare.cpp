@@ -57,9 +57,9 @@ namespace mbc
     int vectorSize = width * height;
     points.resize(vectorSize);
 
-    for (int y = 0; y < width; y++)
+    for (int y = 0; y < height; y++)
     {
-      for (int x = 0; x < height; x++)
+      for (int x = 0; x < width; x++)
       {
         // Generate gradient points
         double i = x / (double)width * 2 - 1;
@@ -71,7 +71,7 @@ namespace mbc
         // Apply curve to gradient
         double gradient = pow(value, fullness) / (pow(value, fullness) + pow(size - size * value, fullness));
 
-        int index = (y * height) + x;
+        int index = (y * width) + x;
         points.at(index) = gradient;
       }
     }

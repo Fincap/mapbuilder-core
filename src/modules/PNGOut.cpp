@@ -50,7 +50,7 @@ namespace mbc
       for (int x = 0; x < width; x++)
       {
         // Get RGB from colouredPoint
-        auto colour = heightmapPtr->colouredPoints[(y * height) + x];
+        auto colour = heightmapPtr->colouredPoints[(y * width) + x];
         unsigned char b = colour & 0xff;
         unsigned char g = (colour >> 8) & 0xff;
         unsigned char r = (colour >> 16) & 0xff;
