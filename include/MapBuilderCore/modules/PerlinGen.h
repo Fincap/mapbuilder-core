@@ -1,4 +1,5 @@
 #pragma once
+#define MBC_MULTI
 
 #include <vector>
 #include <typeindex>

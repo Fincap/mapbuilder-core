@@ -1,4 +1,5 @@
 #include "MapBuilderCore\modules\PerlinGen.h"
+
 namespace mbc
 {
   PerlinGen::PerlinGen()
@@ -47,9 +48,9 @@ namespace mbc
       return true;
     }
 
-    q1 = size / 4;
-    q2 = size / 2;
-    q3 = size * 3/4;
+    auto q1 = size / 4;
+    auto q2 = size / 2;
+    auto q3 = size * 3/4;
 
     // Divide grid into 4 and make async calls to compute perlin grid.
     auto f0 = std::async(computePerlinGrid,
