@@ -52,7 +52,7 @@ namespace mbc
       for (int x = 0; x < width; x++)
       {
         // (x, y) to 1D index formula: (y * height) + x
-        uint8_t point = heightmapPtr->points[(y * height) + x];
+        uint8_t point = heightmapPtr->points[(y * width) + x];
         memset(ptBuffer, '\0', 4); // Nil out buffer
         std::to_chars(ptBuffer, ptBuffer + 3, point); // Point to cstring
         output += ptBuffer;  // Append point cstring to output string
