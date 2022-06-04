@@ -47,9 +47,6 @@
     <ClCompile Include="src\modules\GradientSquare.cpp">
       <Filter>Modules\2Manipulation</Filter>
     </ClCompile>
-    <ClCompile Include="src\modules\ColourHeightmapRenderer.cpp">
-      <Filter>Modules\3Render</Filter>
-    </ClCompile>
     <ClCompile Include="src\modules\ColourSetModule.cpp">
       <Filter>Modules\3Render</Filter>
     </ClCompile>
@@ -91,9 +88,6 @@
     <ClInclude Include="include\MapBuilderCore\modules\GradientSquare.h">
       <Filter>Modules\2Manipulation</Filter>
     </ClInclude>
-    <ClInclude Include="include\MapBuilderCore\modules\ColourHeightmapRenderer.h">
-      <Filter>Modules\3Render</Filter>
-    </ClInclude>
     <ClInclude Include="include\MapBuilderCore\modules\ColourSetModule.h">
       <Filter>Modules\3Render</Filter>
     </ClInclude>
@@ -104,9 +98,6 @@
       <Filter>Modules\4Output</Filter>
     </ClInclude>
     <ClInclude Include="include\MapBuilderCore\payloads\Heightmap.h">
-      <Filter>Payloads</Filter>
-    </ClInclude>
-    <ClInclude Include="include\MapBuilderCore\payloads\ColourSetPayload.h">
       <Filter>Payloads</Filter>
     </ClInclude>
     <ClInclude Include="include\MapBuilderCore\payloads\ColouredHeightmap.h">
