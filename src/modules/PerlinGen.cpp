@@ -35,6 +35,7 @@ namespace mbc
     const double fx = width / frequency;
     const double fy = height / frequency;
 
+#ifdef MBC_MULTI
     // Get boundaries of array
     auto begin = &heightmapPtr->points[0];
     auto size = width * height;
@@ -67,6 +68,21 @@ namespace mbc
     f1.wait();
     f2.wait();
     f3.wait();
+
+#else
+
+    siv::PerlinNoise perlin(seed);
+
+    for (int y = 0; y < height; y++)
+    {
+      for (int x = 0; x < width; x++)
+      {
+        double noiseLevel = perlin.accumulatedOctaveNoise2D_0_1(x / fx, y / fy, octaves);
+        heightmapPtr->points[(y * width) + x] *= noiseLevel;
+      }
+    }
+
+#endif // MBC_MULTI
 
     return true;
   }
