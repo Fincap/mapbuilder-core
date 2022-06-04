@@ -47,22 +47,22 @@ namespace mbc
       return true;
     }
 
+    q1 = size / 4;
+    q2 = size / 2;
+    q3 = size * 3/4;
+
     // Divide grid into 4 and make async calls to compute perlin grid.
-    int index = 0;
     auto f0 = std::async(computePerlinGrid,
-      begin, begin + size / 4, fx, fy, octaves, index, width, seed);
+      begin, begin + q1, fx, fy, octaves, 0, width, seed);
 
-    index += (size / 4);
     auto f1 = std::async(computePerlinGrid,
-      begin + size / 4, begin + size / 2, fx, fy, octaves, index, width, seed);
+      begin + q1, begin + q2, fx, fy, octaves, q1, width, seed);
 
-    index += (size / 4);
     auto f2 = std::async(computePerlinGrid,
-      begin + size / 2, begin + size * 3/4, fx, fy, octaves, index, width, seed);
+      begin + q2, begin + q3, fx, fy, octaves, q2, width, seed);
 
-    index += (size / 4);
     auto f3 = std::async(computePerlinGrid,
-      begin + size * 3 / 4, begin + size, fx, fy, octaves, index, width, seed);
+      begin + q3, begin + size, fx, fy, octaves, q3, width, seed);
 
     f0.wait();
     f1.wait();
