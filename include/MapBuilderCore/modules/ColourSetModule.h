@@ -8,15 +8,16 @@
 #include "MapBuilderCore\APIExport.h"
 #include "MapBuilderCore\Module.h"
 #include "MapBuilderCore\PipelineStage.h"
-#include "MapBuilderCore\payloads\ColourSetPayload.h"
 #include "MapBuilderCore\util\ModuleHelpers.h"
+#include "MapBuilderCore\payloads\Heightmap.h"
+#include "MapBuilderCore\payloads\ColouredHeightmap.h"
 
 namespace mbc
 {
   /*
   Module containing a set of height values (0-255) and a respective RGB colour.
-  This module will generate a ColourSetPayload to be consumed by other Render
-  modules..
+  This module will generate a new coloured heightmap payload based on the
+  selected colour ranges.
   */
   class MAPBUILDER_API ColourSetModule : public Module
   {
@@ -32,7 +33,11 @@ namespace mbc
     bool operator==(Module::Ptr) override;
     bool operator!=(Module::Ptr) override;
 
-    // Processing parameters
+    // Processing parameter
+    /* A set of ranges (0-50, 51-70, 71-100, etc)
+    Each range has a corresponding RGB.
+    Key stores the max value in the range.
+    Value stores the RBG colour 0xRRGGBB. */
     std::map<unsigned char, uint32_t>* colourRanges;
 
     // Serialize module - split functions

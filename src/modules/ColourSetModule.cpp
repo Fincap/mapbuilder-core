@@ -39,17 +39,41 @@ namespace mbc
 
   TypeIndexVector ColourSetModule::registerTypes(PayloadFactory& factory)
   {
-    return registerWithFactory<ColourSetPayload>(factory);
+    return registerWithFactory<ColouredHeightmap, Heightmap>(factory);
   }
 
   bool ColourSetModule::processPayloads(const PayloadTypeMap& payloads)
   {
 
-    // Get Colour set payload
-    auto setPtr = util::getPtrToPayload<ColourSetPayload>(payloads);
+    // Get Heightmap payload
+    auto heightmapPtr = util::getPtrToPayload<Heightmap>(payloads);
 
-    // Update colour set values to processing values
-    setPtr->colourRanges = *colourRanges;
+    // Get ColouredHeightmap payload
+    auto colouredHeightmapPtr = util::getPtrToPayload<ColouredHeightmap>(payloads);
+
+    // Get width and height from heightmap
+    int width = heightmapPtr->width;
+    int height = heightmapPtr->height;
+
+    // Initialize coloured heightmap
+    colouredHeightmapPtr->width = width;
+    colouredHeightmapPtr->height = height;
+    colouredHeightmapPtr->colouredPoints = new uint32_t[width * height];
+
+    // Iterate through each height value, find the appropriate colour
+    // from the colour set, and then add that colour to the coloured
+    // heightmap points.
+    for (int i = 0; i < width * height; i++)
+    {
+      for (const auto& pair : *colourRanges)
+      {
+        if (heightmapPtr->points[i] <= pair.first)  // Check for next range
+        {
+          colouredHeightmapPtr->colouredPoints[i] = pair.second;
+          break;  // Continue to next point
+        }
+      }
+    }
 
     return true;
   }
