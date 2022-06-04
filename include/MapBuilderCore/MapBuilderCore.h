@@ -10,7 +10,6 @@
 
 // Payloads
 #include "MapBuilderCore\payloads\Heightmap.h"
-#include "MapBuilderCore\payloads\ColourSetPayload.h"
 #include "MapBuilderCore\payloads\ColouredHeightmap.h"
 
 // Modules - Generation
@@ -23,7 +22,6 @@
 
 // Modules - Render
 #include "MapBuilderCore\modules\ColourSetModule.h"
-#include "MapBuilderCore\modules\ColourHeightmapRenderer.h"
 
 // Modules - Output
 #include "MapBuilderCore\modules\HeightmapOut.h"
