@@ -42,7 +42,7 @@ namespace mbc
       auto point = heightmapPtr->points[i] / 255.;        // Convert height to fraction
       auto gradient = gradientPoints.at(i);               // Get gradient at point
       point = std::clamp(point -= gradient, 0.0, 1.0);    // Apply gradient to point
-      unsigned char newPoint = point * 255;               // Convert back to height
+      unsigned char newPoint = static_cast<unsigned char>(point * 255); // Convert back to height
 
       heightmapPtr->points[i] = newPoint;
     }
@@ -61,7 +61,7 @@ namespace mbc
     double centerX = width / 2.0;
     double centerY = height / 2.0;
 
-    int r = std::min(centerX, centerY);	// Radius should be half the screen size
+    int r = static_cast<int>(std::min(centerX, centerY));	// Radius should be half the screen size
 
     for (int y = 0; y < height; y++)
     {

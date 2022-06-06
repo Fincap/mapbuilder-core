@@ -42,7 +42,7 @@ namespace mbc
       auto point = heightmapPtr->points[i] / 255.;        // Convert height to fraction
       auto gradient = gradientPoints.at(i);               // Get gradient at point
       point = std::clamp(point -= gradient, 0.0, 1.0);    // Apply gradient to point
-      unsigned char newPoint = point * 255;               // Convert back to height
+      unsigned char newPoint = static_cast<unsigned char>(point * 255); // Convert back to height
 
       heightmapPtr->points[i] = newPoint;
     }

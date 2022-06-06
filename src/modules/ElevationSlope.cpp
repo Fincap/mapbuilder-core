@@ -32,7 +32,7 @@ namespace mbc
     {
       double point = heightmapPtr->points[i] / 255.;   // Convert height to fraction
       double slopedPoint = pow(point, slope);        // Apply slope to height fraction
-      unsigned char newPoint = slopedPoint * 255;     // Convert back to height
+      unsigned char newPoint = static_cast<unsigned char>(slopedPoint * 255);     // Convert back to height
 
       heightmapPtr->points[i] = newPoint;
     }
