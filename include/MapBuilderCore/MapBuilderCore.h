@@ -19,6 +19,7 @@
 // Modules - Manipulation
 #include "MapBuilderCore\modules\ElevationSlope.h"
 #include "MapBuilderCore\modules\GradientSquare.h"
+#include "MapBuilderCore\modules\GradientCircle.h"
 
 // Modules - Render
 #include "MapBuilderCore\modules\ColourSetModule.h"

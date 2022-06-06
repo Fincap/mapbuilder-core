@@ -96,6 +96,7 @@
     <ClCompile Include="src\modules\ColourSetModule.cpp" />
     <ClCompile Include="src\modules\CSVOut.cpp" />
     <ClCompile Include="src\modules\ElevationSlope.cpp" />
+    <ClCompile Include="src\modules\GradientCircle.cpp" />
     <ClCompile Include="src\modules\GradientSquare.cpp" />
     <ClCompile Include="src\modules\HeightmapOut.cpp" />
     <ClCompile Include="src\modules\PerlinGen.cpp" />
@@ -107,6 +108,7 @@
     <ClCompile Include="include\MapBuilderCore\util\OutputValidation.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\MapBuilderCore\modules\GradientCircle.h" />
     <ClInclude Include="include\MapBuilderCore\Payload.h" />
     <ClInclude Include="include\MapBuilderCore\modules\BMP8Out.h" />
     <ClInclude Include="include\MapBuilderCore\APIExport.h" />

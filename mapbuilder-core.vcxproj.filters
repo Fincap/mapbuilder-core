@@ -71,6 +71,9 @@
     <ClCompile Include="src\PayloadFactory.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\modules\GradientCircle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\MapBuilderCore\PipelineStage.h">
@@ -132,6 +135,9 @@
     </ClInclude>
     <ClInclude Include="include\MapBuilderCore\PayloadFactory.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MapBuilderCore\modules\GradientCircle.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
